@@ -43453,7 +43453,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid", attrs: { id: "app" } }, [
-    _c("div", { staticClass: "mt-2" }, [
+    _c("div", { staticClass: "mt-2", attrs: { id: "editor" } }, [
       _c(
         "form",
         {
@@ -43558,7 +43558,7 @@ var render = function() {
                     },
                     [
                       _c("i", { staticClass: "fa fa-plus ml-1" }),
-                      _vm._v(" New Article\n          ")
+                      _vm._v(" New Article\n            ")
                     ]
                   )
                 ]

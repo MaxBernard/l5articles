@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container-fluid">
-    <div class="mt-2">
+    <div id="editor" class="mt-2">
       <form @submit.prevent="saveArticle" class="mb-2">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Title" v-model="article.title">
@@ -19,9 +19,9 @@
             <th>ID</th>
             <th>Title</th>
             <th class="text-center" width="190px">
-            <button @click="newArticle()" class="add-modal btn btn-success btn-xs">
+              <button @click="newArticle()" class="add-modal btn btn-success btn-xs">
                 <i class="fa fa-plus ml-1"></i> New Article
-            </button>
+              </button>
             </th>
           </tr>
         </thead>
