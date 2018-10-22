@@ -43432,6 +43432,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.article.title = article.title;
       this.article.body = article.body;
     },
+    showArticle: function showArticle(article) {
+      this.edit = false;
+      this.article.id = article.id;
+      this.article.article_id = article.id;
+      this.article.title = article.title;
+      this.article.body = article.body;
+    },
     newArticle: function newArticle(article) {
       this.edit = false;
       this.article.id = '';
@@ -43538,7 +43545,7 @@ var render = function() {
         [
           _c("thead", { staticClass: "blue-grey lighten-4" }, [
             _c("tr", { staticClass: "text-center" }, [
-              _c("th", [_vm._v("ID")]),
+              _c("th", { staticClass: "text-center" }, [_vm._v("ID")]),
               _vm._v(" "),
               _c("th", [_vm._v("Title")]),
               _vm._v(" "),
@@ -43578,7 +43585,9 @@ var render = function() {
                   }
                 },
                 [
-                  _c("td", [_vm._v(_vm._s(article.id))]),
+                  _c("td", { staticClass: "text-center" }, [
+                    _vm._v(_vm._s(article.id))
+                  ]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(article.title))]),
                   _vm._v(" "),
@@ -43589,7 +43598,7 @@ var render = function() {
                         staticClass: "btn btn-info btn-xs",
                         on: {
                           click: function($event) {
-                            _vm.editArticle(article)
+                            _vm.showArticle(article)
                           }
                         }
                       },
@@ -43842,17 +43851,80 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      { staticClass: "navbar-expand-sm navbar-dark bg-info mb-2" },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-            _vm._v("L5Articles")
+    return _c("nav", { staticClass: "navbar navbar-inverse" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "navbar-header" }, [
+          _c(
+            "button",
+            {
+              staticClass: "navbar-toggle collapsed",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#app-navbar-collapse",
+                "aria-expanded": "false"
+              }
+            },
+            [
+              _c("span", { staticClass: "sr-only" }, [
+                _vm._v("Toggle Navigation")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "icon-bar" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "icon-bar" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "icon-bar" })
+            ]
+          ),
+          _vm._v(" "),
+          _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
+            _vm._v("\n        L5Articles\n      ")
           ])
-        ])
-      ]
-    )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse navbar-collapse",
+            attrs: { id: "app-navbar-collapse" }
+          },
+          [
+            _c("ul", { staticClass: "nav navbar-nav" }, [
+              _vm._v("\n         \n      ")
+            ]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "nav navbar-nav" }, [
+              _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Home")])]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/about" } }, [_vm._v("About")])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/services" } }, [_vm._v("Services")])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/api/articles" } }, [
+                  _vm._v("Articles")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "nav navbar-nav navbar-right" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/login" } }, [_vm._v("Login")])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/register" } }, [_vm._v("Register")])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
   }
 ]
 render._withStripped = true

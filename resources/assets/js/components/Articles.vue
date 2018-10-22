@@ -16,7 +16,7 @@
       <table id="articleTable" class="table table-hover table-bordered" width="100%">
         <thead  class="blue-grey lighten-4">
           <tr class="text-center">
-            <th>ID</th>
+            <th class="text-center">ID</th>
             <th>Title</th>
             <th class="text-center" width="190px">
               <button @click="newArticle()" class="add-modal btn btn-success btn-xs">
@@ -27,10 +27,10 @@
         </thead>
         <tbody v-for="article in articles" :key="article.id">
           <tr style="padding: 2px; font-size:1em; margin-bottom:1px;">
-            <td>{{ article.id }}</td>
+            <td class="text-center">{{ article.id }}</td>
             <td>{{ article.title }}</td>
             <td>
-              <button @click="editArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button>
+              <button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button>
               <button @click="editArticle(article)" class="btn btn-warning btn-xs"><i class="fa fa-pencil ml-1"></i> Edit</button>
               <button @click="deleteArticle(article.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash ml-1"></i> Delete</button>
             </td>
@@ -165,6 +165,13 @@
       },
       editArticle(article) {
         this.edit = true;
+        this.article.id = article.id;
+        this.article.article_id = article.id;
+        this.article.title = article.title;
+        this.article.body = article.body;
+      },
+      showArticle(article) {
+        this.edit = false;
         this.article.id = article.id;
         this.article.article_id = article.id;
         this.article.title = article.title;
