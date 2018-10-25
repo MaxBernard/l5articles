@@ -24,9 +24,13 @@
     <!-- Scripts -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!--script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script-->
+    <script src="{{ asset('/js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
     <!--script src="js/datatables.min.js"></script-->
     <!--script src="js/jquery.datatables.min.js"></script-->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/ajax-crud.js') }}" defer></script>
   </head>
   <body>
     <div id="app">

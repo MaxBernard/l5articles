@@ -56,3 +56,14 @@ html, body {
     width: 100%;
     float:left;
 }
+
+th.dt-center, td.dt-center {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 90%;
+    max-width:1200px;
+  }
+}

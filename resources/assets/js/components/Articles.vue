@@ -30,9 +30,16 @@
             <td class="text-center">{{ article.id }}</td>
             <td>{{ article.title }}</td>
             <td>
-              <button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button>
-              <button @click="editArticle(article)" class="btn btn-warning btn-xs"><i class="fa fa-pencil ml-1"></i> Edit</button>
-              <button @click="deleteArticle(article.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash ml-1"></i> Delete</button>
+              <!--button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button-->
+              <button class="show-modal btn btn-info btn-xs" 
+                :data-id = 'article.id' :data-title = 'article.title' :data-content = 'article.body' >
+                <i class="fa fa-eye ml-1"></i> Show
+              </button>
+              <!--button @click="editArticle(article)" class="btn btn-warning btn-xs"><i class="fa fa-pencil ml-1"></i> Edit</button-->
+              <button class="edit-modal btn btn-warning btn-xs" 
+                :data-id = 'article.id' :data-title = 'article.title' :data-content = 'article.body'>
+                <i class="fa fa-pencil ml-1"></i> Edit</button>
+               <button @click="deleteArticle(article.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash ml-1"></i> Delete</button>
             </td>
           </tr>
         </tbody>
@@ -63,6 +70,125 @@
         </span>
       </div>
     </div>
+
+    <!-- Add Article Modal -->
+    <div id="addModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-xl modal-notify modal-success" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit this Article</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body container-fluid">
+            <span id="a_id" type="text" hidden></span>
+            <form id="addArticleForm" class="form-horizontal" role="form">
+              <!-- Article Title -->
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label class="control-label" for="title">Title</label>
+                  <input id="a_title" type="text" name="title" class="form-control" data-error="Please enter title." required autofocus/>            
+                </div>
+              </div>
+              <!-- Article Body -->
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label class="control-label" for="body">Body</label>
+                  <textarea id="a_body" name="body" rows="15" cols="100" class="form-control mceEditor"></textarea>
+                  <p class="errorContent text-center alert alert-danger hidden"></p>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="crud_add btn btn-primary">Save Article</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- showModal -->
+    <div id="showModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-xl modal-notify modal-success" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit this Article</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body container-fluid">
+            <span id="s_id" type="text" hidden></span>
+            <form id="showArticleForm" class="form-horizontal" role="form">
+              <!-- Article Title -->
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label class="control-label" for="title">Title</label>
+                  <input id="s_title" type="text" name="title_show" class="form-control" data-error="Please enter title." required autofocus/>            
+                </div>
+              </div>
+              <!-- Article Body -->
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label class="control-label" for="body">Body</label>
+                  <textarea id="s_body" name="body" rows="15" cols="100" class="form-control s_modal-content"></textarea>
+                  <p class="errorContent text-center alert alert-danger hidden"></p>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal">
+              <i class="fa fa-times ml-1"></i> Done
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-xl modal-notify modal-success" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit this Article</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body container-fluid">
+            <form id="showArticleForm" class="form-horizontal" role="form">
+              <!-- Article Title -->
+              <span id="e_id" type="text" hidden></span>
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label class="control-label" for="title">Title</label>
+                  <input id="e_title" type="text" name="title_show" class="form-control" data-error="Please enter title." required autofocus/>
+                </div>
+              </div>
+              <!-- Article Body -->
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label class="control-label" for="body">Body</label>
+                  <textarea id="e_body" name="body" rows="15" cols="100" class="form-control mceEditor"></textarea>
+                  <p class="errorContent text-center alert alert-danger hidden"></p>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </form>  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="crud_update btn btn-primary">Update Article</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -184,9 +310,6 @@
         this.article.title = '';
         this.article.body = '';
       }
-    },
-    created () {
-      this.fetchArticles();
     }
   };
 </script>
