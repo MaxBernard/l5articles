@@ -143,7 +143,7 @@
       $('#e_body').val(tinymce.activeEditor.getContent());
       //-- Send edited data to the server to update the post
       $.ajax({
-        url: 'api/article',
+        url: 'api/article/' + id,
         method: 'POST',
         data: new FormData($('#editArticleForm')[0]),
         //dataType: 'json',

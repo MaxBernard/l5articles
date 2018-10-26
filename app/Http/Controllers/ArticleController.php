@@ -53,12 +53,30 @@ class ArticleController extends Controller
     public function show(Request $request, $id)
     {
         // Get article
-        $id = $request->id;
+        //$id = $request->id;
         $article = Article::findOrFail($id);
 
         // Return single article as a resource
         return new ArticleResource($article);
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+      $article = Article::findOrFail($id);
+      $article->title   = $request->title;
+      $article->body    = $request->body;
+
+      if($article->save()) {
+        return new ArticleResource($article);
+    }
+}
 
     /**
      * Remove the specified resource from storage.
