@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container-fluid">
-    <div id="editor" class="mt-2">
+    <!--div id="editor" class="mt-2">
       <form @submit.prevent="saveArticle" class="mb-2">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Title" v-model="article.title">
@@ -10,7 +10,7 @@
         </div>
         <button type="submit" class="btn btn-primary btn-xs">Save</button>
       </form>
-    </div>
+    </div-->
     <h3>Articles</h3>
     <div>
       <table id="articleTable" class="table table-hover table-bordered" width="100%">
@@ -32,7 +32,7 @@
             <td>
               <!--button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button-->
               <button class="show-modal btn btn-info btn-xs" 
-                :data-id = 'article.id' :data-title = 'article.title' :data-content = 'article.body' >
+                :data-id = 'article.id' :data-title = 'article.title' :data-content = 'article.body'>
                 <i class="fa fa-eye ml-1"></i> Show
               </button>
               <!--button @click="editArticle(article)" class="btn btn-warning btn-xs"><i class="fa fa-pencil ml-1"></i> Edit</button-->
@@ -83,7 +83,7 @@
           </div>
           <div class="modal-body container-fluid">
             <span id="a_id" type="text" hidden></span>
-            <form id="addArticleForm" class="form-horizontal" role="form">
+            <form id="addArticleForm" class="form-horizontal addArticle" role="form">
               <!-- Article Title -->
               <div class="form-group">
                 <div class="col-md-12">
@@ -103,7 +103,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="crud_add btn btn-primary">Save Article</button>
+            <button type="button" class="crud_add btn btn-primary" data-dismiss="modal"><i class="fa fa-plus ml-1"></i> Save Article</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -132,9 +132,9 @@
               </div>
               <!-- Article Body -->
               <div class="form-group">
-                <div class="col-md-12">
+                <div class="col-md-12 s_body">
                   <label class="control-label" for="body">Body</label>
-                  <textarea id="s_body" name="body" rows="15" cols="100" class="form-control s_modal-content"></textarea>
+                  <textarea id="s_body" name="body" rows="20" cols="100" class="form-control" disabled></textarea>
                   <p class="errorContent text-center alert alert-danger hidden"></p>
                   <div class="help-block with-errors"></div>
                 </div>
@@ -161,28 +161,29 @@
             </button>
           </div>
           <div class="modal-body container-fluid">
-            <form id="showArticleForm" class="form-horizontal" role="form">
+            <form id="editArticleForm" class="form-horizontal" role="form">
+              <span id="e_id" name="article_id" type="text" hidden></span>
               <!-- Article Title -->
-              <span id="e_id" type="text" hidden></span>
               <div class="form-group">
                 <div class="col-md-12">
                   <label class="control-label" for="title">Title</label>
-                  <input id="e_title" type="text" name="title_show" class="form-control" data-error="Please enter title." required autofocus/>
+                  <input id="e_title" type="text" name="title" class="form-control" data-error="Please enter title." required autofocus/>
                 </div>
               </div>
               <!-- Article Body -->
               <div class="form-group">
                 <div class="col-md-12">
                   <label class="control-label" for="body">Body</label>
-                  <textarea id="e_body" name="body" rows="15" cols="100" class="form-control mceEditor"></textarea>
+                  <textarea id="e_body" name="body" rows="20" cols="100" class="form-control mceEditor"></textarea>
                   <p class="errorContent text-center alert alert-danger hidden"></p>
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
             </form>  
           </div>
+          <input type="hidden" name="_method" value="PUT"/>
           <div class="modal-footer">
-            <button type="button" class="crud_update btn btn-primary">Update Article</button>
+            <button type="button" class="crud_update btn btn-primary" data-dismiss="modal"><i class="fa fa-plus ml-1"></i> Update Article</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>

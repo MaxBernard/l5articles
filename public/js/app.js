@@ -43424,6 +43424,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 //$(document).ready( function () {
 //    var table = $('#articleTable').DataTable({
@@ -43563,79 +43564,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid", attrs: { id: "app" } }, [
-    _c("div", { staticClass: "mt-2", attrs: { id: "editor" } }, [
-      _c(
-        "form",
-        {
-          staticClass: "mb-2",
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.saveArticle($event)
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.article.title,
-                  expression: "article.title"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Title" },
-              domProps: { value: _vm.article.title },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.article, "title", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.article.body,
-                  expression: "article.body"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { rows: "4", cols: "100", placeholder: "Body" },
-              domProps: { value: _vm.article.body },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.article, "body", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary btn-xs",
-              attrs: { type: "submit" }
-            },
-            [_vm._v("Save")]
-          )
-        ]
-      )
-    ]),
-    _vm._v(" "),
     _c("h3", [_vm._v("Articles")]),
     _vm._v(" "),
     _c("div", [
@@ -43938,7 +43866,7 @@ var staticRenderFns = [
                 _c(
                   "form",
                   {
-                    staticClass: "form-horizontal",
+                    staticClass: "form-horizontal addArticle",
                     attrs: { id: "addArticleForm", role: "form" }
                   },
                   [
@@ -44005,9 +43933,12 @@ var staticRenderFns = [
                   "button",
                   {
                     staticClass: "crud_add btn btn-primary",
-                    attrs: { type: "button" }
+                    attrs: { type: "button", "data-dismiss": "modal" }
                   },
-                  [_vm._v("Save Article")]
+                  [
+                    _c("i", { staticClass: "fa fa-plus ml-1" }),
+                    _vm._v(" Save Article")
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -44104,7 +44035,7 @@ var staticRenderFns = [
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c("div", { staticClass: "col-md-12" }, [
+                      _c("div", { staticClass: "col-md-12 s_body" }, [
                         _c(
                           "label",
                           {
@@ -44115,12 +44046,13 @@ var staticRenderFns = [
                         ),
                         _vm._v(" "),
                         _c("textarea", {
-                          staticClass: "form-control s_modal-content",
+                          staticClass: "form-control",
                           attrs: {
                             id: "s_body",
                             name: "body",
-                            rows: "15",
-                            cols: "100"
+                            rows: "20",
+                            cols: "100",
+                            disabled: ""
                           }
                         }),
                         _vm._v(" "),
@@ -44203,11 +44135,16 @@ var staticRenderFns = [
                   "form",
                   {
                     staticClass: "form-horizontal",
-                    attrs: { id: "showArticleForm", role: "form" }
+                    attrs: { id: "editArticleForm", role: "form" }
                   },
                   [
                     _c("span", {
-                      attrs: { id: "e_id", type: "text", hidden: "" }
+                      attrs: {
+                        id: "e_id",
+                        name: "article_id",
+                        type: "text",
+                        hidden: ""
+                      }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
@@ -44226,7 +44163,7 @@ var staticRenderFns = [
                           attrs: {
                             id: "e_title",
                             type: "text",
-                            name: "title_show",
+                            name: "title",
                             "data-error": "Please enter title.",
                             required: "",
                             autofocus: ""
@@ -44251,7 +44188,7 @@ var staticRenderFns = [
                           attrs: {
                             id: "e_body",
                             name: "body",
-                            rows: "15",
+                            rows: "20",
                             cols: "100"
                           }
                         }),
@@ -44268,14 +44205,21 @@ var staticRenderFns = [
                 )
               ]),
               _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "_method", value: "PUT" }
+              }),
+              _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
                 _c(
                   "button",
                   {
                     staticClass: "crud_update btn btn-primary",
-                    attrs: { type: "button" }
+                    attrs: { type: "button", "data-dismiss": "modal" }
                   },
-                  [_vm._v("Update Article")]
+                  [
+                    _c("i", { staticClass: "fa fa-plus ml-1" }),
+                    _vm._v(" Update Article")
+                  ]
                 ),
                 _vm._v(" "),
                 _c(

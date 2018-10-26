@@ -25,12 +25,31 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!--script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script-->
-    <script src="{{ asset('/js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
-    <script>tinymce.init({ selector:'textarea' });</script>
+    </script>    
     <!--script src="js/datatables.min.js"></script-->
     <!--script src="js/jquery.datatables.min.js"></script-->
+	  <script src="{{ asset('js/toastr.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/ajax-crud.js') }}" defer></script>
+
+    <!-- TinyMCE -->
+    <script src="{{ asset('/js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script language="javascript" type="text/javascript">
+      tinymce.init({
+          mode: "specific_textareas",
+          editor_selector: "mceEditor",
+          plugins: ['advlist autolink lists link image charmap print preview anchor textcolor', 
+          'searchreplace visualblocks code fullscreen emoticons spellchecker',
+          'insertdatetime media table contextmenu paste code help wordcount'],
+          toolbar: 'insert | undo redo |  formatselect | fontselect | fontsizeselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help',
+          content_css : "/css/app.css",
+          theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+          font_size_style_values : "10px,12px,13px,14px,16px,18px,20px",
+          width : "1092",
+          height: "240"
+      });
+    </script>
+
   </head>
   <body>
     <div id="app">

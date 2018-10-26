@@ -50,9 +50,10 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         // Get article
+        $id = $request->id;
         $article = Article::findOrFail($id);
 
         // Return single article as a resource
