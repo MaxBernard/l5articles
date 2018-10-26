@@ -151,7 +151,7 @@
         processData: false,
         contentType: false,
         success: function(data) {
-          console.log('Back from Ajax POST request');
+          // console.log('Back from Ajax POST request');
           // console.log(data.responseJSON.message);
           $('.errorTitle').addClass('hidden');
           $('.errorContent').addClass('hidden');
@@ -171,9 +171,11 @@
                 $('.errorContent').text(data.errors.content);
             }
           } else {
-            console.log('Success...');
-            console.log(data);
-            toastr.success('Successfully updated Article: ' + data.id, 'Success Alert', {timeOut: 3000});
+            // console.log('Success...');
+            // console.log(data);
+            toastr.success('Successfully updated Article: ' + data.data.id, 'Success Alert', {timeOut: 2000});
+            //$("#articleTable").ajax.reload();
+            //$('#articleTable').load(window.location + '#articleTable');
 
             /*var r = table.row( {selected: true} );
             r.data( {

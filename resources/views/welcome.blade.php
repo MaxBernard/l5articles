@@ -28,9 +28,9 @@
     </script>    
     <!--script src="js/datatables.min.js"></script-->
     <!--script src="js/jquery.datatables.min.js"></script-->
-	  <script src="{{ asset('js/toastr.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/ajax-crud.js') }}" defer></script>
+	  <script src="{{ asset('js/toastr.min.js') }}"></script>
 
     <!-- TinyMCE -->
     <script src="{{ asset('/js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
