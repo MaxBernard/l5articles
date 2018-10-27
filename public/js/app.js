@@ -11933,6 +11933,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 //$(document).ready( function () {
 //    var table = $('#articleTable').DataTable({
@@ -12078,19 +12079,21 @@ var render = function() {
       _c(
         "table",
         {
-          staticClass: "table table-hover table-bordered",
+          staticClass: "display table-hover table-bordered",
           attrs: { id: "articleTable", width: "100%" }
         },
         [
           _c("thead", { staticClass: "blue-grey lighten-4" }, [
             _c("tr", { staticClass: "text-center" }, [
-              _c("th", { staticClass: "text-center" }, [_vm._v("ID")]),
+              _c("th", { staticClass: "text-center", attrs: { width: "5%" } }, [
+                _vm._v("ID")
+              ]),
               _vm._v(" "),
-              _c("th", [_vm._v("Title")]),
+              _c("th", { staticStyle: { padding: "4px" } }, [_vm._v("Title")]),
               _vm._v(" "),
               _c(
                 "th",
-                { staticClass: "text-center", attrs: { width: "190px" } },
+                { staticClass: "text-center", attrs: { width: "184px" } },
                 [
                   _c(
                     "button",
@@ -12128,9 +12131,11 @@ var render = function() {
                     _vm._v(_vm._s(article.id))
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(article.title))]),
+                  _c("td", { staticStyle: { padding: "4px" } }, [
+                    _vm._v(_vm._s(article.title))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { staticStyle: { padding: "4px" } }, [
                     _c(
                       "button",
                       {

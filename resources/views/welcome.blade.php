@@ -20,7 +20,7 @@
     <!--link href="css/jquery.dataTables.min.css" rel="stylesheet"-->
     <!--link href="css/datatables.bootstrap.min.css" rel="stylesheet"-->
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/toastr.css" rel="stylesheet" type="text/css">
+    <link href="css/toastr.min.css" rel="stylesheet" type="text/css">
 
     <!-- Scripts -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -46,8 +46,8 @@
           content_css : "/css/app.css",
           theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
           font_size_style_values : "10px,12px,13px,14px,16px,18px,20px",
-          width : "1092",
-          height: "240"
+          width : "1120",
+          height: "460"
       });
     </script>
 

@@ -13,12 +13,13 @@
     </div-->
     <h3>Articles</h3>
     <div>
-      <table id="articleTable" class="table table-hover table-bordered" width="100%">
+      <table id="articleTable" class="display table-hover table-bordered" width="100%">
+      <!--table id="simpleTable" class="display table-hover table-striped" width="100%"-->
         <thead  class="blue-grey lighten-4">
           <tr class="text-center">
-            <th class="text-center">ID</th>
-            <th>Title</th>
-            <th class="text-center" width="190px">
+            <th class="text-center" width="5%">ID</th>
+            <th style="padding: 4px;">Title</th>
+            <th class="text-center" width="184px">
               <button @click="newArticle()" class="add-modal btn btn-success btn-xs">
                 <i class="fa fa-plus ml-1"></i> New Article
               </button>
@@ -28,8 +29,8 @@
         <tbody v-for="article in articles" :key="article.id">
           <tr style="padding: 2px; font-size:1em; margin-bottom:1px;">
             <td class="text-center">{{ article.id }}</td>
-            <td>{{ article.title }}</td>
-            <td>
+            <td style="padding: 4px;">{{ article.title }}</td>
+            <td style="padding: 4px; 6px;">
               <!--button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button-->
               <button class="show-modal btn btn-info btn-xs" 
                 :data-id = 'article.id' :data-title = 'article.title' :data-content = 'article.body'>

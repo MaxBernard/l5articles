@@ -51,7 +51,7 @@
           } else {
             console.log('Success... Data: ');
             console.log(data);
-            toastr.success('Successfully added Post!', 'Success Alert', {timeOut: 5000});
+            toastr.success('Successfully added Article!', 'Success Alert', {timeOut: 5000});
             /*table.row.add( {
               "id": data.id,
               "cover_image": "<img style='width:50%' src='/storage/cover_images/" + data.cover_image + "'>",
@@ -76,7 +76,7 @@
       console.log('Show button clicked!');
       $('.modal-title').text('Show Article - '+$(this).data('id'));
       $('#s_id').val($(this).data('id'));
-      $('#s_title').val($(this).data('title'));
+      //$('#s_title').val($(this).data('title'));
       var id = $('#s_id').val();
       //$('.s_body').html($(this).data('content'));
       //tinymce.activeEditor.setContent($(this).data('content'));
@@ -109,9 +109,7 @@
             //console.log('Success...');
             //console.log('Body: ', data.data.body);
             toastr.success('Successfully received article!', 'Success Alert', {timeOut: 5000});
-            $('#title_show').val(data.data.title);
-            //$('.s_category').val(data.category);
-            //$('.s_tag').val(data.tag);
+            $('#s_title').val(data.data.title);
             $('.s_body').html(data.data.body);
             $('#showModal').modal('show');
           }
@@ -126,7 +124,7 @@
       console.log('Edit button clicked!');
       $('.modal-title').text('Edit Article - '+$(this).data('id'));
       $('#e_id').val($(this).data('id'));
-      $('#e_title').val($(this).data('title'));
+      //$('#e_title').val($(this).data('title'));
       var id = $('#e_id').val();
       //$('#e_body').html($(this).data('content'));
       //tinymce.activeEditor.setContent($(this).data('content'));
@@ -158,7 +156,7 @@
             console.log('Success...');
             console.log(data);
             toastr.success('Successfully received Article: ' + data.data.id, 'Success Alert', {timeOut: 3000});
-            $('#title_edit').val(data.data.title);
+            $('#e_title').val(data.data.title);
             tinymce.activeEditor.setContent(data.data.body);
             $('#editModal').modal('show');
             $('#editModal input[0]').focus();
