@@ -13,7 +13,7 @@
     </div-->
     <h3>Articles</h3>
     <div>
-      <table id="articleTable" class="display table-hover table-bordered" width="100%">
+      <table id="articleTable" class="display table-hover table-bordered">
       <!--table id="simpleTable" class="display table-hover table-striped" width="100%"-->
         <thead  class="blue-grey lighten-4">
           <tr class="text-center">
@@ -26,19 +26,19 @@
             </th>
           </tr>
         </thead>
-        <tbody v-for="article in articles" :key="article.id">
-          <tr style="padding: 2px; font-size:1em; margin-bottom:1px;">
+        <tbody id="tBody" v-for="article in articles" :key="article.id">
+          <tr>
             <td class="text-center">{{ article.id }}</td>
             <td style="padding: 4px;">{{ article.title }}</td>
             <td style="padding: 4px; 6px;">
               <!--button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button-->
               <button class="show-modal btn btn-info btn-xs" 
-                :data-id = 'article.id' :data-title = 'article.title' :data-content = 'article.body'>
+                :data-id = 'article.id' data-title = "" data-content = "">
                 <i class="fa fa-eye ml-1"></i> Show
               </button>
               <!--button @click="editArticle(article)" class="btn btn-warning btn-xs"><i class="fa fa-pencil ml-1"></i> Edit</button-->
               <button class="edit-modal btn btn-warning btn-xs" 
-                :data-id = 'article.id' :data-title = 'article.title' :data-content = 'article.body'>
+                :data-id = 'article.id' data-title = "" data-content = "">
                 <i class="fa fa-pencil ml-1"></i> Edit</button>
                <button @click="deleteArticle(article.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash ml-1"></i> Delete</button>
             </td>
@@ -315,4 +315,30 @@
     }
   };
 </script>
+
+<style scoped>
+
+table {
+  width:100%;
+}
+
+table th {
+  color: white;
+  background-color: #444488;
+}
+
+table tr {
+  padding: 2px;
+  font-size:1em;
+  margin-bottom:1px;
+}
+
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+</style>
 

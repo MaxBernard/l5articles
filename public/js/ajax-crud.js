@@ -27,46 +27,45 @@
         cache: false,
         processData: false,
         contentType: false,
-        success: function(data) {
+        success: function(res) {
           console.log('Back from Ajax POST request');
-          // console.log(data.responseJSON.message);
+          // console.log(res.responseJSON.message);
           $('.errorTitle').addClass('hidden');
           $('.errorContent').addClass('hidden');
 
-          if ((data.errors)) {
+          if ((res.errors)) {
             console.log('Error...');
             setTimeout(function () {
                 $('#addModal').modal('show');
                 toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
             }, 500);
 
-            if (data.errors.title) {
+            if (res.errors.title) {
                 $('.errorTitle').removeClass('hidden');
-                $('.errorTitle').text(data.errors.title);
+                $('.errorTitle').text(res.errors.title);
             }
-            if (data.errors.content) {
+            if (res.errors.content) {
                 $('.errorContent').removeClass('hidden');
-                $('.errorContent').text(data.errors.content);
+                $('.errorContent').text(res.errors.content);
             }
           } else {
-            console.log('Success... Data: ');
-            console.log(data);
+            // console.log('Success... Data: ');
+            // console.log(res);
+            var rData =
+              "<tr>" +
+              "<td>" + res.data.id +
+              "<td>" + res.data.title +
+              "<td>" + 
+              "<button class='show-modal btn btn-info btn-xs' data-id='" + res.data.id + "' data-title='.' data-content='.'><i class='fa fa-eye ml-1'></i> Show></button>"+
+              "<button class='edit-modal btn btn-warning btn-xs' data-id='" + res.data.id + "' data-title='.' data-content='.'><i class='fa fa-pencil ml-1'></i> Edit</button>"+
+              "<button class='delete-modal btn btn-danger btn-xs' data-id='" + res.data.id + "' data-title='.' data-content='.'><i class='fa fa-trash ml-1'></i> Delete</button>"+
+              "</tr>";
+            $("#tBody").append(rData);
             toastr.success('Successfully added Article!', 'Success Alert', {timeOut: 5000});
-            /*table.row.add( {
-              "id": data.id,
-              "cover_image": "<img style='width:50%' src='/storage/cover_images/" + data.cover_image + "'>",
-              "title": data.title,
-              "category": data.category,
-              "tag": data.tag,
-              "created_at": data.created_at,
-              "action" : "<button class='show-modal btn btn-info btn-xs' data-id='" + data.id + "' data-title='.' data-content='.'><i class='fa fa-eye ml-1'></i> Show></button>"+
-              "<button class='edit-modal btn btn-primary btn-xs' data-id='" + data.id + "' data-title='.' data-content='.'><i class='fa fa-pencil ml-1'></i> Edit</button>"+
-              "<button class='delete-modal btn btn-danger btn-xs' data-id='" + data.id + "' data-title='.' data-content='.'><i class='fa fa-trash ml-1'></i> Delete</button>"
-          } ).draw();*/
-        }
-      },
+          }
+        },
+      });
     });
-  });
 
 
     //=================================
@@ -87,30 +86,30 @@
         url: 'api/article/' + id,
         method: 'GET',
         dataType: 'json',
-        success: function(data) {
+        success: function(res) {
           console.log('Back from Ajax GET request');
           $('.errorTitle').addClass('hidden');
           $('.errorContent').addClass('hidden');
-          if ((data.errors)) {
+          if ((res.errors)) {
             setTimeout(function () {
               $('#showModal').modal('show');
               toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
             }, 500);
 
-            if (data.errors.title) {
+            if (res.errors.title) {
               $('.errorTitle').removeClass('hidden');
-              $('.errorTitle').text(data.errors.title);
+              $('.errorTitle').text(res.errors.title);
             }
-            if (data.errors.content) {
+            if (res.errors.content) {
               $('.errorContent').removeClass('hidden');
-              $('.errorContent').text(data.errors.content);
+              $('.errorContent').text(res.errors.content);
             }
           } else {
             //console.log('Success...');
-            //console.log('Body: ', data.data.body);
+            //console.log('Body: ', res.data.body);
             toastr.success('Successfully received article!', 'Success Alert', {timeOut: 5000});
-            $('#s_title').val(data.data.title);
-            $('.s_body').html(data.data.body);
+            $('#s_title').val(res.data.title);
+            $('.s_body').html(res.data.body);
             $('#showModal').modal('show');
           }
         }
@@ -134,30 +133,30 @@
         url: 'api/article/' + id,
         method: 'GET',
         dataType: 'json',
-        success: function(data) {
+        success: function(res) {
           console.log('Back from Ajax GET request');
           $('.errorTitle').addClass('hidden');
           $('.errorContent').addClass('hidden');
-          if ((data.errors)) {
+          if ((res.errors)) {
             setTimeout(function () {
               $('#showModal').modal('show');
               toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
             }, 500);
 
-            if (data.errors.title) {
+            if (res.errors.title) {
               $('.errorTitle').removeClass('hidden');
-              $('.errorTitle').text(data.errors.title);
+              $('.errorTitle').text(res.errors.title);
             }
-            if (data.errors.content) {
+            if (res.errors.content) {
               $('.errorContent').removeClass('hidden');
-              $('.errorContent').text(data.errors.content);
+              $('.errorContent').text(res.errors.content);
             }
           } else {
             console.log('Success...');
-            console.log(data);
-            toastr.success('Successfully received Article: ' + data.data.id, 'Success Alert', {timeOut: 3000});
-            $('#e_title').val(data.data.title);
-            tinymce.activeEditor.setContent(data.data.body);
+            console.log(res);
+            toastr.success('Successfully received Article: ' + res.data.id, 'Success Alert', {timeOut: 3000});
+            $('#e_title').val(res.data.title);
+            tinymce.activeEditor.setContent(res.data.body);
             $('#editModal').modal('show');
             $('#editModal input[0]').focus();
           }
@@ -182,30 +181,30 @@
         cache: false,
         processData: false,
         contentType: false,
-        success: function(data) {
+        success: function(res) {
           // console.log('Back from Ajax POST request');
-          // console.log(data.responseJSON.message);
+          // console.log(res.responseJSON.message);
           $('.errorTitle').addClass('hidden');
           $('.errorContent').addClass('hidden');
 
-          if ((data.errors)) {
+          if ((res.errors)) {
             setTimeout(function () {
               $('#editModal').modal('show');
               toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
             }, 500);
 
-            if (data.errors.title) {
+            if (res.errors.title) {
                 $('.errorTitle').removeClass('hidden');
-                $('.errorTitle').text(data.errors.title);
+                $('.errorTitle').text(res.errors.title);
             }
-            if (data.errors.content) {
+            if (res.errors.content) {
                 $('.errorContent').removeClass('hidden');
-                $('.errorContent').text(data.errors.content);
+                $('.errorContent').text(res.errors.content);
             }
           } else {
             // console.log('Success...');
-            // console.log(data);
-            toastr.success('Successfully updated Article: ' + data.data.id, 'Success Alert', {timeOut: 2000});
+            // console.log(res);
+            toastr.success('Successfully updated Article: ' + res.data.id, 'Success Alert', {timeOut: 2000});
             //$("#articleTable").ajax.reload();
             //$('#articleTable').load(window.location + '#articleTable');
 
