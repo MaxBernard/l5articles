@@ -129,8 +129,42 @@
       $('#e_title').val($(this).data('title'));
       var id = $('#e_id').val();
       //$('#e_body').html($(this).data('content'));
-      tinymce.activeEditor.setContent($(this).data('content'));
-      $('#editModal').modal('show');
+      //tinymce.activeEditor.setContent($(this).data('content'));
+      //$('#editModal').modal('show');
+
+      $.ajax({
+        url: 'api/article/' + id,
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+          console.log('Back from Ajax GET request');
+          $('.errorTitle').addClass('hidden');
+          $('.errorContent').addClass('hidden');
+          if ((data.errors)) {
+            setTimeout(function () {
+              $('#showModal').modal('show');
+              toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
+            }, 500);
+
+            if (data.errors.title) {
+              $('.errorTitle').removeClass('hidden');
+              $('.errorTitle').text(data.errors.title);
+            }
+            if (data.errors.content) {
+              $('.errorContent').removeClass('hidden');
+              $('.errorContent').text(data.errors.content);
+            }
+          } else {
+            console.log('Success...');
+            console.log(data);
+            toastr.success('Successfully received Article: ' + data.data.id, 'Success Alert', {timeOut: 3000});
+            $('#title_edit').val(data.data.title);
+            tinymce.activeEditor.setContent(data.data.body);
+            $('#editModal').modal('show');
+            $('#editModal input[0]').focus();
+          }
+        }
+      });
     });
 
     // When 'Update' is clicked we send the edit data to the server

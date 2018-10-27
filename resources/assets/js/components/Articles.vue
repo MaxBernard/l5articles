@@ -75,14 +75,14 @@
     <div id="addModal" class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-dialog-centered modal-xl modal-notify modal-success" role="document">
         <div class="modal-content">
+          <!-- Modal header -->
           <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Edit this Article</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body container-fluid">
             <span id="a_id" type="text" hidden></span>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body container-fluid">
             <form id="addArticleForm" class="form-horizontal addArticle" role="form">
               <!-- Article Title -->
               <div class="form-group">
@@ -103,8 +103,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="crud_add btn btn-primary" data-dismiss="modal"><i class="fa fa-plus ml-1"></i> Save Article</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="crud_add btn btn-success btn-xs" data-dismiss="modal"><i class="fa fa-plus ml-1"></i> Save Article</button>
+            <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
@@ -114,14 +114,14 @@
     <div id="showModal" class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-dialog-centered modal-xl modal-notify modal-success" role="document">
         <div class="modal-content">
+          <!-- Modal header -->
           <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Edit this Article</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body container-fluid">
             <span id="s_id" type="text" hidden></span>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body container-fluid">
             <form id="showArticleForm" class="form-horizontal" role="form">
               <!-- Article Title -->
               <div class="form-group">
@@ -154,15 +154,15 @@
     <div id="editModal" class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-dialog-centered modal-xl modal-notify modal-success" role="document">
         <div class="modal-content">
+          <!-- Modal header -->
           <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Edit this Article</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <span id="e_id" name="article_id" type="text" hidden></span>
           </div>
+          <!-- Modal body -->
           <div class="modal-body container-fluid">
             <form id="editArticleForm" class="form-horizontal" role="form">
-              <span id="e_id" name="article_id" type="text" hidden></span>
               <!-- Article Title -->
               <div class="form-group">
                 <div class="col-md-12">
@@ -183,8 +183,8 @@
           </div>
           <input type="hidden" name="_method" value="PUT"/>
           <div class="modal-footer">
-            <button type="button" class="crud_update btn btn-primary" data-dismiss="modal"><i class="fa fa-plus ml-1"></i> Update Article</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="crud_update btn btn-success btn-xs" data-dismiss="modal"><i class="fa fa-plus ml-1"></i> Update Article</button>
+            <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
