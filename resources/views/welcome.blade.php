@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <!--link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet"-->
+    <link href="{{ asset('css/fontawesome-5.4.2/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <!--link href="css/jquery.dataTables.min.css" rel="stylesheet"-->
     <!--link href="css/datatables.bootstrap.min.css" rel="stylesheet"-->

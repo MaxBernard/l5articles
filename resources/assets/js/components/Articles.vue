@@ -54,7 +54,7 @@
           <nav aria-label="Page navigation">
             <ul class="pagination navbar-right">
             <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
-                <a href="#" class="page-link first" @click="fetchArticles(pagination.first_page_url)"><i class="fa fa-angle-double-left"></i></a>
+                <a href="#" class="page-link first" @click="fetchArticles(pagination.first_page_url)"><i class="fas fa-angle-double-left"></i></a>
             </li>
             <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
                 <a href="#" class="page-link previous round" @click="fetchArticles(pagination.prev_page_url)"><i class="fa fa-angle-left"></i></a>

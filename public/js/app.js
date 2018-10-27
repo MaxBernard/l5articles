@@ -12784,7 +12784,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_c("i", { staticClass: "fa fa-angle-double-left" })]
+                    [_c("i", { staticClass: "fas fa-angle-double-left" })]
                   )
                 ]
               ),
