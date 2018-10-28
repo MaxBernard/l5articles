@@ -11938,6 +11938,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 //$(document).ready( function () {
 //    var table = $('#articleTable').DataTable({
@@ -12364,7 +12377,7 @@ exports = module.exports = __webpack_require__(47)(false);
 
 
 // module
-exports.push([module.i, "\ntable[data-v-59e03618] {\n  width:100%;\n}\ntable th[data-v-59e03618] {\n  color: white;\n  background-color: #444488;\n}\ntable tr[data-v-59e03618] {\n  padding: 2px;\n  font-size:1em;\n  margin-bottom:1px;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(even) {\n  background-color: #eee;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(odd) {\n  background-color: #fff;\n}\n\n", ""]);
+exports.push([module.i, "\n.panel-tables .col[data-v-59e03618] {\n  height: 40px;\n}\n.panel-heading[data-v-59e03618] {\n  height: 40px;\n  font-size: 1.2em;\n}\n.panel-footer[data-v-59e03618] {\n  height: 40px;\n  float: none;\n}\n.panel-footer > div[data-v-59e03618] {\n  display: inline-block;\n}\n.panel-footer > li[data-v-59e03618] {\n  display: inline-block;\n}\n.panel-table .panel-footer .pagination[data-v-59e03618] {\n  margin: 0;\n}\n.panel-table .panel-body[data-v-59e03618]{\n  padding: 0;\n}\n.panel-table .panel-body .table-bordered[data-v-59e03618]{\n  border-style: none;\n  margin:0;\n}\n.row > div[data-v-59e03618] {\n  display: inline-block;\n}\ntable[data-v-59e03618] {\n  width:100%;\n}\ntable th[data-v-59e03618] {\n  color: white;\n  background-color: #444488;\n}\ntable tr[data-v-59e03618] {\n  padding: 2px;\n  font-size:1em;\n  margin-bottom:1px;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(even) {\n  background-color: #eee;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(odd) {\n  background-color: #fff;\n}\n\n", ""]);
 
 // exports
 
@@ -12639,239 +12652,256 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid", attrs: { id: "app" } }, [
-    _c("h3", [_vm._v("Articles")]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "table",
-        {
-          staticClass: "display table-hover table-bordered",
-          attrs: { id: "articleTable" }
-        },
-        [
-          _c("thead", { staticClass: "blue-grey lighten-4" }, [
-            _c("tr", { staticClass: "text-center" }, [
-              _c("th", { staticClass: "text-center", attrs: { width: "5%" } }, [
-                _vm._v("ID")
-              ]),
-              _vm._v(" "),
-              _c("th", { staticStyle: { padding: "4px" } }, [_vm._v("Title")]),
-              _vm._v(" "),
-              _c(
-                "th",
-                { staticClass: "text-center", attrs: { width: "184px" } },
-                [
+    _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "panel panel-default panel-table" }, [
+        _c("div", { staticClass: "panel-heading" }, [
+          _vm._v("\n            Articles\n          ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "panel-body" }, [
+          _c(
+            "table",
+            {
+              staticClass: "display table-hover table-bordered",
+              attrs: { id: "articleTable" }
+            },
+            [
+              _c("thead", { staticClass: "blue-grey lighten-4" }, [
+                _c("tr", { staticClass: "text-center" }, [
                   _c(
-                    "button",
-                    {
-                      staticClass: "add-modal btn btn-success btn-xs",
-                      on: {
-                        click: function($event) {
-                          _vm.newArticle()
-                        }
-                      }
-                    },
+                    "th",
+                    { staticClass: "text-center", attrs: { width: "5%" } },
+                    [_vm._v("ID")]
+                  ),
+                  _vm._v(" "),
+                  _c("th", { staticStyle: { padding: "4px" } }, [
+                    _vm._v("Title")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "th",
+                    { staticClass: "text-center", attrs: { width: "176px" } },
                     [
-                      _c("i", { staticClass: "fa fa-plus ml-1" }),
-                      _vm._v(" New Article\n            ")
+                      _c(
+                        "button",
+                        {
+                          staticClass: "add-modal btn btn-success btn-xs",
+                          on: {
+                            click: function($event) {
+                              _vm.newArticle()
+                            }
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-plus ml-1" }),
+                          _vm._v(" New Article\n                ")
+                        ]
+                      )
                     ]
                   )
-                ]
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.articles, function(article) {
+                return _c(
+                  "tbody",
+                  { key: article.id, attrs: { id: "tBody" } },
+                  [
+                    _c("tr", [
+                      _c("td", { staticClass: "text-center" }, [
+                        _vm._v(_vm._s(article.id))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticStyle: { padding: "4px" } }, [
+                        _vm._v(_vm._s(article.title))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticStyle: { padding: "4px" } }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "show-modal btn btn-info btn-xs",
+                            attrs: {
+                              "data-id": article.id,
+                              "data-title": "",
+                              "data-content": ""
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-eye ml-1" }),
+                            _vm._v(" Show\n                ")
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "edit-modal btn btn-warning btn-xs",
+                            attrs: {
+                              "data-id": article.id,
+                              "data-title": "",
+                              "data-content": ""
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-pencil ml-1" }),
+                            _vm._v(" Edit")
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger btn-xs",
+                            on: {
+                              click: function($event) {
+                                _vm.deleteArticle(article.id)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-trash ml-1" }),
+                            _vm._v(" Delete")
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              })
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "panel-footer" }, [
+          _c("div", { staticClass: "d-flex flex-row bd-highlight col-md-12" }, [
+            _c("div", { staticClass: "col-md-4 bd-highlight" }, [
+              _vm._v(
+                "\n            Showing " +
+                  _vm._s(_vm.pagination.from) +
+                  " to " +
+                  _vm._s(_vm.pagination.to) +
+                  " of " +
+                  _vm._s(_vm.pagination.total) +
+                  " articles\n          "
               )
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._l(_vm.articles, function(article) {
-            return _c("tbody", { key: article.id, attrs: { id: "tBody" } }, [
-              _c("tr", [
-                _c("td", { staticClass: "text-center" }, [
-                  _vm._v(_vm._s(article.id))
-                ]),
-                _vm._v(" "),
-                _c("td", { staticStyle: { padding: "4px" } }, [
-                  _vm._v(_vm._s(article.title))
-                ]),
-                _vm._v(" "),
-                _c("td", { staticStyle: { padding: "4px" } }, [
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "pull-right" }, [
+              _c("nav", { attrs: { "aria-label": "Page navigation" } }, [
+                _c("ul", { staticClass: "pagination navbar-right" }, [
                   _c(
-                    "button",
+                    "li",
                     {
-                      staticClass: "show-modal btn btn-info btn-xs",
-                      attrs: {
-                        "data-id": article.id,
-                        "data-title": "",
-                        "data-content": ""
-                      }
+                      staticClass: "page-item",
+                      class: [{ disabled: !_vm.pagination.prev_page_url }]
                     },
                     [
-                      _c("i", { staticClass: "fa fa-eye ml-1" }),
-                      _vm._v(" Show\n            ")
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link first",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.fetchArticles(_vm.pagination.first_page_url)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-angle-double-left" })]
+                      )
                     ]
                   ),
                   _vm._v(" "),
                   _c(
-                    "button",
+                    "li",
                     {
-                      staticClass: "edit-modal btn btn-warning btn-xs",
-                      attrs: {
-                        "data-id": article.id,
-                        "data-title": "",
-                        "data-content": ""
-                      }
+                      staticClass: "page-item",
+                      class: [{ disabled: !_vm.pagination.prev_page_url }]
                     },
                     [
-                      _c("i", { staticClass: "fa fa-pencil ml-1" }),
-                      _vm._v(" Edit")
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link previous round",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.fetchArticles(_vm.pagination.prev_page_url)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-angle-left" })]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "page-item disabled" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link text-dark",
+                        attrs: { href: "#" }
+                      },
+                      [
+                        _vm._v(
+                          "Page " +
+                            _vm._s(_vm.pagination.current_page) +
+                            " of " +
+                            _vm._s(_vm.pagination.last_page)
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: [{ disabled: !_vm.pagination.next_page_url }]
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link next",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.fetchArticles(_vm.pagination.next_page_url)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-angle-right" })]
+                      )
                     ]
                   ),
                   _vm._v(" "),
                   _c(
-                    "button",
+                    "li",
                     {
-                      staticClass: "btn btn-danger btn-xs",
-                      on: {
-                        click: function($event) {
-                          _vm.deleteArticle(article.id)
-                        }
-                      }
+                      staticClass: "page-item",
+                      class: [{ disabled: !_vm.pagination.next_page_url }]
                     },
                     [
-                      _c("i", { staticClass: "fa fa-trash ml-1" }),
-                      _vm._v(" Delete")
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link last",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              _vm.fetchArticles(_vm.pagination.last_page_url)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-angle-double-right" })]
+                      )
                     ]
                   )
                 ])
               ])
-            ])
-          })
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c("div", { staticStyle: { clear: "both" } }, [
-        _c("span", { staticClass: "pull-left" }, [
-          _c("p", [
-            _vm._v(
-              "Showing " +
-                _vm._s(_vm.pagination.from) +
-                " to " +
-                _vm._s(_vm.pagination.to) +
-                " of " +
-                _vm._s(_vm.pagination.total) +
-                " articles"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "pull-right" }, [
-          _c("nav", { attrs: { "aria-label": "Page navigation" } }, [
-            _c("ul", { staticClass: "pagination navbar-right" }, [
-              _c(
-                "li",
-                {
-                  staticClass: "page-item",
-                  class: [{ disabled: !_vm.pagination.prev_page_url }]
-                },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "page-link first",
-                      attrs: { href: "#" },
-                      on: {
-                        click: function($event) {
-                          _vm.fetchArticles(_vm.pagination.first_page_url)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-angle-double-left" })]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                {
-                  staticClass: "page-item",
-                  class: [{ disabled: !_vm.pagination.prev_page_url }]
-                },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "page-link previous round",
-                      attrs: { href: "#" },
-                      on: {
-                        click: function($event) {
-                          _vm.fetchArticles(_vm.pagination.prev_page_url)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "fa fa-angle-left" })]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "page-item disabled" }, [
-                _c(
-                  "a",
-                  { staticClass: "page-link text-dark", attrs: { href: "#" } },
-                  [
-                    _vm._v(
-                      "Page " +
-                        _vm._s(_vm.pagination.current_page) +
-                        " of " +
-                        _vm._s(_vm.pagination.last_page)
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "li",
-                {
-                  staticClass: "page-item",
-                  class: [{ disabled: !_vm.pagination.next_page_url }]
-                },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "page-link next",
-                      attrs: { href: "#" },
-                      on: {
-                        click: function($event) {
-                          _vm.fetchArticles(_vm.pagination.next_page_url)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "fa fa-angle-right" })]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                {
-                  staticClass: "page-item",
-                  class: [{ disabled: !_vm.pagination.next_page_url }]
-                },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "page-link last",
-                      attrs: { href: "#" },
-                      on: {
-                        click: function($event) {
-                          _vm.fetchArticles(_vm.pagination.last_page_url)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "fa fa-angle-double-right" })]
-                  )
-                ]
-              )
             ])
           ])
         ])

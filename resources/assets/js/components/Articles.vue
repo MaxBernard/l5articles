@@ -11,64 +11,77 @@
         <button type="submit" class="btn btn-primary btn-xs">Save</button>
       </form>
     </div-->
-    <h3>Articles</h3>
-    <div>
-      <table id="articleTable" class="display table-hover table-bordered">
-      <!--table id="simpleTable" class="display table-hover table-striped" width="100%"-->
-        <thead  class="blue-grey lighten-4">
-          <tr class="text-center">
-            <th class="text-center" width="5%">ID</th>
-            <th style="padding: 4px;">Title</th>
-            <th class="text-center" width="184px">
-              <button @click="newArticle()" class="add-modal btn btn-success btn-xs">
-                <i class="fa fa-plus ml-1"></i> New Article
-              </button>
-            </th>
-          </tr>
-        </thead>
-        <tbody id="tBody" v-for="article in articles" :key="article.id">
-          <tr>
-            <td class="text-center">{{ article.id }}</td>
-            <td style="padding: 4px;">{{ article.title }}</td>
-            <td style="padding: 4px; 6px;">
-              <!--button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button-->
-              <button class="show-modal btn btn-info btn-xs" 
-                :data-id = 'article.id' data-title = "" data-content = "">
-                <i class="fa fa-eye ml-1"></i> Show
-              </button>
-              <!--button @click="editArticle(article)" class="btn btn-warning btn-xs"><i class="fa fa-pencil ml-1"></i> Edit</button-->
-              <button class="edit-modal btn btn-warning btn-xs" 
-                :data-id = 'article.id' data-title = "" data-content = "">
-                <i class="fa fa-pencil ml-1"></i> Edit</button>
-               <button @click="deleteArticle(article.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash ml-1"></i> Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="col-md-12">
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <!--div class="row"-->
+            <!-- div class="col-md-6>"-->
+              Articles
+            <!--/div-->
+          <!--/div-->
+        </div>
+        <div class="panel-body">
+          <table id="articleTable" class="display table-hover table-bordered">
+          <!--table id="simpleTable" class="display table-hover table-striped" width="100%"-->
+            <thead  class="blue-grey lighten-4">
+              <tr class="text-center">
+                <th class="text-center" width="5%">ID</th>
+                <th style="padding: 4px;">Title</th>
+                <th class="text-center" width="176px">
+                  <button @click="newArticle()" class="add-modal btn btn-success btn-xs">
+                    <i class="fa fa-plus ml-1"></i> New Article
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="tBody" v-for="article in articles" :key="article.id">
+              <tr>
+                <td class="text-center">{{ article.id }}</td>
+                <td style="padding: 4px;">{{ article.title }}</td>
+                <td style="padding: 4px; 6px;">
+                  <!--button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button-->
+                  <button class="show-modal btn btn-info btn-xs" 
+                    :data-id = 'article.id' data-title = "" data-content = "">
+                    <i class="fa fa-eye ml-1"></i> Show
+                  </button>
+                  <!--button @click="editArticle(article)" class="btn btn-warning btn-xs"><i class="fa fa-pencil ml-1"></i> Edit</button-->
+                  <button class="edit-modal btn btn-warning btn-xs" 
+                    :data-id = 'article.id' data-title = "" data-content = "">
+                    <i class="fa fa-pencil ml-1"></i> Edit</button>
+                  <button @click="deleteArticle(article.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash ml-1"></i> Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel-footer">
+          <div class="d-flex flex-row bd-highlight col-md-12">
+            <div class="col-md-4 bd-highlight">
+              Showing {{pagination.from}} to {{pagination.to}} of {{pagination.total}} articles
+            </div>
 
-      <div style='clear:both'>
-        <span class="pull-left">
-        <p>Showing {{pagination.from}} to {{pagination.to}} of {{pagination.total}} articles</p>
-        </span>
-        <span class="pull-right">
-          <nav aria-label="Page navigation">
-            <ul class="pagination navbar-right">
-            <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
-                <a href="#" class="page-link first" @click="fetchArticles(pagination.first_page_url)"><i class="fas fa-angle-double-left"></i></a>
-            </li>
-            <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
-                <a href="#" class="page-link previous round" @click="fetchArticles(pagination.prev_page_url)"><i class="fa fa-angle-left"></i></a>
-            </li>
-            <li class="page-item disabled"><a href="#" class="page-link text-dark">Page {{ pagination.current_page }} of {{ pagination.last_page }}</a></li>
-            <li class="page-item" :class="[{disabled: !pagination.next_page_url}]">
-                <a href="#" class="page-link next" @click="fetchArticles(pagination.next_page_url)"><i class="fa fa-angle-right"></i></a>
-            </li>
-            <li class="page-item" :class="[{disabled: !pagination.next_page_url}]">
-                <a href="#" class="page-link last" @click="fetchArticles(pagination.last_page_url)"><i class="fa fa-angle-double-right"></i></a>
-            </li>
-            </ul>
-          </nav>
-        </span>
+            <span class="pull-right">
+              <nav aria-label="Page navigation">
+                <ul class="pagination navbar-right">
+                <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
+                    <a href="#" class="page-link first" @click="fetchArticles(pagination.first_page_url)"><i class="fa fa-angle-double-left"></i></a>
+                </li>
+                <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
+                    <a href="#" class="page-link previous round" @click="fetchArticles(pagination.prev_page_url)"><i class="fa fa-angle-left"></i></a>
+                </li>
+                <li class="page-item disabled"><a href="#" class="page-link text-dark">Page {{ pagination.current_page }} of {{ pagination.last_page }}</a></li>
+                <li class="page-item" :class="[{disabled: !pagination.next_page_url}]">
+                    <a href="#" class="page-link next" @click="fetchArticles(pagination.next_page_url)"><i class="fa fa-angle-right"></i></a>
+                </li>
+                <li class="page-item" :class="[{disabled: !pagination.next_page_url}]">
+                    <a href="#" class="page-link last" @click="fetchArticles(pagination.last_page_url)"><i class="fa fa-angle-double-right"></i></a>
+                </li>
+                </ul>
+              </nav>
+            </span>
+
+          </div>
+        </div>
       </div>
     </div>
 
@@ -318,6 +331,44 @@
 
 <style scoped>
 
+.panel-tables .col {
+  height: 40px;
+}
+
+.panel-heading {
+  height: 40px;
+  font-size: 1.2em;
+}
+
+.panel-footer {
+  height: 40px;
+  float: none;
+}
+
+.panel-footer > div {
+  display: inline-block;
+}
+
+.panel-footer > li {
+  display: inline-block;
+}
+
+.panel-table .panel-footer .pagination {
+  margin: 0;
+}
+
+.panel-table .panel-body{
+  padding: 0;
+}
+
+.panel-table .panel-body .table-bordered{
+  border-style: none;
+  margin:0;
+}
+
+.row > div {
+  display: inline-block;
+}
 table {
   width:100%;
 }
