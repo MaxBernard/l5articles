@@ -44,7 +44,7 @@
           toolbar: 'insert | undo redo |  formatselect | fontselect | fontsizeselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help',
           content_css : "/css/app.css",
           theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
-          font_size_style_values : "10px,12px,13px,14px,16px,18px,20px",
+          font_size_style_values : "10px,11px,12px,13px,14px,16px,18px,20px",
           width : "1120",
           height: "520"
       });
@@ -54,8 +54,10 @@
   <body>
     <div id="app">
       <navbar></navbar>
-      <div class="container">
-        <articles></articles>
+      <div  class="container-fluid">
+        <div class="col-md-10 col-md-offset-1">
+          <articles></articles>
+        </div>
       </div>
     </div>
   </body>

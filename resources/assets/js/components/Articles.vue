@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container-fluid">
+  <div id="app" class="container-fluid" style="width:100%">
     <!--div id="editor" class="mt-2">
       <form @submit.prevent="saveArticle" class="mb-2">
         <div class="form-group">
@@ -13,32 +13,36 @@
     </div-->
     <div class="col-md-12">
       <div class="panel panel-default panel-table">
+
+        <!-- Panel header -->
         <div class="panel-heading">
           <!--div class="row"-->
             <!-- div class="col-md-6>"-->
-              Articles
+              <h3 class="panel-title">Articles</h3>
             <!--/div-->
           <!--/div-->
         </div>
-        <div class="panel-body">
+
+        <!-- Panel body -->
+        <!--div class="panel-body"-->
           <table id="articleTable" class="display table-hover table-bordered">
-          <!--table id="simpleTable" class="display table-hover table-striped" width="100%"-->
             <thead  class="blue-grey lighten-4">
-              <tr class="text-center">
-                <th class="text-center" width="5%">ID</th>
-                <th style="padding: 4px;">Title</th>
-                <th class="text-center" width="176px">
+              <tr align="center">
+                <th width="5%">ID</th>
+                <th>Title</th>
+                <th width="188px">
                   <button @click="newArticle()" class="add-modal btn btn-success btn-xs">
                     <i class="fa fa-plus ml-1"></i> New Article
                   </button>
                 </th>
               </tr>
             </thead>
+            <!-- Table body -->
             <tbody id="tBody" v-for="article in articles" :key="article.id">
               <tr>
-                <td class="text-center">{{ article.id }}</td>
-                <td style="padding: 4px;">{{ article.title }}</td>
-                <td style="padding: 4px; 6px;">
+                <td align="center">{{ article.id }}</td>
+                <td>{{ article.title }}</td>
+                <td style="padding: 2px; 6px;">
                   <!--button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button-->
                   <button class="show-modal btn btn-info btn-xs" 
                     :data-id = 'article.id' data-title = "" data-content = "">
@@ -47,38 +51,41 @@
                   <!--button @click="editArticle(article)" class="btn btn-warning btn-xs"><i class="fa fa-pencil ml-1"></i> Edit</button-->
                   <button class="edit-modal btn btn-warning btn-xs" 
                     :data-id = 'article.id' data-title = "" data-content = "">
-                    <i class="fa fa-pencil ml-1"></i> Edit</button>
+                    <i class="fa fa-edit ml-1"></i> Edit</button>
                   <button @click="deleteArticle(article.id)" class="btn btn-danger btn-xs"><i class="fa fa-trash ml-1"></i> Delete</button>
                 </td>
               </tr>
             </tbody>
           </table>
-        </div>
+        <!--/div-->
+        <!-- Panel footer -->
         <div class="panel-footer">
-          <div class="d-flex flex-row bd-highlight col-md-12">
-            <div class="col-md-4 bd-highlight">
+          <div class="row col-md-12">
+            <div class="col col-md-4">
               Showing {{pagination.from}} to {{pagination.to}} of {{pagination.total}} articles
             </div>
-
-            <span class="pull-right">
+            <!-- Pagination -->
+            <div class="col-md-4 row pull-right">
               <nav aria-label="Page navigation">
-                <ul class="pagination navbar-right">
-                <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
-                    <a href="#" class="page-link first" @click="fetchArticles(pagination.first_page_url)"><i class="fa fa-angle-double-left"></i></a>
-                </li>
-                <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
-                    <a href="#" class="page-link previous round" @click="fetchArticles(pagination.prev_page_url)"><i class="fa fa-angle-left"></i></a>
-                </li>
-                <li class="page-item disabled"><a href="#" class="page-link text-dark">Page {{ pagination.current_page }} of {{ pagination.last_page }}</a></li>
-                <li class="page-item" :class="[{disabled: !pagination.next_page_url}]">
-                    <a href="#" class="page-link next" @click="fetchArticles(pagination.next_page_url)"><i class="fa fa-angle-right"></i></a>
-                </li>
-                <li class="page-item" :class="[{disabled: !pagination.next_page_url}]">
-                    <a href="#" class="page-link last" @click="fetchArticles(pagination.last_page_url)"><i class="fa fa-angle-double-right"></i></a>
-                </li>
+                <ul class="pagination  pagination-sm pull-right">
+                  <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
+                    <a href="#" class="page-link first" @click="fetchArticles(pagination.first_page_url)"><i class="fas fa-angle-double-left"></i></a>
+                  </li>
+                  <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
+                    <a href="#" class="page-link previous round" @click="fetchArticles(pagination.prev_page_url)"><i class="fas fa-angle-left"></i></a>
+                  </li>
+
+                  <li class="page-item disabled"><a href="#" class="page-link text-dark">Page {{ pagination.current_page }} of {{ pagination.last_page }}</a></li>
+
+                  <li class="page-item" :class="[{disabled: !pagination.next_page_url}]">
+                    <a href="#" class="page-link next" @click="fetchArticles(pagination.next_page_url)"><i class="fas fa-angle-right"></i></a>
+                  </li>
+                  <li class="page-item" :class="[{disabled: !pagination.next_page_url}]">
+                    <a href="#" class="page-link last" @click="fetchArticles(pagination.last_page_url)"><i class="fas fa-angle-double-right"></i></a>
+                  </li>
                 </ul>
               </nav>
-            </span>
+            </div>
 
           </div>
         </div>
@@ -331,18 +338,35 @@
 
 <style scoped>
 
-.panel-tables .col {
+/* Panel styling */
+
+.panel-table .col {
   height: 40px;
 }
 
 .panel-heading {
   height: 40px;
-  font-size: 1.2em;
+  // background-color: rgb(104, 194, 201);
+  background-color: grey;
+}
+
+.panel-heading .col h3 {
+ line-height: 30px;
+ height: 30px;
+}
+
+.panel-title {
+  color: white;
+  font-size: 1.5em;
 }
 
 .panel-footer {
   height: 40px;
-  float: none;
+  font-size: 1.2em;
+  color: white;
+  // background-color: rgb(104, 194, 201);
+  background-color: grey;
+  padding: 1; 
 }
 
 .panel-footer > div {
@@ -357,11 +381,7 @@
   margin: 0;
 }
 
-.panel-table .panel-body{
-  padding: 0;
-}
-
-.panel-table .panel-body .table-bordered{
+.panel-table .panel-body .table-bordered {
   border-style: none;
   margin:0;
 }
@@ -369,24 +389,29 @@
 .row > div {
   display: inline-block;
 }
+
+/* Table styling */
+
 table {
   width:100%;
 }
 
 table th {
   color: white;
-  background-color: #444488;
+  background-color: #3b3b91;
+  text-align: center;
+  padding: 4px 2px;
+  font-size: 1em;
 }
 
-table tr {
-  padding: 2px;
-  font-size:1em;
-  margin-bottom:1px;
+table td {
+  padding: 1px 2px;
 }
 
 table#t01 tr:nth-child(even) {
   background-color: #eee;
 }
+
 table#t01 tr:nth-child(odd) {
   background-color: #fff;
 }

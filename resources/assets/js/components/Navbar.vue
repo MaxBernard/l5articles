@@ -1,6 +1,6 @@
 <template>
-  <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar bg-success">
-    <div class="container flex-row">
+  <header class="navbar navbar-dark">
+    <div class="container-fluid">
       <div class="navbar-header">
         <!-- Collapsed Hamburger -->
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
@@ -15,7 +15,7 @@
       <div class="navbar-nav-scroll">
         <!--div class="collapse navbar-collapse" id="app-navbar-collapse"-->
           <!-- Left Side Of Navbar -->
-          <ul class="nav navbar-nav flex-row">
+          <ul class="nav navbar-nav">
             <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
             <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
@@ -32,3 +32,11 @@
     </div>
   </header>
 </template>
+
+<style>
+.navbar {
+  height: 32px;
+  color: white;
+  background-color: #3b3b91;}
+</style>
+
