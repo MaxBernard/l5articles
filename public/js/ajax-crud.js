@@ -57,10 +57,10 @@
               '<td>' + res.data.title +
               '<td align="center">' + 
               "<button class='show-modal btn btn-info btn-xs' data-id='" + res.data.id + "' data-title='.' data-content='.'><i class='fa fa-eye ml-1'></i> Show></button>"+
-              "<button class='edit-modal btn btn-warning btn-xs' data-id='" + res.data.id + "' data-title='.' data-content='.'><i class='fa fa-pencil ml-1'></i> Edit</button>"+
+              "<button class='edit-modal btn btn-warning btn-xs' data-id='" + res.data.id + "' data-title='.' data-content='.'><i class='fa fa-edit ml-1'></i> Edit</button>"+
               "<button class='delete-modal btn btn-danger btn-xs' data-id='" + res.data.id + "' data-title='.' data-content='.'><i class='fa fa-trash ml-1'></i> Delete</button>"+
               "</tr>";
-            $("#tBody").append(rData);
+            $("#articleTable").append(rData);
             toastr.success('Successfully added Article!', 'Success Alert', {timeOut: 5000});
           }
         },

@@ -55,7 +55,7 @@
     <div id="app">
       <navbar></navbar>
       <div  class="container-fluid">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12">
           <articles></articles>
         </div>
       </div>

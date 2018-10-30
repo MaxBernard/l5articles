@@ -12377,7 +12377,7 @@ exports = module.exports = __webpack_require__(47)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Panel styling */\n.panel-table .col[data-v-59e03618] {\n  height: 40px;\n}\n.panel-heading[data-v-59e03618] {\n  height: 40px;\n  // background-color: rgb(104, 194, 201);\n  background-color: grey;\n}\n.panel-heading .col h3[data-v-59e03618] {\n line-height: 30px;\n height: 30px;\n}\n.panel-title[data-v-59e03618] {\n  color: white;\n  font-size: 1.5em;\n}\n.panel-footer[data-v-59e03618] {\n  height: 40px;\n  font-size: 1.2em;\n  color: white;\n  // background-color: rgb(104, 194, 201);\n  background-color: grey;\n  padding: 1;\n}\n.panel-footer > div[data-v-59e03618] {\n  display: inline-block;\n}\n.panel-footer > li[data-v-59e03618] {\n  display: inline-block;\n}\n.panel-table .panel-footer .pagination[data-v-59e03618] {\n  margin: 0;\n}\n.panel-table .panel-body .table-bordered[data-v-59e03618] {\n  border-style: none;\n  margin:0;\n}\n.row > div[data-v-59e03618] {\n  display: inline-block;\n}\n\n/* Table styling */\ntable[data-v-59e03618] {\n  width:100%;\n}\ntable th[data-v-59e03618] {\n  color: white;\n  background-color: #3b3b91;\n  text-align: center;\n  padding: 4px 2px;\n  font-size: 1em;\n}\ntable td[data-v-59e03618] {\n  padding: 1px 2px;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(even) {\n  background-color: #eee;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(odd) {\n  background-color: #fff;\n}\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Panel styling */\n.panel-table .col[data-v-59e03618] {\n  height: 40px;\n}\n.panel-heading[data-v-59e03618] {\n  height: 42px;\n  line-height: 42px;\n  background-color: grey;\n}\n/*\n.panel-heading .col h3 {\n  line-height: 30px;\n  height: 30px;\n}\n*/\n.panel-title[data-v-59e03618] {\n  color: white;\n  font-size: 1.5em;\n}\n.panel-footer[data-v-59e03618] {\n  height: 42px;\n  line-height: 42px;\n  font-size: 1.2em;\n  color: white;\n  background-color: grey;\n  padding: 0;\n}\n.panel-footer > div[data-v-59e03618] {\n  display: inline-block;\n}\n.panel-footer > li[data-v-59e03618] {\n  display: inline-block;\n}\n.panel-table .panel-footer .pagination[data-v-59e03618] {\n  margin: 0;\n}\n.panel-table .panel-body .table-bordered[data-v-59e03618] {\n  border-style: none;\n  margin:0;\n}\n.row > div[data-v-59e03618] {\n  display: inline-block;\n}\n\n/* Table styling */\ntable[data-v-59e03618] {\n  width:100%;\n}\ntable th[data-v-59e03618] {\n  color: white;\n  background-color: #3b3b91;\n  text-align: center;\n  padding: 4px 2px;\n  font-size: 1em;\n}\ntable td[data-v-59e03618] {\n  padding: 1px 2px;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(even) {\n  background-color: #eee;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(odd) {\n  background-color: #fff;\n}\n\n", ""]);
 
 // exports
 
@@ -12676,7 +12676,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("th", [_vm._v("Title")]),
                   _vm._v(" "),
-                  _c("th", { attrs: { width: "188px" } }, [
+                  _c("th", { attrs: { width: "184px" } }, [
                     _c(
                       "button",
                       {
@@ -12779,11 +12779,11 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4 row pull-right" }, [
+              _c("div", { staticClass: "col-md-6 row pull-right" }, [
                 _c("nav", { attrs: { "aria-label": "Page navigation" } }, [
                   _c(
                     "ul",
-                    { staticClass: "pagination  pagination-sm pull-right" },
+                    { staticClass: "pagination  pagination-md pull-right" },
                     [
                       _c(
                         "li",
