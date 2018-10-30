@@ -11,6 +11,7 @@
     $(document).on('click', '.add-modal', function() {
       console.log('Add button clicked!');
       $('.modal-title').text('Create Article');
+      $('#a_body').val('');
       $('#addModal').modal('show');
       $('#addModal input[0]').focus();
     });

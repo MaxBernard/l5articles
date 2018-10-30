@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar navbar-dark">
+  <header class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <!-- Collapsed Hamburger -->
@@ -24,8 +24,8 @@
           <!-- Right Side Of Navbar -->
           <ul class="nav navbar-nav navbar-right">
             <!-- Authentication Links -->
-            <li><a class="nav-link" href="/login">Login</a></li>
-            <li><a class="nav-link" href="/register">Register</a></li>
+            <li><a class="nav-link glyphicon glyphicon-log-in" href="/login">Login</a></li>
+            <li><a class="nav-link glyphicon glyphicon-user" href="/register">Register</a></li>
           </ul>
         <!--/div-->
       </div>
@@ -34,9 +34,10 @@
 </template>
 
 <style>
-.navbar {
-  height: 32px;
+.header {
+  height: 40px;
   color: white;
-  background-color: #3b3b91;}
+  background-color: #cccccc;
+}
 </style>
 

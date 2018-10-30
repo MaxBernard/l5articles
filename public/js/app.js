@@ -12155,7 +12155,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("header", { staticClass: "navbar navbar-dark" }, [
+    return _c("header", { staticClass: "navbar navbar-default" }, [
       _c("div", { staticClass: "container-fluid" }, [
         _c("div", { staticClass: "navbar-header" }, [
           _c(
@@ -12218,15 +12218,23 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("ul", { staticClass: "nav navbar-nav navbar-right" }, [
             _c("li", [
-              _c("a", { staticClass: "nav-link", attrs: { href: "/login" } }, [
-                _vm._v("Login")
-              ])
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link glyphicon glyphicon-log-in",
+                  attrs: { href: "/login" }
+                },
+                [_vm._v("Login")]
+              )
             ]),
             _vm._v(" "),
             _c("li", [
               _c(
                 "a",
-                { staticClass: "nav-link", attrs: { href: "/register" } },
+                {
+                  staticClass: "nav-link glyphicon glyphicon-user",
+                  attrs: { href: "/register" }
+                },
                 [_vm._v("Register")]
               )
             ])
@@ -12377,7 +12385,7 @@ exports = module.exports = __webpack_require__(47)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Panel styling */\n.panel-table .col[data-v-59e03618] {\n  height: 40px;\n}\n.panel-heading[data-v-59e03618] {\n  height: 42px;\n  line-height: 42px;\n  background-color: grey;\n}\n/*\n.panel-heading .col h3 {\n  line-height: 30px;\n  height: 30px;\n}\n*/\n.panel-title[data-v-59e03618] {\n  color: white;\n  font-size: 1.5em;\n}\n.panel-footer[data-v-59e03618] {\n  height: 42px;\n  line-height: 42px;\n  font-size: 1.2em;\n  color: white;\n  background-color: grey;\n  padding: 0;\n}\n.panel-footer > div[data-v-59e03618] {\n  display: inline-block;\n}\n.panel-footer > li[data-v-59e03618] {\n  display: inline-block;\n}\n.panel-table .panel-footer .pagination[data-v-59e03618] {\n  margin: 0;\n}\n.panel-table .panel-body .table-bordered[data-v-59e03618] {\n  border-style: none;\n  margin:0;\n}\n.row > div[data-v-59e03618] {\n  display: inline-block;\n}\n\n/* Table styling */\ntable[data-v-59e03618] {\n  width:100%;\n}\ntable th[data-v-59e03618] {\n  color: white;\n  background-color: #3b3b91;\n  text-align: center;\n  padding: 4px 2px;\n  font-size: 1em;\n}\ntable td[data-v-59e03618] {\n  padding: 1px 2px;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(even) {\n  background-color: #eee;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(odd) {\n  background-color: #fff;\n}\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Panel styling */\n.panel-table .col[data-v-59e03618] {\n  height: 40px;\n}\n.panel-heading[data-v-59e03618] {\n  height: 40px;\n  // background-color: rgb(104, 194, 201);\n  background-color: grey;\n}\n.panel-heading .col h3[data-v-59e03618] {\n line-height: 30px;\n height: 30px;\n}\n.panel-title[data-v-59e03618] {\n  color: white;\n  font-size: 1.5em;\n}\n.panel-footer[data-v-59e03618] {\n  height: 42px;\n  line-height: 42px;\n  font-size: 1.2em;\n  color: white;\n  // background-color: rgb(104, 194, 201);\n  background-color: grey;\n  padding: 0;\n}\n.panel-footer > div[data-v-59e03618] {\n  display: inline-block;\n}\n.panel-footer > li[data-v-59e03618] {\n  display: inline-block;\n}\n.panel-table .panel-footer .pagination[data-v-59e03618] {\n  margin: 0;\n}\n.panel-table .panel-body .table-bordered[data-v-59e03618] {\n  border-style: none;\n  margin:0;\n}\n.row > div[data-v-59e03618] {\n  display: inline-block;\n}\n\n/* Table styling */\ntable[data-v-59e03618] {\n  width:100%;\n}\ntable th[data-v-59e03618] {\n  color: white;\n  background-color: #3b3b91;\n  text-align: center;\n  padding: 4px 2px;\n  font-size: 1em;\n}\ntable td[data-v-59e03618] {\n  padding: 1px 2px;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(even) {\n  background-color: #eee;\n}\ntable#t01 tr[data-v-59e03618]:nth-child(odd) {\n  background-color: #fff;\n}\n\n", ""]);
 
 // exports
 
@@ -12676,7 +12684,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("th", [_vm._v("Title")]),
                   _vm._v(" "),
-                  _c("th", { attrs: { width: "184px" } }, [
+                  _c("th", { attrs: { width: "188px" } }, [
                     _c(
                       "button",
                       {
@@ -12779,139 +12787,135 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-6 row pull-right" }, [
+              _c("div", { staticClass: "col-md-8 row pull-right" }, [
                 _c("nav", { attrs: { "aria-label": "Page navigation" } }, [
-                  _c(
-                    "ul",
-                    { staticClass: "pagination  pagination-md pull-right" },
-                    [
-                      _c(
-                        "li",
-                        {
-                          staticClass: "page-item",
-                          class: [{ disabled: !_vm.pagination.prev_page_url }]
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "page-link first",
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  _vm.fetchArticles(
-                                    _vm.pagination.first_page_url
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fas fa-angle-double-left"
-                              })
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "page-item",
-                          class: [{ disabled: !_vm.pagination.prev_page_url }]
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "page-link previous round",
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  _vm.fetchArticles(
-                                    _vm.pagination.prev_page_url
-                                  )
-                                }
-                              }
-                            },
-                            [_c("i", { staticClass: "fas fa-angle-left" })]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "page-item disabled" }, [
+                  _c("ul", { staticClass: "pagination pull-right" }, [
+                    _c(
+                      "li",
+                      {
+                        staticClass: "page-item",
+                        class: [{ disabled: !_vm.pagination.prev_page_url }]
+                      },
+                      [
                         _c(
                           "a",
                           {
-                            staticClass: "page-link text-dark",
-                            attrs: { href: "#" }
+                            staticClass: "page-link first",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                _vm.fetchArticles(_vm.pagination.first_page_url)
+                              }
+                            }
                           },
                           [
-                            _vm._v(
-                              "Page " +
-                                _vm._s(_vm.pagination.current_page) +
-                                " of " +
-                                _vm._s(_vm.pagination.last_page)
-                            )
+                            _c("i", {
+                              staticClass: "glyphicon glyphicon-fast-backward"
+                            })
                           ]
                         )
-                      ]),
-                      _vm._v(" "),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "page-item",
+                        class: [{ disabled: !_vm.pagination.prev_page_url }]
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link previous round",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                _vm.fetchArticles(_vm.pagination.prev_page_url)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "glyphicon glyphicon-step-backward"
+                            })
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "page-item disabled" }, [
                       _c(
-                        "li",
+                        "a",
                         {
-                          staticClass: "page-item",
-                          class: [{ disabled: !_vm.pagination.next_page_url }]
+                          staticClass: "page-link text-dark",
+                          attrs: { href: "#" }
                         },
                         [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "page-link next",
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  _vm.fetchArticles(
-                                    _vm.pagination.next_page_url
-                                  )
-                                }
-                              }
-                            },
-                            [_c("i", { staticClass: "fas fa-angle-right" })]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "page-item",
-                          class: [{ disabled: !_vm.pagination.next_page_url }]
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "page-link last",
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  _vm.fetchArticles(
-                                    _vm.pagination.last_page_url
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fas fa-angle-double-right"
-                              })
-                            ]
+                          _vm._v(
+                            "Page " +
+                              _vm._s(_vm.pagination.current_page) +
+                              " of " +
+                              _vm._s(_vm.pagination.last_page)
                           )
                         ]
                       )
-                    ]
-                  )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "page-item",
+                        class: [{ disabled: !_vm.pagination.next_page_url }]
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link next",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                _vm.fetchArticles(_vm.pagination.next_page_url)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "glyphicon glyphicon-step-forward"
+                            })
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "page-item",
+                        class: [{ disabled: !_vm.pagination.next_page_url }]
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link last",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                _vm.fetchArticles(_vm.pagination.last_page_url)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "glyphicon glyphicon-fast-forward"
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ])
                 ])
               ])
             ])
@@ -13401,7 +13405,7 @@ exports = module.exports = __webpack_require__(47)(false);
 
 
 // module
-exports.push([module.i, "\n.navbar {\n  height: 32px;\n  color: white;\n  background-color: #3b3b91;\n}\n", ""]);
+exports.push([module.i, "\n.header {\n  height: 40px;\n  color: white;\n  background-color: #cccccc;\n}\n", ""]);
 
 // exports
 

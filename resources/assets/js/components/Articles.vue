@@ -30,7 +30,7 @@
               <tr align="center">
                 <th width="5%">ID</th>
                 <th>Title</th>
-                <th width="184px">
+                <th width="188px">
                   <button @click="newArticle()" class="add-modal btn btn-success btn-xs">
                     <i class="fa fa-plus ml-1"></i> New Article
                   </button>
@@ -65,23 +65,23 @@
               Showing {{pagination.from}} to {{pagination.to}} of {{pagination.total}} articles
             </div>
             <!-- Pagination -->
-            <div class="col-md-6 row pull-right">
+            <div class="col-md-8 row pull-right">
               <nav aria-label="Page navigation">
-                <ul class="pagination  pagination-md pull-right">
+                <ul class="pagination pull-right">
                   <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
-                    <a href="#" class="page-link first" @click="fetchArticles(pagination.first_page_url)"><i class="fas fa-angle-double-left"></i></a>
+                    <a href="#" class="page-link first" @click="fetchArticles(pagination.first_page_url)"><i class="glyphicon glyphicon-fast-backward"></i></a>
                   </li>
                   <li class="page-item" :class="[{disabled: !pagination.prev_page_url}]">
-                    <a href="#" class="page-link previous round" @click="fetchArticles(pagination.prev_page_url)"><i class="fas fa-angle-left"></i></a>
+                    <a href="#" class="page-link previous round" @click="fetchArticles(pagination.prev_page_url)"><i class="glyphicon glyphicon-step-backward"></i></a>
                   </li>
 
                   <li class="page-item disabled"><a href="#" class="page-link text-dark">Page {{ pagination.current_page }} of {{ pagination.last_page }}</a></li>
 
                   <li class="page-item" :class="[{disabled: !pagination.next_page_url}]">
-                    <a href="#" class="page-link next" @click="fetchArticles(pagination.next_page_url)"><i class="fas fa-angle-right"></i></a>
+                    <a href="#" class="page-link next" @click="fetchArticles(pagination.next_page_url)"><i class="glyphicon glyphicon-step-forward"></i></a>
                   </li>
                   <li class="page-item" :class="[{disabled: !pagination.next_page_url}]">
-                    <a href="#" class="page-link last" @click="fetchArticles(pagination.last_page_url)"><i class="fas fa-angle-double-right"></i></a>
+                    <a href="#" class="page-link last" @click="fetchArticles(pagination.last_page_url)"><i class="glyphicon glyphicon-fast-forward"></i></a>
                   </li>
                 </ul>
               </nav>
@@ -345,16 +345,16 @@
 }
 
 .panel-heading {
-  height: 42px;
-  line-height: 42px;
+  height: 40px;
+  // background-color: rgb(104, 194, 201);
   background-color: grey;
 }
-/*
+
 .panel-heading .col h3 {
-  line-height: 30px;
-  height: 30px;
+ line-height: 30px;
+ height: 30px;
 }
-*/
+
 .panel-title {
   color: white;
   font-size: 1.5em;
@@ -365,6 +365,7 @@
   line-height: 42px;
   font-size: 1.2em;
   color: white;
+  // background-color: rgb(104, 194, 201);
   background-color: grey;
   padding: 0; 
 }
