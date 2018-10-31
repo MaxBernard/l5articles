@@ -146,10 +146,10 @@
             <form id="showArticleForm" class="form-horizontal" role="form">
               <!-- Article Title -->
               <div class="form-group">
-                <div class="col-md-12">
+                <!--div class="col-md-12">
                   <label class="control-label" for="title">Title</label>
                   <input id="s_title" type="text" name="title_show" class="form-control" data-error="Please enter title." required autofocus/>            
-                </div>
+                </div-->
               </div>
               <!-- Article Body -->
               <div class="form-group">
@@ -337,6 +337,17 @@
 </script>
 
 <style scoped>
+
+/* Modal styling */
+
+.modal-dialog{
+    overflow-y: initial !important
+}
+
+.modal-body{
+    height: 784px;
+    overflow-y: auto;
+}
 
 /* Panel styling */
 
