@@ -74,7 +74,7 @@
 
     $(document).on('click', '.show-modal', function() {
       console.log('Show button clicked!');
-      $('.modal-title').text('Show Article - '+$(this).data('id'));
+      $('.modal-title').text('Show Article - ' + $(this).data('id'));
       $('#s_id').val($(this).data('id'));
       //$('#s_title').val($(this).data('title'));
       var id = $('#s_id').val();
@@ -109,7 +109,8 @@
             //console.log('Success...');
             //console.log('Body: ', res.data.body);
             toastr.success('Successfully received article!', 'Success Alert', {timeOut: 5000});
-            $('#s_title').val(res.data.title);
+            // $('#s_title').val(res.data.title);
+            $('.modal-title').text(res.data.title);
             $('.s_body').html(res.data.body);
             $('#showModal').modal('show');
           }
