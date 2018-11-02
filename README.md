@@ -5,6 +5,6 @@ Laravel 5 + Vue.js full stack application
 
 -	Laravel 5 REST API backend
 -	Vue.js front-end user interface
--	Bootstrap modals for creadint, editing & viewing article content
+-	Bootstrap modals for creating, editing & viewing article content
 -	JQuery ajax to submit CRUD request to the backend API
 -	MySQL database for article storage
