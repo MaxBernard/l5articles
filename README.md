@@ -8,3 +8,4 @@ Laravel 5 + Vue.js full stack application
 -	Bootstrap modals for creating, editing & viewing article content
 -	JQuery ajax to submit CRUD request to the backend API
 -	MySQL database for article storage
+- Pagination
