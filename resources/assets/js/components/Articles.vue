@@ -25,7 +25,7 @@
 
         <!-- Panel body -->
         <!--div class="panel-body"-->
-          <table id="articleTable" class="display table-hover table-bordered">
+          <table id="articleTable" class="display table-hover table-bordered .table-condensed">
             <thead  class="blue-grey lighten-4">
               <tr align="center">
                 <th width="5%">ID</th>
@@ -62,7 +62,7 @@
         <div class="panel-footer">
           <div class="row col-md-12">
             <div class="col col-md-4">
-              Showing {{pagination.from}} to {{pagination.to}} of {{pagination.total}} articles
+              Showing # {{pagination.from}} - {{pagination.to}} of {{pagination.total}} articles
             </div>
             <!-- Pagination -->
             <div class="col-md-8 row pull-right">
@@ -124,8 +124,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="crud_add btn btn-success btn-xs" data-dismiss="modal"><i class="fa fa-plus ml-1"></i> Save Article</button>
             <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal">Cancel</button>
+            <button type="button" class="crud_add btn btn-success btn-xs" data-dismiss="modal"><i class="fa fa-plus ml-1"></i> Save Article</button>
           </div>
         </div>
       </div>
@@ -176,9 +176,12 @@
       <div class="modal-dialog modal-dialog-centered modal-xl modal-notify modal-success" role="document">
         <div class="modal-content">
           <!-- Modal header -->
-          <div class="modal-header">
+          <div class="modal-header container-fluid">
+            <!--div class="row"-->
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Edit this Article</h4>
+            <h4 class="modal-title">Edit Article</h4>
+            <!--button type="button" class="btn btn-warning btn-xs" data-dismiss="modal">Cancel</button>
+            </div-->
             <span id="e_id" name="article_id" type="text" hidden></span>
           </div>
           <!-- Modal body -->
@@ -204,8 +207,8 @@
           </div>
           <input type="hidden" name="_method" value="PUT"/>
           <div class="modal-footer">
-            <button type="button" class="crud_update btn btn-success btn-xs" data-dismiss="modal"><i class="fa fa-plus ml-1"></i> Update Article</button>
             <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal">Cancel</button>
+            <button type="button" class="crud_update btn btn-success btn-xs" data-dismiss="modal"><i class="fa fa-plus ml-1"></i> Update Article</button>
           </div>
         </div>
       </div>
@@ -345,7 +348,7 @@
 }
 
 .modal-body{
-    height: 784px;
+    height: 800px;
     overflow-y: auto;
 }
 

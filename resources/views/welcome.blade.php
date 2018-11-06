@@ -45,20 +45,29 @@
           content_css : "/css/app.css",
           theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
           font_size_style_values : "10px,11px,12px,13px,14px,16px,18px,20px",
-          width : "1120",
-          height: "560"
+          //width : "90%",
+          height: "536"
       });
     </script>
 
   </head>
   <body>
-    <div id="app">
-      <navbar></navbar>
-      <div  class="container-fluid">
-        <div class="col-md-12">
-          <articles></articles>
-        </div>
-      </div>
-    </div>
+
+    <noscript>
+      <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
+    <div id="app"></div>
+
+    <!--navbar></navbar-->
+      <!--div  class="container-fluid">
+        <!--div class="row">
+          <div class="col-md-12"-->
+            <articles></articles>
+          <!--/div>
+        </div-->
+      <!--/div>
+    </div-->
+
   </body>
 </html>

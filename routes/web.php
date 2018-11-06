@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
+
+Route::get('api/users/{user}', function (App\User $user) {
+  return $user->email;
+});
+
+Route::prefix('auth')->group(function () {
+  Auth::routes();
+});
+
+Route::get('/home', 'HomeController@index')->name('home');

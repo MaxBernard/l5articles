@@ -32,4 +32,11 @@ Route::post('article/{id}', 'ArticleController@update');
 // Delete article
 Route::delete('article/{id}', 'ArticleController@destroy');
 
+// Passport routes
+
+Route::post('login', 'API\PassportController@login');
+Route::post('register', 'API\PassportController@register');
+Route::group(['middleware' => 'auth:api'], function(){
+  Route::post('get-details', 'API\PassportController@getDetails');
+});
 

@@ -7,7 +7,14 @@
 
 // require('./bootstrap');
 
+import App from './App.vue';
+import { sync } from 'vuex-router-sync';
+import router from './router';
+import store from './store/index';
+
 window.Vue = require('vue');
+
+sync(store, router);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,9 +22,20 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('articles', require('./components/Articles'));
-Vue.component('navbar', require('./components/Navbar'));
+Vue.component('articles', require('./components/Articles.vue'))
+Vue.component('navbar', require('./components/Navbar'))
+Vue.component('custom-input', {
+  props: ['value'],
+  template: `
+    <input
+      v-bind:value="value"
+      v-on:input="$emit('input', $event.target.value)"
+    >
+  `
+})
 
 const app = new Vue({
-  el: '#app'
-});
+  router,
+  store,
+  render: h => h(App),
+}).$mount('#app')

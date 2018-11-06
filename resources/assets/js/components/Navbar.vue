@@ -8,30 +8,55 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Branding Image -->
-        <a class="navbar-brand" href="/">
-          L5Articles
-        </a>
+        <router-link class="navbar-brand" to="/">L5Articles</router-link>
       </div>
-      <div class="navbar-nav-scroll">
-        <!--div class="collapse navbar-collapse" id="app-navbar-collapse"-->
+      <!--div class="navbar-nav-scroll"-->
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
           <!-- Left Side Of Navbar -->
+          <ul class="nav navbar-nav"> &nbsp; </ul>
           <ul class="nav navbar-nav">
-            <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="/api/articles">Articles</a></li>
+            <li><router-link to="/home"><span class="glyphicon glyphicon-home"></span> Home</router-link></li>
+            <li><router-link to="/about">About</router-link></li>
+            <li><router-link to="/services">Services</router-link></li>
+            <li><router-link v-if="isLoggedIn" to="/api/articles">Articles</router-link></li>
           </ul>
           <!-- Right Side Of Navbar -->
-          <ul class="nav navbar-nav navbar-right">
-            <!-- Authentication Links -->
-            <li><a class="nav-link glyphicon glyphicon-log-in" href="/login">Login</a></li>
-            <li><a class="nav-link glyphicon glyphicon-user" href="/register">Register</a></li>
+          <!-- Authentication Links -->
+          <ul v-if="isLoggedIn" class="nav navbar-nav navbar-right">
+            <li><router-link to="/logout">
+              <span class="glyphicon glyphicon-log-in"></span> Logout</router-link>
+            </li>
           </ul>
-        <!--/div-->
-      </div>
+          <ul v-else class="nav navbar-nav navbar-right">  
+            <li><router-link to="/login">
+              <span class="glyphicon glyphicon-log-in"></span> Login</router-link>
+            </li>
+            <li><router-link to="/register">
+              <span class="glyphicon glyphicon-user"></span> Register</router-link>
+            </li>
+          </ul>
+        </div>
+      <!--/div-->
     </div>
   </header>
 </template>
+
+<script>
+import { mapGetters, mapActions } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters('authentication', [
+      'isLoggedIn',
+    ]),
+  },
+  methods: {
+    ...mapActions('authentication', [
+      'logout',
+    ]),
+  },
+};
+</script>
 
 <style>
 .header {

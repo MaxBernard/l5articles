@@ -159,6 +159,7 @@
             toastr.success('Successfully received Article: ' + res.data.id, 'Success Alert', {timeOut: 3000});
             $('#e_title').val(res.data.title);
             tinymce.activeEditor.setContent(res.data.body);
+            //$('.modal-title').text(res.data.title);
             $('#editModal').modal('show');
             $('#editModal input[0]').focus();
           }
