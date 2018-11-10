@@ -1,15 +1,15 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "name": "l5articles",
+    "description": "Full-stacke application",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "fideloper/proxy": "~3.3",
-        "laravel/framework": "5.5.*",
-        "laravel/passport": "~4.0",
-        "laravel/tinker": "~1.0"
+        "fideloper/proxy": "~4.0",
+        "laravel/framework": "^v5.7.12",
+        "laravel/tinker": "~1.0",
+        "tymon/jwt-auth": "^0.5.12"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -52,6 +52,8 @@
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+		"minimum-stability":"dev",
+		"prefer-stable": true
     }
 }

@@ -7,10 +7,11 @@
       <div class="panel panel-default">
         <div class="panel-heading">Dashboard</div>
         <div class="panel-body">
-          <div v-if="isLoggedIn" class="alert alert-success">
+          <div v-if="$auth.check()" class="alert alert-success">
             {{ session('status') }}
-          </div>
             You are logged in!
+			<!--router-link to="/articles">Articles</router-link-->
+          </div>
         </div>
 		<div class="panel-footer clear-fix">
 			Dashboard Footer
@@ -23,18 +24,22 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+//import { mapGetters, mapActions } from 'vuex';
 
 export default {
   computed: {
+    /*
     ...mapGetters('authentication', [
       'isLoggedIn',
     ]),
+    */
   },
   methods: {
+    /*
     ...mapActions('authentication', [
       'logout',
     ]),
+    */
   },
 };
 </script>

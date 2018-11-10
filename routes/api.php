@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 // List articles
 Route::get('articles', 'ArticleController@index');
@@ -32,6 +32,21 @@ Route::post('article/{id}', 'ArticleController@update');
 // Delete article
 Route::delete('article/{id}', 'ArticleController@destroy');
 
+// Authentication routes
+
+Route::post('auth/register', 'AuthController@register');
+Route::post('auth/login', 'AuthController@login');
+Route::get('auth/user', 'AuthController@user');
+
+Route::group(['middleware' => 'jwt.auth'], function(){
+  Route::post('auth/logout', 'AuthController@logout');
+});
+
+Route::group(['middleware' => 'jwt.refresh'], function(){
+  Route::get('auth/refresh', 'AuthController@refresh');
+});
+
+/*
 // Passport routes
 
 Route::post('login', 'API\PassportController@login');
@@ -39,4 +54,4 @@ Route::post('register', 'API\PassportController@register');
 Route::group(['middleware' => 'auth:api'], function(){
   Route::post('get-details', 'API\PassportController@getDetails');
 });
-
+*/

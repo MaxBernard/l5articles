@@ -16,17 +16,18 @@ class Article extends Resource
     {
         // return parent::toArray($request);
 
-        return [
-            'id' => $this->id,
-            'title' => $this->title,
-            'body' => $this->body
-        ];
+      return [
+        'id' => $this->id,
+        'title' => $this->title,
+        'body' => $this->body,
+		'created_at'=> $this->created_at
+      ];
     }
 
     public function with($request) {
-        return [
-            'version' => '1.0.0',
-            'author_url' => url('http://traversymedia.com')
-        ];
+      return [
+        'version' => '1.0.0',
+        'author_url' => url('http://traversymedia.com')
+      ];
     }
 }

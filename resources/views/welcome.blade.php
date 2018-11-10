@@ -57,17 +57,15 @@
       <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
 
-    <div id="app"></div>
-
     <!--navbar></navbar-->
-      <!--div  class="container-fluid">
-        <!--div class="row">
-          <div class="col-md-12"-->
-            <articles></articles>
-          <!--/div>
-        </div-->
-      <!--/div>
-    </div-->
+      <div class="container-fluid">
+        <!--div class="row"-->
+          <div class="col-md-12">
+            <div id="app"></div>
+          </div>
+        <!--/div-->
+      </div>
+    <!--/div-->
 
   </body>
 </html>

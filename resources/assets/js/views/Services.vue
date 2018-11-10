@@ -10,7 +10,7 @@
           <div v-if="isLoggedIn" class="alert alert-success">
             {{ session('status') }}
           </div>
-            This is the 'About Us' page
+            This is the <strong>Services</strong> page
         </div>
 		<div class="panel-footer clear-fix">
 			Services Footer

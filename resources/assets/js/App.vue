@@ -1,8 +1,13 @@
 <template>
-  <div>
+  <div v-if="$auth.ready() && loaded">
     <navbar></navbar>
-    <div id="app" class="container-fluid">
+    <div id="app">
       <router-view></router-view>
+    </div>
+  </div>
+  <div v-else>
+    <div style="text-align:center; padding-top:50px;">
+      Loading site...
     </div>
   </div>
 </template>
@@ -11,6 +16,32 @@
 import Navbar from './components/Navbar';
 
 export default {
+  data() {
+    return {
+      context: 'app context',
+      loaded: false
+    }
+  },
+  mounted() {
+    var _this = this;
+    // Set up $auth.ready with other arbitrary loaders (ex: language file).
+    setTimeout(function () {
+      _this.loaded = true;
+    }, 500);
+  },
+  created() {
+    var _this = this;
+    this.$auth.ready(function () {
+      console.log('ready ' + this.context);
+    });
+    // Vue.http.interceptors.push(function (req, next) {
+    //     next(function (res) {
+    //         if ( ! res.ok) {
+    //             _this.$router.push({name: 'error-502'})
+    //         }
+    //     });
+    // });
+  },
   components: {
     Navbar,
   },
@@ -18,12 +49,12 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  //text-align: center;
   color: #2c3e50;
 }
 

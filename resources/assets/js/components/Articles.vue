@@ -30,6 +30,7 @@
               <tr align="center">
                 <th width="5%">ID</th>
                 <th>Title</th>
+                <th width=100>Created</th>
                 <th width="188px">
                   <button @click="newArticle()" class="add-modal btn btn-success btn-xs">
                     <i class="fa fa-plus ml-1"></i> New Article
@@ -42,6 +43,7 @@
               <tr>
                 <td align="center">{{ article.id }}</td>
                 <td>{{ article.title }}</td>
+                <td align="center">{{ article.created_at.date.substring(0,10) }}</td>
                 <td style="padding: 2px; 6px;">
                   <!--button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button-->
                   <button class="show-modal btn btn-info btn-xs" 

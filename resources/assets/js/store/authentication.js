@@ -24,14 +24,15 @@ export default {
         password: state.registerPassword,
         password_confirmation: state.passwordConf
       })
-      .then(({ data }) => {
-        commit('setToken', data.token);
-        router.push('/articles');
+      .then( res => {
+        const token = res.data.token
+        commit('setToken', token)
+        router.push('/articles')
       })
-      .catch((error) => {
-        console.log('Error: ', error)
-        commit('setRegisterError', '');
-      });
+      .catch((err) => {
+        console.log('Error: ', err)
+        commit('setRegisterError', err)
+      })
     },
     login({ commit, state }) {
       console.log('Login: ', state.loginEmail, state.loginPassword)
@@ -40,12 +41,13 @@ export default {
         email: state.loginEmail,
         password: state.loginPassword
       })
-      .then(({ data }) => {
-        commit('setToken', data.token);
-        router.push('/articles');
+      .then( res => {
+        const token = res.data.token
+        commit('setToken', token)
+        router.push('/articles')
       })
-      .catch((error) => {
-        commit('setLoginError', error);
+      .catch((err) => {
+        commit('setLoginError', err);
       });
     },
     logout({ commit }) {
@@ -62,8 +64,8 @@ export default {
     setToken(state, token) {
       state.token = token;
     },
-    setRegisterError(state, error) {
-      state.registerError = error;
+    setRegisterError(state, err) {
+      state.registerError = err;
     },
     setRegisterName(state, name) {
       state.registerName = name;

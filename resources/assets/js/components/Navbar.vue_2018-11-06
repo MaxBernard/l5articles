@@ -15,25 +15,21 @@
         <!-- Left Side Of Navbar -->
         <ul class="nav navbar-nav"> &nbsp; </ul>
         <ul class="nav navbar-nav">
-          <li>
-            <router-link v-if="$auth.check()" to="/home">
-              <span class="glyphicon glyphicon-home"></span> Home
-            </router-link>
-          </li>
+          <li><router-link to="/home"><span class="glyphicon glyphicon-home"></span> Home</router-link></li>
           <li><router-link to="/about">About</router-link></li>
           <li><router-link to="/services">Services</router-link></li>
-          <li><router-link v-if="$auth.check()" to="/articles">Articles</router-link></li>
+          <li><router-link to="/articles">Articles</router-link></li>
         </ul>
         <!-- Right Side Of Navbar -->  <!-- Authentication Links -->
         <ul class="nav navbar-nav navbar-right">
-          <li v-if="!$auth.check()"><router-link to="/login">
+          <li><router-link v-if="isLoggedIn" @click="logout">
+            <span class="glyphicon glyphicon-log-out"></span> Logout</router-link>
+          </li>
+          <li v-if="!isLoggedIn"><router-link to="/login">
             <span class="glyphicon glyphicon-log-in"></span> Login</router-link>
           </li>
-          <li v-if="!$auth.check()"><router-link to="/register">
+          <li v-if="!isLoggedIn"><router-link to="/register">
             <span class="glyphicon glyphicon-user"></span> Register</router-link>
-          </li>
-          <li><router-link v-if="$auth.check()" @click.prevent="$auth.logout()">
-            <span class="glyphicon glyphicon-log-out"></span> Logout</router-link>
           </li>
         </ul>
       </div>
@@ -43,40 +39,23 @@
 </template>
 
 <script>
-//import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  data() {
-    return {
-      context: 'app context',
-      loaded: false
-    }
-  },
   computed: {
-    //...mapGetters('authentication', [
-    //  'isLoggedIn',
-    //]),
+    ...mapGetters('authentication', [
+      'isLoggedIn',
+    ]),
   },
   methods: {
-    //...mapActions('authentication', [
-    //  'logout',
-    //]),
-    logout() {
-      this.$auth.logout({
-        makeRequest: true,
-        success() {
-          console.log('success ' + this.context);
-        },
-        error() {
-          console.log('error ' + this.context);
-        }
-      });
-    },
+    ...mapActions('authentication', [
+      'logout',
+    ]),
   },
 };
 </script>
 
-<style scoped>
+<style>
 .header {
   height: 40px;
   color: white;
