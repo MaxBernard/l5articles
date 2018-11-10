@@ -18257,7 +18257,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         error: function error() {},
         rememberMe: true,
         redirect: '/articles',
-        fetchUser: true
+        fetchUser: false
       });
     }
   }

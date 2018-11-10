@@ -39,7 +39,7 @@ class AuthController extends Controller
 
   //=========================
   // Login
-  public function login(Request $request)
+  public function login_(Request $request)
   {
     $credentials = $request->only('email', 'password');
 
@@ -50,7 +50,7 @@ class AuthController extends Controller
     return response()->json(['error' => 'Unauthorized'], 401);
   }
   
-  public function login__(Request $request)
+  public function login(Request $request)
   {
     $credentials = $request->only('email', 'password');
     if ( ! $token = JWTAuth::attempt($credentials)) {
