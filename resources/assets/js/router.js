@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home'
+import Home from './views/Services'
 import Login from './views/Login'
 import Register from './views/Register'
 import Services from './views/Services'
 import About from './views/About'
+import Welcome from './views/Welcome'
 import Articles from './components/Articles'
 import Users from './components/pages/Users'
 import Error_404 from './components/pages/404'
@@ -19,9 +20,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
-      meta: { auth: true }
+      name: 'root',
+      component: Welcome,
+      meta: { auth: false }
     },
     {
       path: '/about',
@@ -58,7 +59,7 @@ export default new Router({
       component: Services,
     },
     {
-      path: '/users',
+      path: '/user',
       name: 'users',
       component: Users,
       meta: {auth: ['admin']}

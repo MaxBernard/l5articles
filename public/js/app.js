@@ -15983,22 +15983,23 @@ module.exports = Component.exports
 /* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Home__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Home___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__views_Home__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Services__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Services___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__views_Services__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_Login__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_Login___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__views_Login__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_Register__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_Register___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__views_Register__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_Services__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_Services___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__views_Services__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_About__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_About___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__views_About__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_About__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_About___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__views_About__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_Welcome__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_Welcome___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__views_Welcome__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Articles__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Articles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_Articles__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_pages_Users__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_pages_Users___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_pages_Users__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_pages_404__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_pages_404___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_pages_404__);
+
 
 
 
@@ -16019,17 +16020,17 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
   base: __dirname,
   routes: [{
     path: '/',
-    name: 'home',
-    component: __WEBPACK_IMPORTED_MODULE_2__views_Home___default.a,
-    meta: { auth: true }
+    name: 'root',
+    component: __WEBPACK_IMPORTED_MODULE_6__views_Welcome___default.a,
+    meta: { auth: false }
   }, {
     path: '/about',
     name: 'about',
-    component: __WEBPACK_IMPORTED_MODULE_6__views_About___default.a
+    component: __WEBPACK_IMPORTED_MODULE_5__views_About___default.a
   }, {
     path: '/home',
     name: 'home',
-    component: __WEBPACK_IMPORTED_MODULE_2__views_Home___default.a,
+    component: __WEBPACK_IMPORTED_MODULE_2__views_Services___default.a,
     meta: { auth: true }
   }, {
     path: '/articles',
@@ -16049,9 +16050,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
   }, {
     path: '/services',
     name: 'services',
-    component: __WEBPACK_IMPORTED_MODULE_5__views_Services___default.a
+    component: __WEBPACK_IMPORTED_MODULE_2__views_Services___default.a
   }, {
-    path: '/users',
+    path: '/user',
     name: 'users',
     component: __WEBPACK_IMPORTED_MODULE_8__components_pages_Users___default.a,
     meta: { auth: ['admin'] }
@@ -18053,150 +18054,9 @@ function cloneRoute (to, from) {
 
 
 /***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(56)
-/* template */
-var __vue_template__ = __webpack_require__(57)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/views/Home.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6c0a33b2", Component.options)
-  } else {
-    hotAPI.reload("data-v-6c0a33b2", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 56 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-//import { mapGetters, mapActions } from 'vuex';
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  computed: {
-    /*
-    ...mapGetters('authentication', [
-      'isLoggedIn',
-    ]),
-    */
-  },
-  methods: {
-    /*
-    ...mapActions('authentication', [
-      'logout',
-    ]),
-    */
-  }
-});
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("h2", [_vm._v("Home")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-        _c("div", { staticClass: "panel panel-default" }, [
-          _c("div", { staticClass: "panel-heading" }, [_vm._v("Dashboard")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "panel-body" }, [
-            _vm.$auth.check()
-              ? _c("div", { staticClass: "alert alert-success" }, [
-                  _vm._v(
-                    "\n            " +
-                      _vm._s(_vm.session("status")) +
-                      "\n            You are logged in!\n\t\t\t"
-                  )
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "panel-footer clear-fix" }, [
-            _vm._v("\n\t\t\tDashboard Footer\n\t\t")
-          ])
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6c0a33b2", module.exports)
-  }
-}
-
-/***/ }),
+/* 55 */,
+/* 56 */,
+/* 57 */,
 /* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21993,6 +21853,114 @@ module.exports = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(106)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/views/Welcome.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-40504942", Component.options)
+  } else {
+    hotAPI.reload("data-v-40504942", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "well text-center col-md-6 col-md-offset-3" },
+    [
+      _c("h1", [_vm._v("Welcome")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("This is the Vue.js front-end for L5Articles")]),
+      _vm._v(" "),
+      _c(
+        "p",
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-primary btn-lg",
+              attrs: { to: "/login", role: "button" }
+            },
+            [_vm._v("Login")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-success btn-lg",
+              attrs: { to: "/register", role: "button" }
+            },
+            [_vm._v("Register")]
+          )
+        ],
+        1
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-40504942", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

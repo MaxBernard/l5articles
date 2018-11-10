@@ -39,7 +39,7 @@ class AuthController extends Controller
 
   //=========================
   // Login
-  public function login_(Request $request)
+  public function login(Request $request)
   {
     $credentials = $request->only('email', 'password');
 
