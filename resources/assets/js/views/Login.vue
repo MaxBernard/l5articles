@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex';
+//import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
   data(){
@@ -107,7 +107,7 @@ export default {
     },
   },
   // mounted () {this.setLoginError, ''},
-};
+}
 </script>
 
 <style scoped>
@@ -116,6 +116,10 @@ export default {
   font-size: 1.2em;
   color: white;
   background-color: grey;
+}
+
+.panel-body {
+  padding: 2px;
 }
 
 .panel-footer {

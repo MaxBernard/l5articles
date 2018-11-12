@@ -163,8 +163,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-		//Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-		Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+		Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+		//Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
 
         /*
          * Package Service Providers...

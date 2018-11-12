@@ -22,7 +22,7 @@
           </li>
           <li><router-link to="/about">About</router-link></li>
           <li><router-link to="/services">Services</router-link></li>
-          <li><router-link v-if="$auth.check()" to="/articles">Articles</router-link></li>
+          <li v-if="$auth.check()"><router-link to="/articles">Articles</router-link></li>
         </ul>
         <!-- Right Side Of Navbar -->  <!-- Authentication Links -->
         <ul class="nav navbar-nav navbar-right">
@@ -32,8 +32,10 @@
           <li v-if="!$auth.check()"><router-link to="/register">
             <span class="glyphicon glyphicon-user"></span> Register</router-link>
           </li>
-          <li><router-link v-if="$auth.check()" @click.prevent="$auth.logout()">
-            <span class="glyphicon glyphicon-log-out"></span> Logout</router-link>
+          <li v-if="$auth.check()">
+            <a href="#" @click.prevent="logout">
+              <span class="glyphicon glyphicon-log-out"></span> Logout
+            </a>
           </li>
         </ul>
       </div>
@@ -65,10 +67,10 @@ export default {
       this.$auth.logout({
         makeRequest: true,
         success() {
-          console.log('success ' + this.context);
+          console.log('Success: ' + this.context);
         },
         error() {
-          console.log('error ' + this.context);
+          console.log('Error: ' + this.context);
         }
       });
     },

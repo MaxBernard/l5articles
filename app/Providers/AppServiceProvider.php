@@ -27,6 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
       //$this->app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
-      $this->app->register(\Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class);
+      $this->app->register(\Tymon\JWTAuth\Providers\LaravelServiceProvider::class);
     }
 }

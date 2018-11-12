@@ -17,28 +17,32 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-// List articles
-Route::get('articles', 'ArticleController@index');
+// Test
+Route::GET('test',function (Request $request) {
+  return ('<h1>Test</h1>');
+});
 
-// List single article
-Route::get('article/{id}', 'ArticleController@show');
-
-// Create new article
-Route::post('article', 'ArticleController@store');
-
-// Update article
-Route::post('article/{id}', 'ArticleController@update');
-
-// Delete article
-Route::delete('article/{id}', 'ArticleController@destroy');
+// Article (CRUD) routes
+Route::get('articles', 'ArticleController@index'); // List articles
+Route::get('article/{id}', 'ArticleController@show'); // List single article
+Route::post('article', 'ArticleController@store'); // Save new article
+Route::post('article/{id}', 'ArticleController@update'); // Update article
+Route::delete('article/{id}', 'ArticleController@destroy'); // Delete article
 
 // Authentication routes
-
+/*
+Route::group([ 'middleware' => 'api', 'prefix' => 'auth'], function ($router) {
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('user', 'AuthController@user');
+});
+*/
 Route::post('auth/register', 'AuthController@register');
 Route::post('auth/login', 'AuthController@login');
-Route::get('auth/user', 'AuthController@user');
 
 Route::group(['middleware' => 'jwt.auth'], function(){
+  Route::get('auth/user', 'AuthController@user');
   Route::post('auth/logout', 'AuthController@logout');
 });
 

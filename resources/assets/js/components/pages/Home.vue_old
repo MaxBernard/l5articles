@@ -5,16 +5,16 @@
     <h2>Home</h2>
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
-        <div class="panel-heading">Dashboard</div>
+        <div class="panel-heading">Home</div>
         <div class="panel-body">
           <div v-if="$auth.check()" class="alert alert-success">
-            {{ session('status') }}
+            <!--{{ session('status') }}-->
             You are logged in!
 			<!--router-link to="/articles">Articles</router-link-->
           </div>
         </div>
 		<div class="panel-footer clear-fix">
-			Dashboard Footer
+			Home Footer
 		</div>
       </div>
     </div>

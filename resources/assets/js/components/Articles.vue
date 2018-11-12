@@ -252,7 +252,7 @@
             this.articles = res.data;
             vm.makePagination(res.meta, res.links);
           })
-        .catch(err => console.log(err));
+        .catch(err => console.log('Error: ', err))
       },
       makePagination(meta, links) {
         let pagination = {
@@ -278,7 +278,7 @@
             alert('Article removed.');
             this.fetchArticles();
           })
-          .catch(err => console.log(err));
+          .catch(err => console.log('Error: ', err));
         }
       },
       saveArticle() {
@@ -362,7 +362,6 @@
 
 .panel-heading {
   height: 40px;
-  // background-color: rgb(104, 194, 201);
   background-color: grey;
 }
 
@@ -381,7 +380,6 @@
   line-height: 42px;
   font-size: 1.2em;
   color: white;
-  // background-color: rgb(104, 194, 201);
   background-color: grey;
   padding: 0; 
 }

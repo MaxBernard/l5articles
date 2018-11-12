@@ -29,11 +29,13 @@
     <!--script src="js/datatables.min.js"></script-->
     <!--script src="js/jquery.datatables.min.js"></script-->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/ajax-crud.js') }}" defer></script>
 	  <script src="{{ asset('js/toastr.min.js') }}"></script>
 
     <!-- TinyMCE -->
-    <script src="{{ asset('/js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <!--script>
+        tinymce.init({selector:'textarea'});
+    </script-->
     <script language="javascript" type="text/javascript">
       tinymce.init({
           mode: "specific_textareas",
@@ -50,6 +52,8 @@
       });
     </script>
 
+    <script src="{{ asset('js/ajax-crud.js') }}" defer></script>
+
   </head>
   <body>
 
@@ -57,15 +61,14 @@
       <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
 
-    <!--navbar></navbar-->
-      <div class="container-fluid">
-        <!--div class="row"-->
-          <div class="col-md-12">
-            <div id="app"></div>
-          </div>
-        <!--/div-->
-      </div>
-    <!--/div-->
+    <div class="container-fluid">
+      <!--div class="row"-->
+      <!--h1>Welcome</h1-->
+        <div class="col-md-12">
+          <div id="app"></div>
+        </div>
+      <!--/div-->
+    </div>
 
   </body>
 </html>

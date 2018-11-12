@@ -9,7 +9,7 @@
         "fideloper/proxy": "~4.0",
         "laravel/framework": "^v5.7.12",
         "laravel/tinker": "~1.0",
-        "tymon/jwt-auth": "^0.5.12"
+        "tymon/jwt-auth": "~1.0.0-rc.3"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -50,10 +50,8 @@
         ]
     },
     "config": {
-        "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true,
-		"minimum-stability":"dev",
-		"prefer-stable": true
+        "preferred-install": "dist"
     }
 }

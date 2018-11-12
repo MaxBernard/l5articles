@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Services'
+import Dashboard from './components/pages/Dashboard'
+import Home from './components/pages/Home'
 import Login from './views/Login'
 import Register from './views/Register'
-import Services from './views/Services'
-import About from './views/About'
-import Welcome from './views/Welcome'
+import Services from './components/pages/Services'
+import About from './components/pages/About'
+import Welcome from './components/pages/Welcome'
 import Articles from './components/Articles'
 import Users from './components/pages/Users'
 import Error_404 from './components/pages/404'
@@ -30,16 +31,21 @@ export default new Router({
       component: About,
     },
     {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
+      meta: { auth: true }
+    },
+    {
       path: '/home',
       name: 'home',
       component: Home,
-      meta: { auth: true }
     },
     {
       path: '/articles',
       name: 'articles',
       component: Articles,
-      meta: { auth: false }
+      meta: { auth: true }
     },
     {
       path: '/login',

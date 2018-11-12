@@ -43,11 +43,10 @@ class AuthController extends Controller
   {
     $credentials = $request->only('email', 'password');
 
-    if ($token = $this->guard()->attempt($credentials)) {
-      return $this->respondWithToken($token);
+    if (!$token = $this->guard()->attempt($credentials)) {
+      return response()->json(['error' => 'Unauthorized'], 401);
     }
-
-    return response()->json(['error' => 'Unauthorized'], 401);
+    return $this->respondWithToken($token);
   }
   
   public function login(Request $request)
@@ -69,7 +68,8 @@ class AuthController extends Controller
 
   public function logout()
   {
-    $this->guard()->logout();
+    //$this->guard()->logout();
+	auth()->logout();
     return response()->json(['message' => 'Successfully logged out']);
   }
 
@@ -101,12 +101,33 @@ class AuthController extends Controller
 
   //=========================
   // Refresh
-  public function refresh()
+  public function refresh_()
   {
-    return $this->respondWithToken($this->guard()->refresh());
+    return $this->respondWithToken(auth()->refresh());
+
+    //return $this->respondWithToken($this->guard()->refresh());
     //return response([
     //  'status' => 'success'
     //]);
+  }
+
+  public function refresh()
+  {
+    return response()->json([
+      "status" => "success",
+      "code" => 200
+    ]);
+    
+    $current_token  = JWTAuth::getToken();
+    $token          = JWTAuth::refresh($current_token);
+
+    return response()->json([
+        "status" => "success",
+        "code" => 200,
+        'data' =>
+            compact('token'),
+        'messages' => ['Token refreshed!'],
+    ]);
   }
 
     /**
