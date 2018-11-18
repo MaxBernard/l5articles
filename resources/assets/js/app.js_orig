@@ -14,8 +14,7 @@ import VueAxios from 'vue-axios'
 import VueAuth from '@websanova/vue-auth'
 import Vuex from 'vuex'
 import { sync } from 'vuex-router-sync'
-import Editor from '@tinymce/tinymce-vue'
-//import tinymce from 'vue-tinymce'
+//import Editor from '@tinymce/tinymce-vue'
 import App from './App'
 import router from './router'
 import store from './store/index'
@@ -53,8 +52,6 @@ Vue.use(VueAuth, {
   router: require('@websanova/vue-auth/drivers/router/vue-router.2.x.js')
 })
 
-//Vue.use( CKEditor )
-
 /*
 const app = new Vue({
   router,
@@ -68,9 +65,6 @@ new Vue({
   el: '#app',
   router,
   store,
-  //components: {
-  //  'editor': Editor // <- Important part
-  //},  
   render: h => h(App)
 });
 

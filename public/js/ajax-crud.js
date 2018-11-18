@@ -8,6 +8,24 @@
     }
   });
 
+  //===================================
+
+  
+  /*
+  tinymce.init({
+    mode: "specific_textareas",
+    editor_selector: "mceEditor",
+    plugins: ['advlist autolink lists link image charmap print preview anchor textcolor', 
+    'searchreplace visualblocks code fullscreen emoticons spellchecker',
+    'insertdatetime media table contextmenu paste code help wordcount'],
+    toolbar: 'insert | undo redo |  formatselect | fontselect | fontsizeselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help',
+    content_css : "/css/app.css",
+    theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+    font_size_style_values : "10px,11px,12px,13px,14px,16px,18px,20px",
+    //width : "90%",
+    height: "536"
+  });
+*/
   //=================================
   //== Add a new article
 
@@ -19,7 +37,7 @@
     $('#addModal input[0]').focus();
   });
 
-  $('#addModal').on('click', '.crud_add', function(e) {
+  $(document).on('click', '.crud_add', function(e) {
     // console.log('Save button clicked!');
     e.preventDefault();
     $('#a_body').val(tinymce.activeEditor.getContent());
@@ -172,12 +190,13 @@
   // When 'Update' is clicked we send the edit data to the server
   // and also use it to update the row
 
-  $('#editModal').on('click', '.crud_update', function(e) {
+  $(document).on('click', '.crud_update', function(e) {
     console.log('Update button clicked!');
     e.preventDefault();
     var id = $('#e_id').val();
     $('#e_body').val(tinymce.activeEditor.getContent());
     //-- Send edited data to the server to update the post
+    console.log('Sending Ajax POST request.');
     $.ajax({
       url: 'api/article/' + id,
       method: 'POST',
@@ -187,8 +206,8 @@
       processData: false,
       contentType: false,
       success: function(res) {
-        // console.log('Back from Ajax POST request');
-        // console.log(res.responseJSON.message);
+        console.log('Back from Ajax POST request');
+        console.log(res.responseJSON.message);
         $('.errorTitle').addClass('hidden');
         $('.errorContent').addClass('hidden');
 

@@ -102,7 +102,7 @@ export default {
         },
         rememberMe: true,
         redirect: '/articles',
-        fetchUser: false,
+        fetchUser: true,
       })
     },
   },

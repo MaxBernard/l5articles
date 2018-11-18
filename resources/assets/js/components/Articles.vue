@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="container-fluid" style="width:100%">
+
     <!--div id="editor" class="mt-2">
       <form @submit.prevent="saveArticle" class="mb-2">
         <div class="form-group">
@@ -118,7 +119,13 @@
               <div class="form-group">
                 <div class="col-md-12">
                   <label class="control-label" for="body">Body</label>
-                  <textarea id="a_body" name="body" rows="15" cols="100" class="form-control mceEditor"></textarea>
+                  <textarea id="a_body" style="display:none" name="body" rows="15" cols="100" class="form-control mceEditor"></textarea>
+                  <!--textarea id="editor" name="content" rows="15" cols="100" class="form-control" placeholder="Content">
+                    <p>This is some sample content.</p>
+                  </textarea-->
+                  <!--ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor-->
+                  <!--tinymce id="terms" v-model="editor" :content='content' :options='options' @change="changed"></tinymce-->
+                  <editor> :init='initOptions' </editor>
                   <p class="errorContent text-center alert alert-danger hidden"></p>
                   <div class="help-block with-errors"></div>
                 </div>
@@ -200,7 +207,8 @@
               <div class="form-group">
                 <div class="col-md-12">
                   <label class="control-label" for="body">Body</label>
-                  <textarea id="e_body" name="body" rows="20" cols="100" class="form-control mceEditor"></textarea>
+                  <textarea id="e_body" style="display:none" name="body" rows="20" cols="100" class="form-control mceEditor"></textarea>
+                  <editor> init="{height: '536'}"</editor>
                   <p class="errorContent text-center alert alert-danger hidden"></p>
                   <div class="help-block with-errors"></div>
                 </div>
@@ -220,14 +228,61 @@
 </template>
 
 <script>
+
   //$(document).ready( function () {
   //    var table = $('#articleTable').DataTable({
   //    });
   //});
 
+  //import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+  //import CKEditor from '@ckeditor/ckeditor5-vue'
+
+  import Editor from '@tinymce/tinymce-vue'
+  
   export default {
+
+    //components: {
+      // Use the <ckeditor> component in this view.
+    //  ckeditor: CKEditor.component
+    //},
+  
+    components: {
+      'editor': Editor // <- Important part
+    },
+
     data() {
+
       return {
+
+        //editor: 'Text to bind',
+        content: '',
+        initOptions: {
+        plugins: ['advlist autolink lists link image charmap print preview anchor textcolor', 
+        'searchreplace visualblocks code fullscreen emoticons spellchecker',
+        'insertdatetime media table contextmenu paste code help wordcount'],
+        toolbar: 'insert | undo redo |  formatselect | fontselect | fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help',
+        },
+
+/*
+        editor: ClassicEditor,
+        editorData: '<p>Content of the editor.</p>',
+        editorConfig: {
+          height: 300,
+          toolbar: [ 'undo', 'redo', '|', 'heading', 'paragraph','bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+          alignment: {
+            options: [ 'left', 'right', 'center', 'justify' ]
+          },
+          heading: {
+            options: [
+              { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+              { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+              { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+              { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+              { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' }
+            ]
+          }          
+        },
+*/
         articles: [],
         article: {
           id: '',
@@ -243,6 +298,7 @@
       this.fetchArticles();
     },
     methods: {
+      changed (editor, content) {},
       fetchArticles(page_url) {
         let vm = this;
         page_url = page_url || '/api/articles';
@@ -343,15 +399,19 @@
 
 <style scoped>
 
+.ck-editor__editable {
+  min-height: 400px !important;
+}
+
 /* Modal styling */
 
 .modal-dialog{
-    overflow-y: initial !important
+  overflow-y: initial !important
 }
 
 .modal-body{
-    height: 800px;
-    overflow-y: auto;
+  height: 800px;
+  overflow-y: auto;
 }
 
 /* Panel styling */

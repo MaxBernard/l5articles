@@ -31,6 +31,9 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 	  <script src="{{ asset('js/toastr.min.js') }}"></script>
 
+    <!--script src="../../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+    <script src="../../node_modules/@ckeditor/ckeditor5-vue/dist/ckeditor.js"></script-->
+
     <!-- TinyMCE -->
     <script src="{{ asset('js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
     <!--script>
@@ -69,6 +72,6 @@
         </div>
       <!--/div-->
     </div>
-
+    <!--script src="{{ mix('js/app.js') }}"></script-->
   </body>
 </html>
