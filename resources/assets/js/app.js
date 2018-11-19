@@ -68,9 +68,6 @@ new Vue({
   el: '#app',
   router,
   store,
-  //components: {
-  //  'editor': Editor // <- Important part
-  //},  
   render: h => h(App)
 });
 

@@ -125,7 +125,7 @@
                   </textarea-->
                   <!--ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor-->
                   <!--tinymce id="terms" v-model="editor" :content='content' :options='options' @change="changed"></tinymce-->
-                  <editor> :init='initOptions' </editor>
+                  <editor :init="init" :plugins="plugins" :toolbar="toolbar"></editor>
                   <p class="errorContent text-center alert alert-danger hidden"></p>
                   <div class="help-block with-errors"></div>
                 </div>
@@ -208,7 +208,9 @@
                 <div class="col-md-12">
                   <label class="control-label" for="body">Body</label>
                   <textarea id="e_body" style="display:none" name="body" rows="20" cols="100" class="form-control mceEditor"></textarea>
-                  <editor> init="{height: '536'}"</editor>
+                  <!--editor> :init="{toolbar: ['insert | undo redo | formatselect | fontselect | fontsizeselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help']}"</editor-->
+                  <editor :init="init" :plugins="plugins" :toolbar="toolbar"></editor>
+                  <!--editor toolbar="undo redo"></editor-->
                   <p class="errorContent text-center alert alert-danger hidden"></p>
                   <div class="help-block with-errors"></div>
                 </div>
@@ -256,12 +258,18 @@
 
         //editor: 'Text to bind',
         content: '',
-        initOptions: {
-        plugins: ['advlist autolink lists link image charmap print preview anchor textcolor', 
-        'searchreplace visualblocks code fullscreen emoticons spellchecker',
-        'insertdatetime media table contextmenu paste code help wordcount'],
-        toolbar: 'insert | undo redo |  formatselect | fontselect | fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help',
+        init: {
+          'height':   536,
+          'menubar':  true,
+          'statusbar':true,
+          'content_css': '/css/app.css',
+          'theme_advanced_font_sizes': '10px,12px,13px,14px,16px,18px,20px',
+          'font_size_style_values' : '10px,12px,13px,14px,16px,18px,20px',
         },
+        plugins: ['advlist autolink lists link image charmap print preview anchor textcolor hr pagebreak nonbreaking directionality template paste', 
+          'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
+        toolbar: ['insert | undo redo | styleselect formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | removeformat | emoticons | help']
+        ,
 
 /*
         editor: ClassicEditor,
@@ -297,8 +305,25 @@
     created() {
       this.fetchArticles();
     },
+/*
+    ready() {
+      tinymce.init({
+        mode: "specific_textareas",
+        editor_selector: "mceEditor",
+        plugins: ['advlist autolink lists link image charmap print preview anchor textcolor', 
+        'searchreplace visualblocks code fullscreen emoticons spellchecker',
+        'insertdatetime media table contextmenu paste code help wordcount'],
+        toolbar: 'insert | undo redo |  formatselect | fontselect | fontsizeselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help',
+        content_css : "/css/app.css",
+        theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+        font_size_style_values : "10px,11px,12px,13px,14px,16px,18px,20px",
+        //width : "90%",
+        height: "536"
+      });
+    },
+*/
     methods: {
-      changed (editor, content) {},
+      //changed (editor, content) {},
       fetchArticles(page_url) {
         let vm = this;
         page_url = page_url || '/api/articles';

@@ -16319,9 +16319,6 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#app',
   router: __WEBPACK_IMPORTED_MODULE_9__router__["a" /* default */],
   store: __WEBPACK_IMPORTED_MODULE_10__store_index__["a" /* default */],
-  //components: {
-  //  'editor': Editor // <- Important part
-  //},  
   render: function render(h) {
     return h(__WEBPACK_IMPORTED_MODULE_8__App___default.a);
   }
@@ -20727,6 +20724,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 //$(document).ready( function () {
@@ -20756,10 +20755,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       //editor: 'Text to bind',
       content: '',
-      initOptions: {
-        plugins: ['advlist autolink lists link image charmap print preview anchor textcolor', 'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
-        toolbar: 'insert | undo redo |  formatselect | fontselect | fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help'
+      init: {
+        'height': 536,
+        'menubar': true,
+        'statusbar': true,
+        'content_css': '/css/app.css',
+        'theme_advanced_font_sizes': '10px,12px,13px,14px,16px,18px,20px',
+        'font_size_style_values': '10px,12px,13px,14px,16px,18px,20px'
       },
+      plugins: ['advlist autolink lists link image charmap print preview anchor textcolor hr pagebreak nonbreaking directionality template paste', 'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
+      toolbar: ['insert | undo redo | styleselect formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | removeformat | emoticons | help'],
 
       /*
               editor: ClassicEditor,
@@ -20796,8 +20801,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     this.fetchArticles();
   },
 
+  /*
+      ready() {
+        tinymce.init({
+          mode: "specific_textareas",
+          editor_selector: "mceEditor",
+          plugins: ['advlist autolink lists link image charmap print preview anchor textcolor', 
+          'searchreplace visualblocks code fullscreen emoticons spellchecker',
+          'insertdatetime media table contextmenu paste code help wordcount'],
+          toolbar: 'insert | undo redo |  formatselect | fontselect | fontsizeselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help',
+          content_css : "/css/app.css",
+          theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+          font_size_style_values : "10px,11px,12px,13px,14px,16px,18px,20px",
+          //width : "90%",
+          height: "536"
+        });
+      },
+  */
   methods: {
-    changed: function changed(editor, content) {},
+    //changed (editor, content) {},
     fetchArticles: function fetchArticles(page_url) {
       var _this = this;
 
@@ -21236,7 +21258,13 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _c("editor", [_vm._v(" :init='initOptions' ")]),
+                            _c("editor", {
+                              attrs: {
+                                init: _vm.init,
+                                plugins: _vm.plugins,
+                                toolbar: _vm.toolbar
+                              }
+                            }),
                             _vm._v(" "),
                             _c("p", {
                               staticClass:
@@ -21314,7 +21342,13 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _c("editor", [_vm._v(" init=\"{height: '536'}\"")]),
+                            _c("editor", {
+                              attrs: {
+                                init: _vm.init,
+                                plugins: _vm.plugins,
+                                toolbar: _vm.toolbar
+                              }
+                            }),
                             _vm._v(" "),
                             _c("p", {
                               staticClass:
