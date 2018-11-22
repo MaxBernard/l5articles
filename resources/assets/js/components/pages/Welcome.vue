@@ -1,5 +1,5 @@
 <template>
-  <div class="well text-center col-md-6 col-md-offset-3">
+  <div class="well text-center col-md-4 col-md-offset-4">
     <h1>Welcome</h1>
     <p>This is the Vue.js front-end for L5Articles</p>
     <p>

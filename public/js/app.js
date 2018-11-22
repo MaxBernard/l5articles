@@ -19292,7 +19292,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.panel-heading[data-v-33212926] {\n  height: 42px;\n  font-size: 1.2em;\n  color: white;\n  background-color: grey;\n}\n.panel-body[data-v-33212926] {\n  padding: 2px;\n}\n.panel-footer[data-v-33212926] {\n  height: 42px;\n  font-size: 1.5em;\n  color: white;\n  background-color: grey;\n}\n.help-block[data-v-33212926] {\n  color: white;\n  background-color: brown;\n}", ""]);
+exports.push([module.i, "\n.button-container[data-v-33212926] {\n  width: 100%;\n  margin-bottom: 10px;\n}\n.input-container[data-v-33212926] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  margin-bottom: 10px;\n}\n.icon[data-v-33212926] {\n  padding: 10px;\n  background: grey;\n  color: white;\n  min-width: 50px;\n  text-align: center;\n}\n.input-field[data-v-33212926] {\n  width: 100%;\n  padding: 10px;\n  outline: none;\n}\n.input-field[data-v-33212926]:focus {\n  border: 2px solid dodgerblue;\n}\n.imgcontainer[data-v-33212926] {\n  text-align: center;\n  margin: 12px 0 12px 0;\n}\n\n/* Avatar image */\nimg.avatar[data-v-33212926] {\n  width: 40%;\n  border-radius: 50%;\n}\nspan.psw[data-v-33212926] {\n  float: right;\n  padding-top: 16px;\n}\ninput[type=text][data-v-33212926], input[type=password][data-v-33212926] {\n  width: 100%;\n  padding: 12px 20px;\n  margin: 8px 0;\n  display: inline-block;\n  border: 1px solid #ccc;\n  /*box-sizing: border-box;*/\n}\nbuttons[data-v-33212926] {\n  background-color: #4CAF50;\n  color: white;\n  padding: 14px 20px;\n  margin: 8px 0;\n  border: none;\n  cursor: pointer;\n  /*width: 100%;*/\n}\nbutton[data-v-33212926]:hover {\n  opacity: 0.8;\n}\n.cancelbtn[data-v-33212926] {\n  width: auto;\n  padding: 10px 18px;\n  background-color: #f44336;\n}\n.panel-heading[data-v-33212926] {\n  height: 42px;\n  font-size: 1.2em;\n  color: white;\n  background-color: grey;\n}\n.panel-body[data-v-33212926] {\n  padding: 2px;\n}\n.panel-footer[data-v-33212926] {\n  height: 42px;\n  font-size: 1.5em;\n  color: white;\n  background-color: grey;\n}\n.help-block[data-v-33212926] {\n  color: white;\n  background-color: brown;\n}", ""]);
 
 // exports
 
@@ -19303,6 +19303,20 @@ exports.push([module.i, "\n.panel-heading[data-v-33212926] {\n  height: 42px;\n 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -19422,110 +19436,90 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6 col-md-offset-3" }, [
-        _c("div", { staticClass: "panel panel-default" }, [
-          _c("div", { staticClass: "panel-heading" }, [_vm._v("Login")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "panel-body" }, [
-            _vm.error
-              ? _c("div", { staticClass: "alert alert-danger" }, [
-                  _c("p", [
-                    _vm._v("Error: Unable to sign in with those credentials.")
-                  ])
+    _c("div", { staticClass: "col-md-4 col-md-offset-4" }, [
+      _c("div", { staticClass: "panel panel-default" }, [
+        _c("div", { staticClass: "panel-heading" }, [_vm._v("Login")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "panel-body" }, [
+          _vm.error
+            ? _c("div", { staticClass: "alert alert-danger" }, [
+                _c("p", [
+                  _vm._v("Error: Unable to sign in with those credentials.")
                 ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "form",
-              {
-                attrs: { autocomplete: "off", method: "post" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.login($event)
-                  }
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              attrs: { autocomplete: "off", method: "post" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.login($event)
                 }
-              },
-              [
-                _c("div", { staticClass: "form-group" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "col-md-4 control-label",
-                      attrs: { for: "email" }
-                    },
-                    [_vm._v("Email")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-md-6" },
-                    [
-                      _c("custom-input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "email",
-                          id: "email",
-                          name: "email",
-                          placeholder: "new.user@example.com",
-                          autocomplete: "username",
-                          required: ""
+              }
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "container col-md-12" }, [
+                _c(
+                  "div",
+                  { staticClass: "input-container" },
+                  [
+                    _c("custom-input", {
+                      staticClass: "form-control input-field",
+                      attrs: {
+                        type: "email",
+                        id: "email",
+                        name: "email",
+                        placeholder: "Email",
+                        autocomplete: "username",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.email,
+                        callback: function($$v) {
+                          _vm.email = $$v
                         },
-                        model: {
-                          value: _vm.email,
-                          callback: function($$v) {
-                            _vm.email = $$v
-                          },
-                          expression: "email"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ]),
+                        expression: "email"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "col-md-4 control-label",
-                      attrs: { for: "password" }
-                    },
-                    [_vm._v("Password")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-md-6" },
-                    [
-                      _c("custom-input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "password",
-                          id: "password",
-                          name: "password",
-                          placeholder: "Password",
-                          autocomplete: "new-password",
-                          required: ""
+                _c(
+                  "div",
+                  { staticClass: "input-container" },
+                  [
+                    _c("custom-input", {
+                      staticClass: "form-control input-field",
+                      attrs: {
+                        type: "password",
+                        id: "password",
+                        name: "password",
+                        placeholder: "Password",
+                        autocomplete: "new-password",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.password,
+                        callback: function($$v) {
+                          _vm.password = $$v
                         },
-                        model: {
-                          value: _vm.password,
-                          callback: function($$v) {
-                            _vm.password = $$v
-                          },
-                          expression: "password"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ]),
+                        expression: "password"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _vm._m(0)
-              ]
-            )
-          ])
+                _vm._m(1)
+              ])
+            ]
+          )
         ])
       ])
     ])
@@ -19536,17 +19530,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "col-md-6 col-md-offset-4" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [
-            _c("span", { staticClass: "glyphicon glyphicon-log-in" }),
-            _vm._v(" Login\n                ")
-          ]
-        )
-      ])
+    return _c("div", { staticClass: "imgcontainer" }, [
+      _c("img", {
+        staticClass: "avatar",
+        staticStyle: { width: "20%" },
+        attrs: { src: "/img/avatar_02.png", alt: "Avatar" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "button-container" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-success", attrs: { type: "submit" } },
+        [_vm._v("Login")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-warning pull-right",
+          attrs: { type: "button" }
+        },
+        [_vm._v("Cancel")]
+      )
     ])
   }
 ]
@@ -19645,7 +19655,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.panel-heading[data-v-8376d414] {\n  height: 42px;\n  font-size: 1.2em;\n  color: white;\n  background-color: grey;\n}\n.panel-footer[data-v-8376d414] {\n  height: 42px;\n  font-size: 1.5em;\n  color: white;\n  background-color: grey;\n}\n.help-block[data-v-8376d414] {\n  color: white;\n  background-color: brown;\n}\n", ""]);
+exports.push([module.i, "\n.button-container[data-v-8376d414] {\n  width: 100%;\n  margin-bottom: 10px;\n}\n.input-container[data-v-8376d414] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  margin-bottom: 10px;\n}\n.input-field[data-v-8376d414] {\n  width: 100%;\n  padding: 10px;\n  outline: none;\n}\n.input-field[data-v-8376d414]:focus {\n  border: 2px solid dodgerblue;\n}\n.panel-heading[data-v-8376d414] {\n  height: 42px;\n  font-size: 1.2em;\n  color: white;\n  background-color: grey;\n}\n.panel-footer[data-v-8376d414] {\n  height: 42px;\n  font-size: 1.5em;\n  color: white;\n  background-color: grey;\n}\n.help-block[data-v-8376d414] {\n  color: white;\n  background-color: brown;\n}\n", ""]);
 
 // exports
 
@@ -19657,6 +19667,9 @@ exports.push([module.i, "\n.panel-heading[data-v-8376d414] {\n  height: 42px;\n 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(2);
+//
+//
+//
 //
 //
 //
@@ -19813,7 +19826,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6 col-md-offset-3" }, [
+      _c("div", { staticClass: "col-md-4 col-md-offset-4" }, [
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-heading" }, [_vm._v("Register")]),
           _vm._v(" "),
@@ -19856,174 +19869,122 @@ var render = function() {
                     }
                   },
                   [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "form-group",
-                        class: { "has-error": _vm.error && _vm.errors.name }
-                      },
-                      [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-4 control-label",
-                            attrs: { for: "name" }
-                          },
-                          [_vm._v("Name")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-md-6" },
-                          [
-                            _c("custom-input", {
-                              staticClass: "form-control",
-                              attrs: {
-                                id: "name",
-                                name: "name",
-                                placeholder: "John Doe",
-                                autocomplete: "",
-                                required: "",
-                                autofocus: ""
-                              },
-                              model: {
-                                value: _vm.name,
-                                callback: function($$v) {
-                                  _vm.name = $$v
-                                },
-                                expression: "name"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _vm.error && _vm.errors.name
-                          ? _c("span", { staticClass: "help-block" }, [
-                              _vm._v(_vm._s(_vm.errors.name))
-                            ])
-                          : _vm._e()
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "form-group",
-                        class: { "has-error": _vm.error && _vm.errors.email }
-                      },
-                      [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-4 control-label",
-                            attrs: { for: "email" }
-                          },
-                          [_vm._v("E-Mail")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-md-6" },
-                          [
-                            _c("custom-input", {
-                              staticClass: "form-control",
-                              attrs: {
-                                id: "email",
-                                name: "email",
-                                placeholder: "new.user@example.com",
-                                required: ""
-                              },
-                              model: {
-                                value: _vm.email,
-                                callback: function($$v) {
-                                  _vm.email = $$v
-                                },
-                                expression: "email"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _vm.error && _vm.errors.email
-                          ? _c("span", { staticClass: "help-block" }, [
-                              _vm._v(_vm._s(_vm.errors.email))
-                            ])
-                          : _vm._e()
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "form-group",
-                        class: { "has-error": _vm.error && _vm.errors.password }
-                      },
-                      [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-4 control-label",
-                            attrs: { for: "password" }
-                          },
-                          [_vm._v("Password")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-md-6" },
-                          [
-                            _c("custom-input", {
-                              staticClass: "form-control",
-                              attrs: {
-                                id: "password",
-                                name: "password",
-                                type: "password",
-                                placeholder: "Password",
-                                required: ""
-                              },
-                              model: {
-                                value: _vm.password,
-                                callback: function($$v) {
-                                  _vm.password = $$v
-                                },
-                                expression: "password"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _vm.error && _vm.errors.password
-                          ? _c("span", { staticClass: "help-block" }, [
-                              _vm._v(_vm._s(_vm.errors.password))
-                            ])
-                          : _vm._e()
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
+                    _c("div", { staticClass: "container col-md-12" }, [
                       _c(
-                        "label",
+                        "div",
                         {
-                          staticClass: "col-md-4 control-label",
-                          attrs: { for: "password-confirm" }
+                          staticClass: "input-container",
+                          class: { "has-error": _vm.error && _vm.errors.name }
                         },
-                        [_vm._v("Confirm Password")]
+                        [
+                          _c("custom-input", {
+                            staticClass: "form-control input-field",
+                            attrs: {
+                              id: "name",
+                              name: "name",
+                              placeholder: "Name",
+                              autocomplete: "",
+                              required: "",
+                              autofocus: ""
+                            },
+                            model: {
+                              value: _vm.name,
+                              callback: function($$v) {
+                                _vm.name = $$v
+                              },
+                              expression: "name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error && _vm.errors.name
+                            ? _c("span", { staticClass: "help-block" }, [
+                                _vm._v(_vm._s(_vm.errors.name))
+                              ])
+                            : _vm._e()
+                        ],
+                        1
                       ),
                       _vm._v(" "),
                       _c(
                         "div",
-                        { staticClass: "col-md-6" },
+                        {
+                          staticClass: "input-container",
+                          class: { "has-error": _vm.error && _vm.errors.email }
+                        },
                         [
                           _c("custom-input", {
-                            staticClass: "form-control",
+                            staticClass: "form-control input-field",
+                            attrs: {
+                              id: "email",
+                              name: "email",
+                              placeholder: "Email",
+                              required: ""
+                            },
+                            model: {
+                              value: _vm.email,
+                              callback: function($$v) {
+                                _vm.email = $$v
+                              },
+                              expression: "email"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error && _vm.errors.email
+                            ? _c("span", { staticClass: "help-block" }, [
+                                _vm._v(_vm._s(_vm.errors.email))
+                              ])
+                            : _vm._e()
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "input-container",
+                          class: {
+                            "has-error": _vm.error && _vm.errors.password
+                          }
+                        },
+                        [
+                          _c("custom-input", {
+                            staticClass: "form-control input-field",
+                            attrs: {
+                              id: "password",
+                              name: "password",
+                              type: "password",
+                              placeholder: "Password",
+                              required: ""
+                            },
+                            model: {
+                              value: _vm.password,
+                              callback: function($$v) {
+                                _vm.password = $$v
+                              },
+                              expression: "password"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.error && _vm.errors.password
+                            ? _c("span", { staticClass: "help-block" }, [
+                                _vm._v(_vm._s(_vm.errors.password))
+                              ])
+                            : _vm._e()
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "input-container" },
+                        [
+                          _c("custom-input", {
+                            staticClass: "form-control input-field",
                             attrs: {
                               id: "password-confirm",
                               name: "password_confirmation",
                               type: "password",
-                              placeholder: "Password Conf",
+                              placeholder: "Confirm Password",
                               required: ""
                             },
                             model: {
@@ -20036,10 +19997,10 @@ var render = function() {
                           })
                         ],
                         1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(0)
+                      ),
+                      _vm._v(" "),
+                      _vm._m(0)
+                    ])
                   ]
                 )
               : _vm._e()
@@ -20061,7 +20022,7 @@ var staticRenderFns = [
           { staticClass: "btn btn-primary", attrs: { type: "submit" } },
           [
             _c("span", { staticClass: "glyphicon glyphicon-user" }),
-            _vm._v(" Register\n                ")
+            _vm._v(" Register\n                  ")
           ]
         )
       ])
@@ -20406,7 +20367,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "well text-center col-md-6 col-md-offset-3" },
+    { staticClass: "well text-center col-md-4 col-md-offset-4" },
     [
       _c("h1", [_vm._v("Welcome")]),
       _vm._v(" "),
@@ -20715,36 +20676,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-
-//$(document).ready( function () {
-//    var table = $('#articleTable').DataTable({
-//    });
-//});
-
-//import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
-//import CKEditor from '@ckeditor/ckeditor5-vue'
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-
-  //components: {
-  // Use the <ckeditor> component in this view.
-  //  ckeditor: CKEditor.component
-  //},
-
   components: {
     'editor': __WEBPACK_IMPORTED_MODULE_0__tinymce_tinymce_vue__["a" /* default */] // <- Important part
   },
@@ -20757,35 +20693,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       content: '',
       init: {
         'height': 536,
-        'menubar': true,
+        'menubar': false,
         'statusbar': true,
         'content_css': '/css/app.css',
+        'theme': 'modern',
         'theme_advanced_font_sizes': '10px,12px,13px,14px,16px,18px,20px',
         'font_size_style_values': '10px,12px,13px,14px,16px,18px,20px'
       },
       plugins: ['advlist autolink lists link image charmap print preview anchor textcolor hr pagebreak nonbreaking directionality template paste', 'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
-      toolbar: ['insert | undo redo | styleselect formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | removeformat | emoticons | help'],
+      toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | removeformat | emoticons | help'],
 
-      /*
-              editor: ClassicEditor,
-              editorData: '<p>Content of the editor.</p>',
-              editorConfig: {
-                height: 300,
-                toolbar: [ 'undo', 'redo', '|', 'heading', 'paragraph','bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
-                alignment: {
-                  options: [ 'left', 'right', 'center', 'justify' ]
-                },
-                heading: {
-                  options: [
-                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-                    { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-                    { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' }
-                  ]
-                }          
-              },
-      */
       articles: [],
       article: {
         id: '',
@@ -20801,23 +20718,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     this.fetchArticles();
   },
 
-  /*
-      ready() {
-        tinymce.init({
-          mode: "specific_textareas",
-          editor_selector: "mceEditor",
-          plugins: ['advlist autolink lists link image charmap print preview anchor textcolor', 
-          'searchreplace visualblocks code fullscreen emoticons spellchecker',
-          'insertdatetime media table contextmenu paste code help wordcount'],
-          toolbar: 'insert | undo redo |  formatselect | fontselect | fontsizeselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help',
-          content_css : "/css/app.css",
-          theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
-          font_size_style_values : "10px,11px,12px,13px,14px,16px,18px,20px",
-          //width : "90%",
-          height: "536"
-        });
-      },
-  */
   methods: {
     //changed (editor, content) {},
     fetchArticles: function fetchArticles(page_url) {

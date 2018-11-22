@@ -1,17 +1,6 @@
 <template>
   <div id="app" class="container-fluid" style="width:100%">
 
-    <!--div id="editor" class="mt-2">
-      <form @submit.prevent="saveArticle" class="mb-2">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Title" v-model="article.title">
-        </div>
-        <div class="form-group">
-          <textarea class="form-control" rows="4" cols="100" placeholder="Body" v-model="article.body"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-xs">Save</button>
-      </form>
-    </div-->
     <div class="col-md-12">
       <div class="panel panel-default panel-table">
 
@@ -231,23 +220,9 @@
 
 <script>
 
-  //$(document).ready( function () {
-  //    var table = $('#articleTable').DataTable({
-  //    });
-  //});
-
-  //import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
-  //import CKEditor from '@ckeditor/ckeditor5-vue'
-
   import Editor from '@tinymce/tinymce-vue'
   
   export default {
-
-    //components: {
-      // Use the <ckeditor> component in this view.
-    //  ckeditor: CKEditor.component
-    //},
-  
     components: {
       'editor': Editor // <- Important part
     },
@@ -260,37 +235,17 @@
         content: '',
         init: {
           'height':   536,
-          'menubar':  true,
+          'menubar':  false,
           'statusbar':true,
           'content_css': '/css/app.css',
+          'theme': 'modern',
           'theme_advanced_font_sizes': '10px,12px,13px,14px,16px,18px,20px',
           'font_size_style_values' : '10px,12px,13px,14px,16px,18px,20px',
         },
         plugins: ['advlist autolink lists link image charmap print preview anchor textcolor hr pagebreak nonbreaking directionality template paste', 
           'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
-        toolbar: ['insert | undo redo | styleselect formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | removeformat | emoticons | help']
+        toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | removeformat | emoticons | help']
         ,
-
-/*
-        editor: ClassicEditor,
-        editorData: '<p>Content of the editor.</p>',
-        editorConfig: {
-          height: 300,
-          toolbar: [ 'undo', 'redo', '|', 'heading', 'paragraph','bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
-          alignment: {
-            options: [ 'left', 'right', 'center', 'justify' ]
-          },
-          heading: {
-            options: [
-              { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-              { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-              { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-              { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-              { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' }
-            ]
-          }          
-        },
-*/
         articles: [],
         article: {
           id: '',
@@ -305,23 +260,6 @@
     created() {
       this.fetchArticles();
     },
-/*
-    ready() {
-      tinymce.init({
-        mode: "specific_textareas",
-        editor_selector: "mceEditor",
-        plugins: ['advlist autolink lists link image charmap print preview anchor textcolor', 
-        'searchreplace visualblocks code fullscreen emoticons spellchecker',
-        'insertdatetime media table contextmenu paste code help wordcount'],
-        toolbar: 'insert | undo redo |  formatselect | fontselect | fontsizeselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | emoticons | help',
-        content_css : "/css/app.css",
-        theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
-        font_size_style_values : "10px,11px,12px,13px,14px,16px,18px,20px",
-        //width : "90%",
-        height: "536"
-      });
-    },
-*/
     methods: {
       //changed (editor, content) {},
       fetchArticles(page_url) {
