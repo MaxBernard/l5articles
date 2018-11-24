@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="row">
+  <div class="container-fluid">
+    <!--div class="row"-->
       <div class="col-md-4 col-md-offset-4">
         <div class="panel panel-default">
           <div class="panel-heading">Register</div>
@@ -15,55 +15,44 @@
 
             <form autocomplete="off" @submit.prevent="register" v-if="!success" method="post">
 
-              <div class="container col-md-12">
+              <!--div class="container col-md-12"-->
 
                 <div class="input-container" v-bind:class="{ 'has-error': error && errors.name }">
-                  <!--label for="name" class="col-md-4 control-label">Name</label>
-                  <div class="col-md-6"-->
-                    <custom-input id="name" name="name" class="form-control input-field" 
-                      v-model="name" placeholder="Name" autocomplete="" required autofocus>
-                    </custom-input>
-                  <!--/div-->
+                  <label for="name" class="control-label sr-only">Name</label>
+                  <custom-input id="name" name="name" class="form-control input-field" 
+                    v-model="name" placeholder="Name" autocomplete="" required autofocus>
+                  </custom-input>
                   <span class="help-block" v-if="error && errors.name">{{ errors.name }}</span>
                 </div>
 
                 <div class="input-container" v-bind:class="{ 'has-error': error && errors.email }">
-                  <!--label for="email" class="col-md-4 control-label">E-Mail</label>
-                  <div class="col-md-6"-->
-                    <custom-input id="email" name="email" class="form-control input-field" 
-                      v-model="email" placeholder="Email" required>
-                    </custom-input>
-                  <!--/div-->
+                  <label for="email" class="control-label sr-only">Email</label>
+                  <custom-input id="email" name="email" class="form-control input-field" 
+                    v-model="email" placeholder="Email" required>
+                  </custom-input>
                   <span class="help-block" v-if="error && errors.email">{{ errors.email }}</span>
                 </div>
 
                 <div class="input-container" v-bind:class="{ 'has-error': error && errors.password }">
-                  <!--label for="password" class="col-md-4 control-label">Password</label>
-                  <div class="col-md-6"-->
-                    <custom-input id="password" name="password" type="password" class="form-control input-field" 
-                      v-model="password" placeholder="Password" required>
-                    </custom-input>
-                  <!--/div-->
+                  <label for="password" class="control-label sr-only"> Password</label>
+                  <custom-input id="password" name="password" type="password" class="form-control input-field" 
+                    v-model="password" placeholder="Password" required>
+                  </custom-input>
                   <span class="help-block" v-if="error && errors.password">{{ errors.password }}</span>
                 </div>
 
                 <div class="input-container">
-                  <!--label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-                  <div class="col-md-6"-->
-                    <custom-input id="password-confirm" name="password_confirmation" type="password" class="form-control input-field" 
-                      v-model="password_c" placeholder="Confirm Password" required>
-                    </custom-input>
-                  <!--/div-->
+                  <label for="password-confirm" class="control-label sr-only">Confirm Password</label>
+                  <custom-input id="password-confirm" name="password_confirmation" type="password" class="form-control input-field" 
+                    v-model="password_c" placeholder="Confirm Password" required>
+                  </custom-input>
                 </div>
 
-                <div class="form-group">
-                  <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                      <span class="glyphicon glyphicon-user"></span> Register
-                    </button>
-                  </div>
+                <div class="button-container">
+                  <router-link to="/login" class="text-center">Have an account? Login</router-link>
+                  <button type="submit" class="btn btn-success pull-right"><span class="glyphicon glyphicon-user"></span> Register</button>
                 </div>
-              </div>
+              <!--/div-->
             </form>
           </div>
           <!--div class="panel-footer clearfix">
@@ -76,7 +65,7 @@
           </div-->
         </div>
       </div>
-    </div>
+    <!--/div-->
   </div>
 </template>
 

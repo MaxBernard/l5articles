@@ -10,52 +10,56 @@
               <p>Error: Unable to sign in with those credentials.</p>
             </div>
 
-  <form autocomplete="off" @submit.prevent="login" method="post">
-    <div class="imgcontainer">
-      <img style="width:20%" src="/img/avatar_02.png" alt="Avatar" class="avatar">
-    </div>
+            <form autocomplete="off" @submit.prevent="login" method="post">
+              <div class="imgcontainer">
+                <img style="width:20%" src="/img/avatar_02.png" alt="Avatar" class="avatar">
+              </div>
 
-    <div class="container col-md-12">
+              <div class="container col-md-12">
 
-      <div class="input-container">
-        <!--label for="email" class="col-md-2 control-label">Email</label-->
-        <!--i class="fa fa-envelope icon"></i-->
-        <!--div class="col-md-10"-->
-          <custom-input type="email" id="email" name="email" class="form-control input-field" 
-            v-model="email" placeholder="Email" autocomplete="username" required>
-          </custom-input>
-        <!--/div-->
-      </div>
+                <div class="form-group">
+                  <!--label for="email" class="col-md-2 control-label">Email</label-->
+                  <!--i class="fa fa-envelope icon"></i-->
+                  <!--div class="col-md-10"-->
+                  <label for="email"><span class="glyphicon glyphicon-user"></span> Username</label>
+                    <custom-input type="email" id="email" name="email" class="form-control input-field" 
+                      v-model="email" placeholder="Email" autocomplete="username" required>
+                    </custom-input>
+                  <!--/div-->
+                </div>
 
-      <div class="input-container">
-        <!--label for="password" class="col-md-2 control-label">Pass</label-->
-        <!--i class="fa fa-key icon"></i-->
-        <!--div class="col-md-10"-->
-          <custom-input type="password" id="password" name="password" class="form-control input-field" 
-            v-model="password" placeholder="Password" autocomplete="new-password" required>
-          </custom-input>
-        <!--/div-->
-      </div>
+                <div class="form-group">
+                  <!--label for="password" class="col-md-2 control-label">Pass</label-->
+                  <!--i class="fa fa-key icon"></i-->
+                  <!--div class="col-md-10"-->
+                  <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                    <custom-input id="password" name="password" type="password" class="form-control input-field" 
+                      v-model="password" placeholder="Password" required>
+                    </custom-input>
+                  <!--/div-->
+                </div>
 
-      <div class="button-container">
-        <button type="submit" class="btn btn-success">Login</button>
-        <button type="button" class="btn btn-warning pull-right">Cancel</button>
-      </div>
-    </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-warning">Cancel</button>
+                  <router-link to="/register" class="text-center">No account? Register</router-link>
+                  <button type="submit" class="btn btn-success pull-right"><span class="glyphicon glyphicon-user"></span> Login</button>
+                </div>
 
-    <!--div class="flex-sb-m w-full p-b-30">
-      <div class="contact100-form-checkbox">
-        <input class="input-checkbox100" type="checkbox" checked="checked" id="ckb1" name="remember"> Remember me
-        <label class="label-checkbox100" for="ckb1">
-      </div>
+              </div>
 
-      <div>
-        <a href="#" class="txt1">
-          Forgot Password?
-        </a>
-      </div>
-    </div-->
-  </form>
+              <!--div class="flex-sb-m w-full p-b-30">
+                <div class="contact100-form-checkbox">
+                  <input class="input-checkbox100" type="checkbox" checked="checked" id="ckb1" name="remember"> Remember me
+                  <label class="label-checkbox100" for="ckb1">
+                </div>
+
+                <div>
+                  <a href="#" class="txt1">
+                    Forgot Password?
+                  </a>
+                </div>
+              </div-->
+            </form>
 
           </div>
           <!--div class="panel-footer clearfix">

@@ -232,10 +232,11 @@
       return {
 
         //editor: 'Text to bind',
+        //toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | removeformat | emoticons | help']
         content: '',
         init: {
           'height':   536,
-          'menubar':  false,
+          'menubar':  true,
           'statusbar':true,
           'content_css': '/css/app.css',
           'theme': 'modern',
@@ -244,7 +245,7 @@
         },
         plugins: ['advlist autolink lists link image charmap print preview anchor textcolor hr pagebreak nonbreaking directionality template paste', 
           'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
-        toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | removeformat | emoticons | help']
+        toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | emoticons | help']
         ,
         articles: [],
         article: {
