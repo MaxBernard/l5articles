@@ -20,6 +20,8 @@
               <tr align="center">
                 <th width="5%">ID</th>
                 <th>Title</th>
+                <th>Category</th>
+                <th>Tag</th>
                 <th width=100>Created</th>
                 <th width="188px">
                   <button @click="newArticle()" class="add-modal btn btn-success btn-xs">
@@ -33,6 +35,8 @@
               <tr>
                 <td align="center">{{ article.id }}</td>
                 <td>{{ article.title }}</td>
+                <td align="center">{{ article.category }}</td>
+                <td align="center">{{ article.tag }}</td>
                 <td align="center">{{ article.created_at.date.substring(0,10) }}</td>
                 <td style="padding: 2px; 6px;">
                   <!--button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button-->
@@ -96,24 +100,31 @@
           </div>
           <!-- Modal body -->
           <div class="modal-body container-fluid">
-            <form id="addArticleForm" class="form-horizontal addArticle" role="form">
+            <form id="addArticleForm" class="form-horizontal addArticle" role="form" enctype="multipart/form-data">
               <!-- Article Title -->
               <div class="form-group">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <label class="control-label" for="title">Title</label>
-                  <input id="a_title" type="text" name="title" class="form-control" data-error="Please enter title." required autofocus/>            
+                  <input id="a_title" type="text" name="title" class="form-control" data-error="Please enter title" required autofocus/>            
+                </div>
+                <div class="col-sm-3">
+                  <label class="control-label" for="category">Category</label>
+                  <select class="form-control" id="a_category" name="category">
+                    <option v-for="category in categories" :key="category.id">{{ category }}</option>
+                  </select>
+                </div>
+                <div class="col-sm-3">
+                  <label class="control-label" for="tag">Tag</label>
+                  <select class="form-control" id="a_tag" name="tag">
+                    <option v-for="tag in tags" :key="tag.id">{{ tag }}</option>
+                  </select>
                 </div>
               </div>
               <!-- Article Body -->
               <div class="form-group">
                 <div class="col-md-12">
                   <label class="control-label" for="body">Body</label>
-                  <textarea id="a_body" style="display:none" name="body" rows="15" cols="100" class="form-control mceEditor"></textarea>
-                  <!--textarea id="editor" name="content" rows="15" cols="100" class="form-control" placeholder="Content">
-                    <p>This is some sample content.</p>
-                  </textarea-->
-                  <!--ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor-->
-                  <!--tinymce id="terms" v-model="editor" :content='content' :options='options' @change="changed"></tinymce-->
+                  <textarea id="a_body" style="display:none" name="body" rows="15" cols="100" class="form-control"></textarea>
                   <editor :init="init" :plugins="plugins" :toolbar="toolbar"></editor>
                   <p class="errorContent text-center alert alert-danger hidden"></p>
                   <div class="help-block with-errors"></div>
@@ -247,14 +258,24 @@
           'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
         toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | emoticons | help']
         ,
-        articles: [],
         article: {
           id: '',
+          user_id: '1',
+          month: '11',
+          year: '2018',
+          category: '',
+          tag: '',
+          is_public: true,
           title: '',
           body: ''
         },
         article_id: '',
         pagination: {},
+        articles: [],
+        categories: {},
+        tags: {},
+        PostYear: '',
+        PostMonth: '',
         edit: false
       }
     },
@@ -264,13 +285,17 @@
     methods: {
       //changed (editor, content) {},
       fetchArticles(page_url) {
-        let vm = this;
+        let vm = this
         page_url = page_url || '/api/articles';
         fetch(page_url)
           .then(res => res.json())
           .then(res => {
-            this.articles = res.data;
-            vm.makePagination(res.meta, res.links);
+            vm.articles   = res.data
+            this.PostMonth  = res.PostMonth
+            this.PostYear   = res.PostYear
+            this.categories = res.categories
+            this.tags       = res.tags
+            vm.makePagination(res.meta, res.links)
           })
         .catch(err => console.log('Error: ', err))
       },

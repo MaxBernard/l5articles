@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Http\Resources\Json\PaginatedResourceResponse;
 
 class Article extends Resource
 {
@@ -18,16 +19,21 @@ class Article extends Resource
 
       return [
         'id' => $this->id,
+        'user_id' => $this->user_id,
+        'year' => $this->year,
+        'month' => $this->month,
+        'category' => $this->category,
+        'tag' => $this->tag,
         'title' => $this->title,
         'body' => $this->body,
-		'created_at'=> $this->created_at
+		    'created_at'=> $this->created_at
       ];
     }
 
     public function with($request) {
       return [
-        'version' => '1.0.0',
-        'author_url' => url('http://traversymedia.com')
+        'version' => '1.0.2',
+        'author_url' => url('http://purotracker.com')
       ];
     }
 }

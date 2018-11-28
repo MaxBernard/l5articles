@@ -15,7 +15,6 @@ import VueAuth from '@websanova/vue-auth'
 import Vuex from 'vuex'
 import { sync } from 'vuex-router-sync'
 import Editor from '@tinymce/tinymce-vue'
-//import tinymce from 'vue-tinymce'
 import App from './App'
 import router from './router'
 import store from './store/index'
@@ -30,8 +29,8 @@ sync(store, router)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('articles', require('./components/Articles.vue'))
-Vue.component('navbar', require('./components/Navbar'))
+//Vue.component('articles', require('./components/Articles.vue'))
+//Vue.component('navbar', require('./components/Navbar'))
 Vue.component('custom-input', {
   props: ['value'],
   template: `

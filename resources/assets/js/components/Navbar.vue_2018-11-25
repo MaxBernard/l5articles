@@ -33,9 +33,7 @@
             <span class="glyphicon glyphicon-user"></span> Register</router-link>
           </li>
           <li v-if="$auth.check()">
-            <span class="navbar-text">{{$auth.user().email}}</span>
-          </li>
-          <li v-if="$auth.check()">
+		    <span class="navbar-text">AuthUser</span>
             <a href="#" @click.prevent="logout">
               <span class="glyphicon glyphicon-log-out"></span> Logout
             </a>
@@ -69,15 +67,13 @@ export default {
     logout() {
       this.$auth.logout({
         makeRequest: true,
-        data: {},
         success() {
-          console.log('Success: ' + this.context)
+          console.log('Success: ' + this.context);
         },
         error() {
-          console.log('Error: ' + this.context)
-        },
-        redirect: { name: 'welcome' }
-      })
+          console.log('Error: ' + this.context);
+        }
+      });
     },
   },
 };

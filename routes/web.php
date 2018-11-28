@@ -19,6 +19,7 @@ Route::get('/home', function () {
   return view('welcome');
 });
 
+
 //Route::get('api/users/{user}', function (App\User $user) {
 //  return $user->email;
 //});

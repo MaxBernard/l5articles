@@ -13,36 +13,44 @@
               <p>Registration completed. You can now <router-link :to="{name:'login'}">sign in.</router-link></p>
             </div>
 
-            <form autocomplete="off" @submit.prevent="register" v-if="!success" method="post">
+            <form autocomplete="off" @submit.prevent="register" method="post">
 
               <!--div class="container col-md-12"-->
 
-                <div class="input-container" v-bind:class="{ 'has-error': error && errors.name }">
+              <div class="imgcontainer">
+                <img style="width:20%" src="/img/avatar_02.png" alt="Avatar" class="avatar">
+              </div>
+
+                <div class="input-group" v-bind:class="{ 'has-error': error && errors.name }">
                   <label for="name" class="control-label sr-only">Name</label>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                   <custom-input id="name" name="name" class="form-control input-field" 
                     v-model="name" placeholder="Name" autocomplete="" required autofocus>
                   </custom-input>
                   <span class="help-block" v-if="error && errors.name">{{ errors.name }}</span>
                 </div>
 
-                <div class="input-container" v-bind:class="{ 'has-error': error && errors.email }">
+                <div class="input-group" v-bind:class="{ 'has-error': error && errors.email }">
                   <label for="email" class="control-label sr-only">Email</label>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                   <custom-input id="email" name="email" class="form-control input-field" 
                     v-model="email" placeholder="Email" required>
                   </custom-input>
                   <span class="help-block" v-if="error && errors.email">{{ errors.email }}</span>
                 </div>
 
-                <div class="input-container" v-bind:class="{ 'has-error': error && errors.password }">
+                <div class="input-group" v-bind:class="{ 'has-error': error && errors.password }">
                   <label for="password" class="control-label sr-only"> Password</label>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                   <custom-input id="password" name="password" type="password" class="form-control input-field" 
                     v-model="password" placeholder="Password" required>
                   </custom-input>
                   <span class="help-block" v-if="error && errors.password">{{ errors.password }}</span>
                 </div>
 
-                <div class="input-container">
+                <div class="input-group">
                   <label for="password-confirm" class="control-label sr-only">Confirm Password</label>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                   <custom-input id="password-confirm" name="password_confirmation" type="password" class="form-control input-field" 
                     v-model="password_c" placeholder="Confirm Password" required>
                   </custom-input>
@@ -127,8 +135,10 @@ export default {
           app.error = true
           app.errors = resp.response.data.errors
         },
-        redirect: null
-      });
+        autoLogin: true,
+        rememberMe: true,
+        redirect: {name: 'home'}
+      })
     }
   },
   // mounted () {this.setRegisterError, ''},
@@ -137,6 +147,18 @@ export default {
 </script>
 
 <style scoped>
+
+/* Avatar image */
+
+.imgcontainer {
+  text-align: center;
+  margin: 12px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
 
 .button-container {
   width: 100%;
@@ -147,6 +169,10 @@ export default {
   display: flex;
   width: 100%;
   margin-bottom: 10px;
+}
+
+.input-group {
+  margin-bottom: 5px;
 }
 
 .input-field {

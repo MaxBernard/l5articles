@@ -38,8 +38,10 @@ Route::group([ 'middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('user', 'AuthController@user');
 });
 */
-Route::post('auth/register', 'AuthController@register');
+
+// ==========================
 Route::post('auth/login', 'AuthController@login');
+Route::post('auth/register', 'AuthController@register');
 
 Route::group(['middleware' => 'jwt.auth'], function(){
   Route::get('auth/user', 'AuthController@user');

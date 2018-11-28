@@ -61,14 +61,15 @@
       <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
 
-    <div class="container-fluid">
+    <!--div class="container-fluid"-->
       <!--div class="row"-->
-      <!--h1>Welcome</h1-->
-        <div class="col-md-12">
+        <!--h1>Welcome</h1-->
+        <!--div class="col-md-12"-->
           <div id="app"></div>
-        </div>
+        <!--/div-->
       <!--/div-->
-    </div>
+    <!--/div-->
     <!--script src="{{ mix('js/app.js') }}"></script-->
+
   </body>
 </html>

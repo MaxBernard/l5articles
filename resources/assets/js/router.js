@@ -21,7 +21,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'root',
+      name: 'welcome',
       component: Welcome,
       meta: { auth: false }
     },

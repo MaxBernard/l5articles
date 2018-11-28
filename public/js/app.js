@@ -16088,7 +16088,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
   base: __dirname,
   routes: [{
     path: '/',
-    name: 'root',
+    name: 'welcome',
     component: __WEBPACK_IMPORTED_MODULE_8__components_pages_Welcome___default.a,
     meta: { auth: false }
   }, {
@@ -16268,7 +16268,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-//import tinymce from 'vue-tinymce'
 
 
 
@@ -16283,8 +16282,8 @@ Object(__WEBPACK_IMPORTED_MODULE_6_vuex_router_sync__["sync"])(__WEBPACK_IMPORTE
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('articles', __webpack_require__(19));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navbar', __webpack_require__(17));
+//Vue.component('articles', require('./components/Articles.vue'))
+//Vue.component('navbar', require('./components/Navbar'))
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('custom-input', {
   props: ['value'],
   template: '\n    <input v-bind:value="value" v-on:input="$emit(\'input\', $event.target.value)">\n  '
@@ -18765,6 +18764,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 //import { mapGetters, mapActions } from 'vuex';
 
@@ -18788,12 +18790,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     logout: function logout() {
       this.$auth.logout({
         makeRequest: true,
+        data: {},
         success: function success() {
           console.log('Success: ' + this.context);
         },
         error: function error() {
           console.log('Error: ' + this.context);
-        }
+        },
+
+        redirect: { name: 'welcome' }
       });
     }
   }
@@ -18807,7 +18812,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", { staticClass: "navbar navbar-default" }, [
+  return _c("nav", { staticClass: "navbar navbar-default" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _c(
         "div",
@@ -18905,6 +18910,14 @@ var render = function() {
                   ],
                   1
                 )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.$auth.check()
+              ? _c("li", [
+                  _c("span", { staticClass: "navbar-text" }, [
+                    _vm._v(_vm._s(_vm.$auth.user().email))
+                  ])
+                ])
               : _vm._e(),
             _vm._v(" "),
             _vm.$auth.check()
@@ -19697,7 +19710,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.button-container[data-v-8376d414] {\n  width: 100%;\n  margin-bottom: 10px;\n}\n.input-container[data-v-8376d414] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  margin-bottom: 10px;\n}\n.input-field[data-v-8376d414] {\n  width: 100%;\n  padding: 10px;\n  outline: none;\n}\n.input-field[data-v-8376d414]:focus {\n  border: 2px solid dodgerblue;\n}\n.panel-heading[data-v-8376d414] {\n  height: 42px;\n  font-size: 1.2em;\n  color: white;\n  background-color: grey;\n}\n.panel-footer[data-v-8376d414] {\n  height: 42px;\n  font-size: 1.5em;\n  color: white;\n  background-color: grey;\n}\n.help-block[data-v-8376d414] {\n  color: white;\n  background-color: brown;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Avatar image */\n.imgcontainer[data-v-8376d414] {\n  text-align: center;\n  margin: 12px 0 12px 0;\n}\nimg.avatar[data-v-8376d414] {\n  width: 40%;\n  border-radius: 50%;\n}\n.button-container[data-v-8376d414] {\n  width: 100%;\n  margin-bottom: 10px;\n}\n.input-container[data-v-8376d414] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  margin-bottom: 10px;\n}\n.input-group[data-v-8376d414] {\n  margin-bottom: 5px;\n}\n.input-field[data-v-8376d414] {\n  width: 100%;\n  padding: 10px;\n  outline: none;\n}\n.input-field[data-v-8376d414]:focus {\n  border: 2px solid dodgerblue;\n}\n.panel-heading[data-v-8376d414] {\n  height: 42px;\n  font-size: 1.2em;\n  color: white;\n  background-color: grey;\n}\n.panel-footer[data-v-8376d414] {\n  height: 42px;\n  font-size: 1.5em;\n  color: white;\n  background-color: grey;\n}\n.help-block[data-v-8376d414] {\n  color: white;\n  background-color: brown;\n}\n", ""]);
 
 // exports
 
@@ -19709,6 +19722,14 @@ exports.push([module.i, "\n.button-container[data-v-8376d414] {\n  width: 100%;\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -19839,7 +19860,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           app.error = true;
           app.errors = resp.response.data.errors;
         },
-        redirect: null
+        autoLogin: true,
+        rememberMe: true,
+        redirect: { name: 'home' }
       });
     }
   }
@@ -19884,205 +19907,257 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          !_vm.success
-            ? _c(
-                "form",
+          _c(
+            "form",
+            {
+              attrs: { autocomplete: "off", method: "post" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.register($event)
+                }
+              }
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
                 {
-                  attrs: { autocomplete: "off", method: "post" },
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.register($event)
-                    }
-                  }
+                  staticClass: "input-group",
+                  class: { "has-error": _vm.error && _vm.errors.name }
                 },
                 [
                   _c(
-                    "div",
+                    "label",
                     {
-                      staticClass: "input-container",
-                      class: { "has-error": _vm.error && _vm.errors.name }
+                      staticClass: "control-label sr-only",
+                      attrs: { for: "name" }
                     },
-                    [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "control-label sr-only",
-                          attrs: { for: "name" }
-                        },
-                        [_vm._v("Name")]
-                      ),
-                      _vm._v(" "),
-                      _c("custom-input", {
-                        staticClass: "form-control input-field",
-                        attrs: {
-                          id: "name",
-                          name: "name",
-                          placeholder: "Name",
-                          autocomplete: "",
-                          required: "",
-                          autofocus: ""
-                        },
-                        model: {
-                          value: _vm.name,
-                          callback: function($$v) {
-                            _vm.name = $$v
-                          },
-                          expression: "name"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm.error && _vm.errors.name
-                        ? _c("span", { staticClass: "help-block" }, [
-                            _vm._v(_vm._s(_vm.errors.name))
-                          ])
-                        : _vm._e()
-                    ],
-                    1
+                    [_vm._v("Name")]
                   ),
                   _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("custom-input", {
+                    staticClass: "form-control input-field",
+                    attrs: {
+                      id: "name",
+                      name: "name",
+                      placeholder: "Name",
+                      autocomplete: "",
+                      required: "",
+                      autofocus: ""
+                    },
+                    model: {
+                      value: _vm.name,
+                      callback: function($$v) {
+                        _vm.name = $$v
+                      },
+                      expression: "name"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error && _vm.errors.name
+                    ? _c("span", { staticClass: "help-block" }, [
+                        _vm._v(_vm._s(_vm.errors.name))
+                      ])
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "input-group",
+                  class: { "has-error": _vm.error && _vm.errors.email }
+                },
+                [
                   _c(
-                    "div",
+                    "label",
                     {
-                      staticClass: "input-container",
-                      class: { "has-error": _vm.error && _vm.errors.email }
+                      staticClass: "control-label sr-only",
+                      attrs: { for: "email" }
                     },
-                    [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "control-label sr-only",
-                          attrs: { for: "email" }
-                        },
-                        [_vm._v("Email")]
-                      ),
-                      _vm._v(" "),
-                      _c("custom-input", {
-                        staticClass: "form-control input-field",
-                        attrs: {
-                          id: "email",
-                          name: "email",
-                          placeholder: "Email",
-                          required: ""
-                        },
-                        model: {
-                          value: _vm.email,
-                          callback: function($$v) {
-                            _vm.email = $$v
-                          },
-                          expression: "email"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm.error && _vm.errors.email
-                        ? _c("span", { staticClass: "help-block" }, [
-                            _vm._v(_vm._s(_vm.errors.email))
-                          ])
-                        : _vm._e()
-                    ],
-                    1
+                    [_vm._v("Email")]
                   ),
                   _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("custom-input", {
+                    staticClass: "form-control input-field",
+                    attrs: {
+                      id: "email",
+                      name: "email",
+                      placeholder: "Email",
+                      required: ""
+                    },
+                    model: {
+                      value: _vm.email,
+                      callback: function($$v) {
+                        _vm.email = $$v
+                      },
+                      expression: "email"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error && _vm.errors.email
+                    ? _c("span", { staticClass: "help-block" }, [
+                        _vm._v(_vm._s(_vm.errors.email))
+                      ])
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "input-group",
+                  class: { "has-error": _vm.error && _vm.errors.password }
+                },
+                [
                   _c(
-                    "div",
+                    "label",
                     {
-                      staticClass: "input-container",
-                      class: { "has-error": _vm.error && _vm.errors.password }
+                      staticClass: "control-label sr-only",
+                      attrs: { for: "password" }
                     },
-                    [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "control-label sr-only",
-                          attrs: { for: "password" }
-                        },
-                        [_vm._v(" Password")]
-                      ),
-                      _vm._v(" "),
-                      _c("custom-input", {
-                        staticClass: "form-control input-field",
-                        attrs: {
-                          id: "password",
-                          name: "password",
-                          type: "password",
-                          placeholder: "Password",
-                          required: ""
-                        },
-                        model: {
-                          value: _vm.password,
-                          callback: function($$v) {
-                            _vm.password = $$v
-                          },
-                          expression: "password"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm.error && _vm.errors.password
-                        ? _c("span", { staticClass: "help-block" }, [
-                            _vm._v(_vm._s(_vm.errors.password))
-                          ])
-                        : _vm._e()
-                    ],
-                    1
+                    [_vm._v(" Password")]
                   ),
                   _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("custom-input", {
+                    staticClass: "form-control input-field",
+                    attrs: {
+                      id: "password",
+                      name: "password",
+                      type: "password",
+                      placeholder: "Password",
+                      required: ""
+                    },
+                    model: {
+                      value: _vm.password,
+                      callback: function($$v) {
+                        _vm.password = $$v
+                      },
+                      expression: "password"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error && _vm.errors.password
+                    ? _c("span", { staticClass: "help-block" }, [
+                        _vm._v(_vm._s(_vm.errors.password))
+                      ])
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "input-group" },
+                [
                   _c(
-                    "div",
-                    { staticClass: "input-container" },
-                    [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "control-label sr-only",
-                          attrs: { for: "password-confirm" }
-                        },
-                        [_vm._v("Confirm Password")]
-                      ),
-                      _vm._v(" "),
-                      _c("custom-input", {
-                        staticClass: "form-control input-field",
-                        attrs: {
-                          id: "password-confirm",
-                          name: "password_confirmation",
-                          type: "password",
-                          placeholder: "Confirm Password",
-                          required: ""
-                        },
-                        model: {
-                          value: _vm.password_c,
-                          callback: function($$v) {
-                            _vm.password_c = $$v
-                          },
-                          expression: "password_c"
-                        }
-                      })
-                    ],
-                    1
+                    "label",
+                    {
+                      staticClass: "control-label sr-only",
+                      attrs: { for: "password-confirm" }
+                    },
+                    [_vm._v("Confirm Password")]
                   ),
                   _vm._v(" "),
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c("custom-input", {
+                    staticClass: "form-control input-field",
+                    attrs: {
+                      id: "password-confirm",
+                      name: "password_confirmation",
+                      type: "password",
+                      placeholder: "Confirm Password",
+                      required: ""
+                    },
+                    model: {
+                      value: _vm.password_c,
+                      callback: function($$v) {
+                        _vm.password_c = $$v
+                      },
+                      expression: "password_c"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "button-container" },
+                [
                   _c(
-                    "div",
-                    { staticClass: "button-container" },
-                    [
-                      _c(
-                        "router-link",
-                        { staticClass: "text-center", attrs: { to: "/login" } },
-                        [_vm._v("Have an account? Login")]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(0)
-                    ],
-                    1
-                  )
-                ]
+                    "router-link",
+                    { staticClass: "text-center", attrs: { to: "/login" } },
+                    [_vm._v("Have an account? Login")]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(5)
+                ],
+                1
               )
-            : _vm._e()
+            ]
+          )
         ])
       ])
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "imgcontainer" }, [
+      _c("img", {
+        staticClass: "avatar",
+        staticStyle: { width: "20%" },
+        attrs: { src: "/img/avatar_02.png", alt: "Avatar" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-user" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-envelope" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-lock" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-lock" })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -20433,9 +20508,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid" }, [
-    _c("div", { staticClass: "well text-center col-md-4 col-md-offset-4" }, [
-      _c("h1", [_vm._v("Welcome")]),
+  return _c(
+    "div",
+    { staticClass: "well text-center col-md-4 col-md-offset-4" },
+    [
+      _c("h2", [_vm._v("Welcome")]),
       _vm._v(" "),
       _c("p", [_vm._v("This is the Vue.js front-end for L5Articles")]),
       _vm._v(" "),
@@ -20462,8 +20539,8 @@ var render = function() {
         ],
         1
       )
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20742,6 +20819,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -20770,14 +20858,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       plugins: ['advlist autolink lists link image charmap print preview anchor textcolor hr pagebreak nonbreaking directionality template paste', 'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
       toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | emoticons | help'],
 
-      articles: [],
       article: {
         id: '',
+        user_id: '1',
+        month: '11',
+        year: '2018',
+        category: '',
+        tag: '',
+        is_public: true,
         title: '',
         body: ''
       },
       article_id: '',
       pagination: {},
+      articles: [],
+      categories: {},
+      tags: {},
+      PostYear: '',
+      PostMonth: '',
       edit: false
     };
   },
@@ -20795,7 +20893,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       fetch(page_url).then(function (res) {
         return res.json();
       }).then(function (res) {
-        _this.articles = res.data;
+        vm.articles = res.data;
+        _this.PostMonth = res.PostMonth;
+        _this.PostYear = res.PostYear;
+        _this.categories = res.categories;
+        _this.tags = res.tags;
         vm.makePagination(res.meta, res.links);
       }).catch(function (err) {
         return console.log('Error: ', err);
@@ -20927,6 +21029,10 @@ var render = function() {
                   _vm._v(" "),
                   _c("th", [_vm._v("Title")]),
                   _vm._v(" "),
+                  _c("th", [_vm._v("Category")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("Tag")]),
+                  _vm._v(" "),
                   _c("th", { attrs: { width: "100" } }, [_vm._v("Created")]),
                   _vm._v(" "),
                   _c("th", { attrs: { width: "188px" } }, [
@@ -20960,6 +21066,14 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(article.title))]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { align: "center" } }, [
+                        _vm._v(_vm._s(article.category))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { align: "center" } }, [
+                        _vm._v(_vm._s(article.tag))
+                      ]),
                       _vm._v(" "),
                       _c("td", { attrs: { align: "center" } }, [
                         _vm._v(_vm._s(article.created_at.date.substring(0, 10)))
@@ -21195,10 +21309,64 @@ var render = function() {
                     "form",
                     {
                       staticClass: "form-horizontal addArticle",
-                      attrs: { id: "addArticleForm", role: "form" }
+                      attrs: {
+                        id: "addArticleForm",
+                        role: "form",
+                        enctype: "multipart/form-data"
+                      }
                     },
                     [
-                      _vm._m(2),
+                      _c("div", { staticClass: "form-group" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-3" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "control-label",
+                              attrs: { for: "category" }
+                            },
+                            [_vm._v("Category")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              staticClass: "form-control",
+                              attrs: { id: "a_category", name: "category" }
+                            },
+                            _vm._l(_vm.categories, function(category) {
+                              return _c("option", { key: category.id }, [
+                                _vm._v(_vm._s(category))
+                              ])
+                            })
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-3" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "control-label",
+                              attrs: { for: "tag" }
+                            },
+                            [_vm._v("Tag")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              staticClass: "form-control",
+                              attrs: { id: "a_tag", name: "tag" }
+                            },
+                            _vm._l(_vm.tags, function(tag) {
+                              return _c("option", { key: tag.id }, [
+                                _vm._v(_vm._s(tag))
+                              ])
+                            })
+                          )
+                        ])
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c(
@@ -21215,7 +21383,7 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("textarea", {
-                              staticClass: "form-control mceEditor",
+                              staticClass: "form-control",
                               staticStyle: { display: "none" },
                               attrs: {
                                 id: "a_body",
@@ -21380,24 +21548,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("label", { staticClass: "control-label", attrs: { for: "title" } }, [
-          _vm._v("Title")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            id: "a_title",
-            type: "text",
-            name: "title",
-            "data-error": "Please enter title.",
-            required: "",
-            autofocus: ""
-          }
-        })
-      ])
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("label", { staticClass: "control-label", attrs: { for: "title" } }, [
+        _vm._v("Title")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "a_title",
+          type: "text",
+          name: "title",
+          "data-error": "Please enter title",
+          required: "",
+          autofocus: ""
+        }
+      })
     ])
   },
   function() {
