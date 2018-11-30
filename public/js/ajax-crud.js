@@ -75,15 +75,18 @@
           // console.log(res);
           var rData =
             '<tr>' +
-            '<td align="center">' + res.data.id +
+            '<td align="center">' + res.data.id + '</td>' +
+            '<td align="center" width="3%"><img src="/storage/cover_images/noimage.png" style="width:50%">' +
             '<td>' + res.data.title +
+            '<td>' + res.data.category +
+            '<td>' + res.data.tag +
             '<td align="center">' + 
             "<button class='show-modal btn btn-info btn-xs' data-id='" + res.data.id + "' data-title='.' data-content='.'><i class='fa fa-eye ml-1'></i> Show></button>"+
             "<button class='edit-modal btn btn-warning btn-xs' data-id='" + res.data.id + "' data-title='.' data-content='.'><i class='fa fa-edit ml-1'></i> Edit</button>"+
             "<button class='delete-modal btn btn-danger btn-xs' data-id='" + res.data.id + "' data-title='.' data-content='.'><i class='fa fa-trash ml-1'></i> Delete</button>"+
-            "</tr>";
+            '</tr>';
           $("#articleTable").append(rData);
-          toastr.success('Successfully added Article!', 'Success Alert', {timeOut: 5000});
+          toastr.success('Successfully added Article!' + res.data.id, 'Success Alert', {timeOut: 5000});
         }
       },
     });
@@ -178,6 +181,8 @@
           console.log(res);
           toastr.success('Successfully received Article: ' + res.data.id, 'Success Alert', {timeOut: 3000});
           $('#e_title').val(res.data.title);
+          $('#e_category').val(res.data.category);
+          $('#e_tag').val(res.data.tag);
           tinymce.activeEditor.setContent(res.data.body);
           //$('.modal-title').text(res.data.title);
           $('#editModal').modal('show');
@@ -207,7 +212,7 @@
       contentType: false,
       success: function(res) {
         console.log('Back from Ajax POST request');
-        console.log(res.responseJSON.message);
+        //console.log(res.responseJSON.message);
         $('.errorTitle').addClass('hidden');
         $('.errorContent').addClass('hidden');
 

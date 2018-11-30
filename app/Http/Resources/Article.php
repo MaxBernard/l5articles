@@ -24,6 +24,7 @@ class Article extends Resource
         'month' => $this->month,
         'category' => $this->category,
         'tag' => $this->tag,
+        'cover_image' => $this->cover_image,
         'title' => $this->title,
         'body' => $this->body,
 		    'created_at'=> $this->created_at

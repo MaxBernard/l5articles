@@ -79,7 +79,7 @@ class ArticleController extends Controller
           'next'=>$articles->nextPageUrl()
         ];
 
-        $meta=[
+        $meta = [
           'current_page'=>(int)$articles->currentPage(),
           'from'=>(int)$articles->firstItem(),
           'last_page'=>(int)$articles->lastPage(),
@@ -94,14 +94,13 @@ class ArticleController extends Controller
         $tags = DB::table('tags')->pluck('name','id');
 
         // Return collection of articles as a resource
-        $p = ArticleResource::collection($articles);
-        //return $p;
-        return ([
-          'data' => $p, 
-          'links'=>$links, 'meta'=>$meta,
+        $data = ArticleResource::collection($articles);
+        //return $data;
+        return [
+          'data' => $data, 'links'=>$links, 'meta'=>$meta,
           'PostYear'=>$PostYear, 'PostMonth'=>$PostMonth,
           'categories'=>$categories, 'tags'=>$tags
-        ]);
+        ];
     }
 
 
@@ -115,14 +114,31 @@ class ArticleController extends Controller
     {
         $article = $request->isMethod('put') ? Article::findOrFail($request->article_id) : new Article;
 
+        // Validate input
+        $this->validate($request, $this->rules);
+
+        //- Handle image file upload
+
+        if($request->hasFile('cover_image')){
+            $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $fileName  = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            $fileNameToStore = $fileName.'_'.time().'.'.$extension; // unique filename
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+            //request()->cover_image->move(public_path('cover_images'), $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
         //$article->id = $request->input('article_id');
-        $article->user_id   = $request->user_id;    // auth()->user()->id
-        $article->year      = date("Y");
-        $article->month     = date("m");
-        $article->category  = $request->category;
-        $article->tag       = $request->tag;
-        $article->title     = $request->title;
-        $article->body      = $request->body;
+        $article->user_id       = 1; //$request->user_id;    // auth()->user()->id
+        $article->year          = date("Y");
+        $article->month         = date("m");
+        $article->cover_image   = $fileNameToStore;
+        $article->category      = $request->category;
+        $article->tag           = $request->tag;
+        $article->title         = $request->title;
+        $article->body          = $request->body;
 
         if($article->save()) {
             return new ArticleResource($article);
@@ -155,7 +171,29 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
+      // Validate input
+
+      $this->validate($request, $this->rules);
+
+        // Fetch the existing post
+
       $article = Article::findOrFail($id);
+
+        // Check for a new cover image
+
+      if ($request->hasFile('cover_image')) {
+        dump('Image: ' . $request->input('cover_image'));
+        $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
+        $fileName  = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('cover_image')->getClientOriginalExtension();
+        $fileNameToStore = $fileName.'_'.time().'.'.$extension; // unique filename
+        //$path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        $path = $request->cover_image->storeAs('public/cover_images', $fileNameToStore);
+        //$request()->cover_image->move(public_path('cover_images'), $fileNameToStore);
+        //$post->cover_image = $fileNameToStore;
+        if ($request->file('cover_image')->isValid()) { $article->cover_image = $fileNameToStore; }
+      }
+
       $article->category  = $request->category;
       $article->tag       = $request->tag;
       $article->title     = $request->title;

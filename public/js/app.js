@@ -20830,6 +20830,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -20842,12 +20867,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
 
     return {
-
-      //editor: 'Text to bind',
-      //toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | removeformat | emoticons | help']
       content: '',
       init: {
-        'height': 536,
+        'height': 520,
         'menubar': true,
         'statusbar': true,
         'content_css': '/css/app.css',
@@ -20857,14 +20879,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       },
       plugins: ['advlist autolink lists link image charmap print preview anchor textcolor hr pagebreak nonbreaking directionality template paste', 'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
       toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | emoticons | help'],
-
       article: {
         id: '',
         user_id: '1',
         month: '11',
         year: '2018',
-        category: '',
-        tag: '',
+        category: '1',
+        tag: '1',
+        cover_image: '',
         is_public: true,
         title: '',
         body: ''
@@ -20884,7 +20906,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
-    //changed (editor, content) {},
+    imgURL: function imgURL(img) {
+      return '/storage/cover_images/' + img;
+    },
     fetchArticles: function fetchArticles(page_url) {
       var _this = this;
 
@@ -21018,14 +21042,15 @@ var render = function() {
           _c(
             "table",
             {
-              staticClass:
-                "display table-hover table-bordered .table-condensed",
+              staticClass: "display table-hover table-bordered",
               attrs: { id: "articleTable" }
             },
             [
               _c("thead", { staticClass: "blue-grey lighten-4" }, [
                 _c("tr", { attrs: { align: "center" } }, [
                   _c("th", { attrs: { width: "5%" } }, [_vm._v("ID")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("Icon")]),
                   _vm._v(" "),
                   _c("th", [_vm._v("Title")]),
                   _vm._v(" "),
@@ -21065,14 +21090,36 @@ var render = function() {
                         _vm._v(_vm._s(article.id))
                       ]),
                       _vm._v(" "),
+                      _c("td", { attrs: { align: "center", width: "3%" } }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "tabIcon",
+                            staticStyle: {
+                              display: "table-cell",
+                              "vertical-align": "middle"
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticStyle: { width: "70%" },
+                              attrs: {
+                                src:
+                                  "/storage/cover_images/" + article.cover_image
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(article.title))]),
                       _vm._v(" "),
                       _c("td", { attrs: { align: "center" } }, [
-                        _vm._v(_vm._s(article.category))
+                        _vm._v(_vm._s(_vm.categories[article.category]))
                       ]),
                       _vm._v(" "),
                       _c("td", { attrs: { align: "center" } }, [
-                        _vm._v(_vm._s(article.tag))
+                        _vm._v(_vm._s(_vm.tags[article.tag]))
                       ]),
                       _vm._v(" "),
                       _c("td", { attrs: { align: "center" } }, [
@@ -21332,13 +21379,43 @@ var render = function() {
                           _c(
                             "select",
                             {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.article.category,
+                                  expression: "article.category"
+                                }
+                              ],
                               staticClass: "form-control",
-                              attrs: { id: "a_category", name: "category" }
+                              attrs: { id: "a_category", name: "category" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.article,
+                                    "category",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
                             },
-                            _vm._l(_vm.categories, function(category) {
-                              return _c("option", { key: category.id }, [
-                                _vm._v(_vm._s(category))
-                              ])
+                            _vm._l(_vm.categories, function(txt, val) {
+                              return _c(
+                                "option",
+                                { domProps: { value: val } },
+                                [_vm._v(_vm._s(txt))]
+                              )
                             })
                           )
                         ]),
@@ -21359,10 +21436,12 @@ var render = function() {
                               staticClass: "form-control",
                               attrs: { id: "a_tag", name: "tag" }
                             },
-                            _vm._l(_vm.tags, function(tag) {
-                              return _c("option", { key: tag.id }, [
-                                _vm._v(_vm._s(tag))
-                              ])
+                            _vm._l(_vm.tags, function(txt, val) {
+                              return _c(
+                                "option",
+                                { domProps: { value: val } },
+                                [_vm._v(_vm._s(txt))]
+                              )
                             })
                           )
                         ])
@@ -21410,19 +21489,21 @@ var render = function() {
                           ],
                           1
                         )
-                      ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3)
                     ]
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(3)
+                _vm._m(4)
               ])
             ]
           )
         ]
       ),
       _vm._v(" "),
-      _vm._m(4),
+      _vm._m(5),
       _vm._v(" "),
       _c(
         "div",
@@ -21440,17 +21521,103 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(5),
+                _vm._m(6),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body container-fluid" }, [
                   _c(
                     "form",
                     {
                       staticClass: "form-horizontal",
-                      attrs: { id: "editArticleForm", role: "form" }
+                      attrs: {
+                        id: "editArticleForm",
+                        role: "form",
+                        enctype: "multipart/form-data"
+                      }
                     },
                     [
-                      _vm._m(6),
+                      _c("div", { staticClass: "form-group" }, [
+                        _vm._m(7),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-3" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "control-label",
+                              attrs: { for: "category" }
+                            },
+                            [_vm._v("Category")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.article.category,
+                                  expression: "article.category"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { id: "e_category", name: "category" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.article,
+                                    "category",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            _vm._l(_vm.categories, function(txt, val) {
+                              return _c(
+                                "option",
+                                { domProps: { value: val } },
+                                [_vm._v(_vm._s(txt))]
+                              )
+                            })
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-3" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "control-label",
+                              attrs: { for: "tag" }
+                            },
+                            [_vm._v("Tag")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              staticClass: "form-control",
+                              attrs: { id: "e_tag", name: "tag" }
+                            },
+                            _vm._l(_vm.tags, function(txt, val) {
+                              return _c(
+                                "option",
+                                { domProps: { value: val } },
+                                [_vm._v(_vm._s(txt))]
+                              )
+                            })
+                          )
+                        ])
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c(
@@ -21494,7 +21661,9 @@ var render = function() {
                           ],
                           1
                         )
-                      ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(8)
                     ]
                   )
                 ]),
@@ -21503,7 +21672,7 @@ var render = function() {
                   attrs: { type: "hidden", name: "_method", value: "PUT" }
                 }),
                 _vm._v(" "),
-                _vm._m(7)
+                _vm._m(9)
               ])
             ]
           )
@@ -21563,6 +21732,16 @@ var staticRenderFns = [
           required: "",
           autofocus: ""
         }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-2" }, [
+      _c("input", {
+        attrs: { type: "file", id: "a_cover_image", name: "cover_image" }
       })
     ])
   },
@@ -21727,24 +21906,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("label", { staticClass: "control-label", attrs: { for: "title" } }, [
-          _vm._v("Title")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            id: "e_title",
-            type: "text",
-            name: "title",
-            "data-error": "Please enter title.",
-            required: "",
-            autofocus: ""
-          }
-        })
-      ])
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("label", { staticClass: "control-label", attrs: { for: "title" } }, [
+        _vm._v("Title")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "e_title",
+          type: "text",
+          name: "title",
+          "data-error": "Please enter title",
+          required: "",
+          autofocus: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-2" }, [
+      _c("input", {
+        attrs: { type: "file", id: "a_cover_image", name: "cover_image" }
+      })
     ])
   },
   function() {

@@ -15,10 +15,11 @@
 
         <!-- Panel body -->
         <!--div class="panel-body"-->
-          <table id="articleTable" class="display table-hover table-bordered .table-condensed">
+          <table id="articleTable" class="display table-hover table-bordered">
             <thead  class="blue-grey lighten-4">
               <tr align="center">
                 <th width="5%">ID</th>
+                <th>Icon</th>
                 <th>Title</th>
                 <th>Category</th>
                 <th>Tag</th>
@@ -34,9 +35,15 @@
             <tbody id="tBody" v-for="article in articles" :key="article.id">
               <tr>
                 <td align="center">{{ article.id }}</td>
+                <!--td align="center" width="3%">{{ article.id }}</td-->
+                <td align="center" width="3%">
+                  <span class="tabIcon" style="display:table-cell;vertical-align:middle;">
+                    <img v-bind:src="'/storage/cover_images/' + article.cover_image" style="width:70%;"/>
+                  </span>
+                </td>
                 <td>{{ article.title }}</td>
-                <td align="center">{{ article.category }}</td>
-                <td align="center">{{ article.tag }}</td>
+                <td align="center">{{ categories[article.category] }}</td>
+                <td align="center">{{ tags[article.tag] }}</td>
                 <td align="center">{{ article.created_at.date.substring(0,10) }}</td>
                 <td style="padding: 2px; 6px;">
                   <!--button @click="showArticle(article)" class="btn btn-info btn-xs"><i class="fa fa-eye ml-1"></i> Show</button-->
@@ -101,22 +108,22 @@
           <!-- Modal body -->
           <div class="modal-body container-fluid">
             <form id="addArticleForm" class="form-horizontal addArticle" role="form" enctype="multipart/form-data">
-              <!-- Article Title -->
+              <!-- Article Title, Category & Tag -->
               <div class="form-group">
                 <div class="col-md-6">
-                  <label class="control-label" for="title">Title</label>
+                  <label for="title" class="control-label">Title</label>
                   <input id="a_title" type="text" name="title" class="form-control" data-error="Please enter title" required autofocus/>            
                 </div>
                 <div class="col-sm-3">
                   <label class="control-label" for="category">Category</label>
-                  <select class="form-control" id="a_category" name="category">
-                    <option v-for="category in categories" :key="category.id">{{ category }}</option>
+                  <select class="form-control" id="a_category" name="category" v-model="article.category">
+                    <option v-for="(txt,val) in categories" :value="val">{{ txt }}</option>
                   </select>
                 </div>
                 <div class="col-sm-3">
                   <label class="control-label" for="tag">Tag</label>
                   <select class="form-control" id="a_tag" name="tag">
-                    <option v-for="tag in tags" :key="tag.id">{{ tag }}</option>
+                    <option v-for="(txt,val) in tags" :value="val">{{ txt }}</option>
                   </select>
                 </div>
               </div>
@@ -130,6 +137,9 @@
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
+              <div class="col-sm-2">
+                <input type="file" id="a_cover_image" name="cover_image">
+              </div>              
             </form>
           </div>
           <div class="modal-footer">
@@ -195,12 +205,24 @@
           </div>
           <!-- Modal body -->
           <div class="modal-body container-fluid">
-            <form id="editArticleForm" class="form-horizontal" role="form">
-              <!-- Article Title -->
+            <form id="editArticleForm" class="form-horizontal" role="form" enctype="multipart/form-data">
+              <!-- Article Title, Category & Tag -->
               <div class="form-group">
-                <div class="col-md-12">
-                  <label class="control-label" for="title">Title</label>
-                  <input id="e_title" type="text" name="title" class="form-control" data-error="Please enter title." required autofocus/>
+                <div class="col-md-6">
+                  <label for="title" class="control-label">Title</label>
+                  <input id="e_title" type="text" name="title" class="form-control" data-error="Please enter title" required autofocus/>            
+                </div>
+                <div class="col-sm-3">
+                  <label class="control-label" for="category">Category</label>
+                  <select class="form-control" id="e_category" name="category" v-model="article.category">
+                    <option v-for="(txt,val) in categories" :value="val">{{ txt }}</option>
+                  </select>
+                </div>
+                <div class="col-sm-3">
+                  <label class="control-label" for="tag">Tag</label>
+                  <select class="form-control" id="e_tag" name="tag">
+                    <option v-for="(txt,val) in tags" :value="val">{{ txt }}</option>
+                  </select>
                 </div>
               </div>
               <!-- Article Body -->
@@ -215,6 +237,9 @@
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
+              <div class="col-sm-2">
+                <input type="file" id="a_cover_image" name="cover_image">
+              </div>              
             </form>  
           </div>
           <input type="hidden" name="_method" value="PUT"/>
@@ -241,12 +266,9 @@
     data() {
 
       return {
-
-        //editor: 'Text to bind',
-        //toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | removeformat | emoticons | help']
         content: '',
         init: {
-          'height':   536,
+          'height':   520,
           'menubar':  true,
           'statusbar':true,
           'content_css': '/css/app.css',
@@ -254,17 +276,16 @@
           'theme_advanced_font_sizes': '10px,12px,13px,14px,16px,18px,20px',
           'font_size_style_values' : '10px,12px,13px,14px,16px,18px,20px',
         },
-        plugins: ['advlist autolink lists link image charmap print preview anchor textcolor hr pagebreak nonbreaking directionality template paste', 
-          'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
-        toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | emoticons | help']
-        ,
+        plugins: ['advlist autolink lists link image charmap print preview anchor textcolor hr pagebreak nonbreaking directionality template paste', 'searchreplace visualblocks code fullscreen emoticons spellchecker', 'insertdatetime media table contextmenu paste code help wordcount'],
+        toolbar: ['insert | undo redo | formatselect | fontselect fontsizeselect | bold italic forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | emoticons | help'],
         article: {
           id: '',
           user_id: '1',
           month: '11',
           year: '2018',
-          category: '',
-          tag: '',
+          category: '1',
+          tag: '1',
+          cover_image: '',
           is_public: true,
           title: '',
           body: ''
@@ -283,7 +304,9 @@
       this.fetchArticles();
     },
     methods: {
-      //changed (editor, content) {},
+    imgURL(img) {
+      return '/storage/cover_images/' + img;
+    },
       fetchArticles(page_url) {
         let vm = this
         page_url = page_url || '/api/articles';
