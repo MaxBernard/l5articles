@@ -20854,7 +20854,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -20903,6 +20902,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   created: function created() {
     this.fetchArticles();
+    this.article.category = 1;
+    this.article.tag = 1;
   },
 
   methods: {
@@ -21042,8 +21043,8 @@ var render = function() {
           _c(
             "table",
             {
-              staticClass: "display table-hover table-bordered",
-              attrs: { id: "articleTable" }
+              staticClass: "display table-hover table-bordered table-striped",
+              attrs: { id: "articleTable", width: "100%" }
             },
             [
               _c("thead", { staticClass: "blue-grey lighten-4" }, [
@@ -21433,8 +21434,36 @@ var render = function() {
                           _c(
                             "select",
                             {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.article.tag,
+                                  expression: "article.tag"
+                                }
+                              ],
                               staticClass: "form-control",
-                              attrs: { id: "a_tag", name: "tag" }
+                              attrs: { id: "a_tag", name: "tag" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.article,
+                                    "tag",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
                             },
                             _vm._l(_vm.tags, function(txt, val) {
                               return _c(
@@ -21551,36 +21580,8 @@ var render = function() {
                           _c(
                             "select",
                             {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.article.category,
-                                  expression: "article.category"
-                                }
-                              ],
                               staticClass: "form-control",
-                              attrs: { id: "e_category", name: "category" },
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.article,
-                                    "category",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
-                              }
+                              attrs: { id: "e_category", name: "category" }
                             },
                             _vm._l(_vm.categories, function(txt, val) {
                               return _c(
@@ -21605,8 +21606,36 @@ var render = function() {
                           _c(
                             "select",
                             {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.article.tag,
+                                  expression: "article.tag"
+                                }
+                              ],
                               staticClass: "form-control",
-                              attrs: { id: "e_tag", name: "tag" }
+                              attrs: { id: "e_tag", name: "tag" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.article,
+                                    "tag",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
                             },
                             _vm._l(_vm.tags, function(txt, val) {
                               return _c(

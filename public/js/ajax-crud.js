@@ -76,7 +76,7 @@
           var rData =
             '<tr>' +
             '<td align="center">' + res.data.id + '</td>' +
-            '<td align="center" width="3%"><img src="/storage/cover_images/noimage.png" style="width:50%">' +
+            '<td align="center" width="3%"><img src="/storage/cover_images/noimage.png" style="width:50%"/>' +
             '<td>' + res.data.title +
             '<td>' + res.data.category +
             '<td>' + res.data.tag +
@@ -186,7 +186,8 @@
           tinymce.activeEditor.setContent(res.data.body);
           //$('.modal-title').text(res.data.title);
           $('#editModal').modal('show');
-          $('#editModal input[0]').focus();
+          $('#e_title').focus();
+          //$('#editModal input[0]').focus();
         }
       }
     });
@@ -233,7 +234,7 @@
         } else {
           // console.log('Success...');
           // console.log(res);
-          toastr.success('Successfully updated Article: ' + res.data.id, 'Success Alert', {timeOut: 2000});
+          toastr.success('Successfully updated Article: ', 'Success Alert', {timeOut: 2000});
           //$("#articleTable").ajax.reload();
           //$('#articleTable').load(window.location + '#articleTable');
 

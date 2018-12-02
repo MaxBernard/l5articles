@@ -15,7 +15,7 @@
 
         <!-- Panel body -->
         <!--div class="panel-body"-->
-          <table id="articleTable" class="display table-hover table-bordered">
+          <table id="articleTable" class="display table-hover table-bordered table-striped" width="100%">
             <thead  class="blue-grey lighten-4">
               <tr align="center">
                 <th width="5%">ID</th>
@@ -35,10 +35,9 @@
             <tbody id="tBody" v-for="article in articles" :key="article.id">
               <tr>
                 <td align="center">{{ article.id }}</td>
-                <!--td align="center" width="3%">{{ article.id }}</td-->
                 <td align="center" width="3%">
                   <span class="tabIcon" style="display:table-cell;vertical-align:middle;">
-                    <img v-bind:src="'/storage/cover_images/' + article.cover_image" style="width:70%;"/>
+                    <img :src="'/storage/cover_images/' + article.cover_image" style="width:70%;"/>
                   </span>
                 </td>
                 <td>{{ article.title }}</td>
@@ -116,13 +115,13 @@
                 </div>
                 <div class="col-sm-3">
                   <label class="control-label" for="category">Category</label>
-                  <select class="form-control" id="a_category" name="category" v-model="article.category">
+                  <select id="a_category" v-model="article.category" name="category" class="form-control">
                     <option v-for="(txt,val) in categories" :value="val">{{ txt }}</option>
                   </select>
                 </div>
                 <div class="col-sm-3">
                   <label class="control-label" for="tag">Tag</label>
-                  <select class="form-control" id="a_tag" name="tag">
+                  <select id="a_tag" v-model="article.tag" name="tag" class="form-control">
                     <option v-for="(txt,val) in tags" :value="val">{{ txt }}</option>
                   </select>
                 </div>
@@ -214,13 +213,13 @@
                 </div>
                 <div class="col-sm-3">
                   <label class="control-label" for="category">Category</label>
-                  <select class="form-control" id="e_category" name="category" v-model="article.category">
+                  <select id="e_category" name="category" class="form-control">
                     <option v-for="(txt,val) in categories" :value="val">{{ txt }}</option>
                   </select>
                 </div>
                 <div class="col-sm-3">
                   <label class="control-label" for="tag">Tag</label>
-                  <select class="form-control" id="e_tag" name="tag">
+                  <select id="e_tag" v-model="article.tag" name="tag" class="form-control">
                     <option v-for="(txt,val) in tags" :value="val">{{ txt }}</option>
                   </select>
                 </div>
@@ -302,6 +301,8 @@
     },
     created() {
       this.fetchArticles();
+      this.article.category=1
+      this.article.tag=1
     },
     methods: {
     imgURL(img) {
